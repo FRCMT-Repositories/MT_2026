@@ -60,10 +60,14 @@ public class RobotContainer {
     Cmdriver.povUp().onTrue(Commands.runOnce(() -> mSim.setElevatorPosition(1000, 3)));
     Cmdriver.povDown().onTrue(Commands.runOnce(() -> mSim.setElevatorPosition(0, 3)));
 
-    Cmdriver.povLeft().onTrue(Commands.runOnce(() -> mSim.setHandPosition(90, 3)));
-    Cmdriver.povRight().onTrue(Commands.runOnce(() -> mSim.setHandPosition(-90, 3)));
+    Cmdriver.povLeft().onTrue(Commands.runOnce(() -> mSim.setHandAngle(-45, 3)));
+    Cmdriver.povRight().onTrue(Commands.runOnce(() -> mSim.setHandAngle(45, 3)));
 
-    Cmdriver.back().onTrue(Commands.runOnce(() -> mSim.setHandPosition(0, 3)));
+    Cmdriver.y().onTrue(Commands.runOnce(() -> mSim.setHandVelocity(2)));
+    Cmdriver.x().onTrue(Commands.runOnce(() -> mSim.setHandVelocity(-2)));
+    Cmdriver.b().onTrue(Commands.runOnce(() -> mSim.setHandVelocity(0)));
+
+    Cmdriver.back().onTrue(Commands.runOnce(() -> mSim.setHandAngle(0, 3)));
     Cmdriver.back().onTrue(Commands.runOnce(() -> mSim.setElevatorPosition(0, 3)));
     Cmdriver.back().onTrue(Commands.runOnce(() -> mSim.setIntakePosition(0, 3)));
     Cmdriver.back().onTrue(Commands.runOnce(() -> mSim.setIntakeVelocity(0)));

@@ -53,8 +53,7 @@ public class Robot extends LoggedRobot {
     }
 
     Logger.start();
-    Logger.recordOutput("ALOU", "alou");
-
+    
     Pose2d robot = new Pose2d(2, 4, new Rotation2d(Math.PI));
     SmartDashboard.putData("FIELD", field);
     field.getObject("Robot").setPose(robot);

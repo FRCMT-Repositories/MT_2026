@@ -29,6 +29,7 @@ public class SubSystemSIM extends SubsystemBase {
     private PIDController intakeVelocity = new PIDController(1.5, 0, 0.0);
     private PIDController elevatorPID = new PIDController(1.5, 0, 0.0);
     private PIDController handPID = new PIDController(1.5, 0, 0.0);
+    private PIDController handVelocity = new PIDController(1.5, 0, 0.0);
     
     public final class Intake {
         private final static double GavetaReal_Zero = 0;
@@ -42,7 +43,7 @@ public class SubSystemSIM extends SubsystemBase {
 
         private static double SetpointVelocity = 0;
         private static double CurrentVelocity = 0;
-        private static double pitchIntake = 0;
+        private static double Rotation = 0;
     }
 
     public final class Elevator {
@@ -62,9 +63,13 @@ public class SubSystemSIM extends SubsystemBase {
 
         private final static double SIM_Zero = -Math.PI;
         private final static double SIM_Articulation = Math.PI;
-        private static double CurrentPosition = 0;
+        private static double CurrentAngle = 0;
         private static double OutPosition = 0;
-        private static double SetPosition = 0;
+        private static double SetAngle = 0;
+
+        private static double SetpointVelocity = 0;
+        private static double CurrentVelocity = 0;
+        private static double Rotation = 0;
     }
     public SubSystemSIM() {
         handPID.enableContinuousInput(Hand.SIM_Zero, Hand.SIM_Articulation);
@@ -104,13 +109,17 @@ public class SubSystemSIM extends SubsystemBase {
         handPID.setP(kP);
     }
 
-    public static double getHandPosition() {
-        return map(Hand.CurrentPosition, Hand.SIM_Zero, Hand.SIM_Articulation, Hand.Real_Zero, Hand.Real_Articulation);
+    public static double getHandAngle() {
+        return map(Hand.CurrentAngle, Hand.SIM_Zero, Hand.SIM_Articulation, Hand.Real_Zero, Hand.Real_Articulation);
     }
 
-    public void setHandPosition(double position, double kP) {
+    public void setHandAngle(double angle, double kP) {
         configHand(kP);
-        Hand.SetPosition = map(position, Hand.Real_Zero, Hand.Real_Articulation, Hand.SIM_Zero, Hand.SIM_Articulation);
+        Hand.SetAngle = map(angle, Hand.Real_Zero, Hand.Real_Articulation, Hand.SIM_Zero, Hand.SIM_Articulation);
+    }
+
+    public void setHandVelocity(double speed) {
+        Hand.SetpointVelocity = speed;
     }
 
     // simulationPeriodic
@@ -121,17 +130,25 @@ public class SubSystemSIM extends SubsystemBase {
         intakeVelocity();
         elevatorMove();
         handArticulation();
+        handVelocity();
 
-        double IntakePoseX = Intake.CurrentPosition * Math.sin(Math.toRadians(5.71));
-        double IntakePoseY = Intake.CurrentPosition * Math.cos(Math.toRadians(5.71));
+        double Intake_CO = Intake.CurrentPosition * Math.sin(Math.toRadians(5.71));
+        double Intake_CA = Intake.CurrentPosition * Math.cos(Math.toRadians(5.71));
+
+        double Whell1_CO = 0.715675 * Math.sin(Math.toRadians(13.97 + Math.toDegrees(Hand.CurrentAngle)));
+        double Whell1_CA = 0.715675 * Math.cos(Math.toRadians(13.97 + Math.toDegrees(Hand.CurrentAngle)));
+
+        double Whell2_CO = 0.715675 * Math.sin(Math.toRadians(-13.97 + Math.toDegrees(Hand.CurrentAngle)));
+        double Whell2_CA = 0.715675 * Math.cos(Math.toRadians(-13.97 + Math.toDegrees(Hand.CurrentAngle)));
 
         Logger.recordOutput("SubSystemSim/IntakeVelocity", Intake.CurrentVelocity);
+        Logger.recordOutput("SubSystemSim/AngleHand", Math.toDegrees(Hand.SetAngle));
 
         Logger.recordOutput("SubSystemSim/Intake3D/Gaveta", new Pose3d[] { new Pose3d(
-            IntakePoseY, 0.0, -IntakePoseX, new Rotation3d(0.0, 0, 0))});
+            Intake_CA, 0.0, -Intake_CO, new Rotation3d(0.0, 0, 0))});
         
         Logger.recordOutput("SubSystemSim/Intake3D/Coletor", new Pose3d[] { new Pose3d(
-            IntakePoseY + 0.256619 , 0.0, -IntakePoseX + 0.214588 , new Rotation3d(0, Intake.pitchIntake, 0))});
+            Intake_CA + 0.256619 , 0.0, -Intake_CO + 0.214588 , new Rotation3d(0, Intake.Rotation, 0))});
             //0.256619 distancia do centro do robô até o centro do coletor {Intake recolhido}
             //0.214588 distancia do chão até o centro do coletor {Intake recolhido}
 
@@ -139,13 +156,14 @@ public class SubSystemSIM extends SubsystemBase {
             0.0, 0.0, Elevator.CurrentPosition, new Rotation3d(0.0, 0, 0))});
 
         Logger.recordOutput("SubSystemSim/Hand", new Pose3d[] { new Pose3d(
-            -0.1524, 0.0, Elevator.CurrentPosition + 0.983900, new Rotation3d(Hand.CurrentPosition, 0, 0))});
+            -0.1524, 0.0, Elevator.CurrentPosition + 0.983900, new Rotation3d(Hand.CurrentAngle, 0, 0))});
 
-        Logger.recordOutput("SubSystemSim/Hand/wheel1", new Pose3d[] { new Pose3d(
-            0.028800, 0.17276, Elevator.CurrentPosition + 0.289389, new Rotation3d(Robot.getKeysDash()[1], 0, 0))});
+        Logger.recordOutput("SubSystemSim/wheel1", new Pose3d[] { new Pose3d(
+            0.028800, Whell1_CO, Elevator.CurrentPosition + (0.9839 - Whell1_CA), new Rotation3d(Hand.Rotation, 0, 0))});
+        
+        Logger.recordOutput("SubSystemSim/wheel2", new Pose3d[] { new Pose3d(
+            0.028800, Whell2_CO, Elevator.CurrentPosition + (0.9839 - Whell2_CA), new Rotation3d(-Hand.Rotation, 0, 0))});
 
-        // Logger.recordOutput("SubSystemSim/Hand/wheel1", new Pose3d[] { new Pose3d(
-        //     -0.1524, 0.0, Elevator.CurrentPosition + 0.983900, new Rotation3d(Hand.CurrentPosition, 0, 0))});  
     }
 
     private void intakeMove(){
@@ -158,9 +176,9 @@ public class SubSystemSIM extends SubsystemBase {
         double intakeVelocityOutput = intakeVelocity.calculate(Intake.CurrentVelocity, Intake.SetpointVelocity);
         Intake.CurrentVelocity += intakeVelocityOutput * 0.02;
 
-        Intake.pitchIntake = Intake.pitchIntake + (0.1 * Intake.CurrentVelocity);
-        if(Intake.pitchIntake > Math.PI || Intake.pitchIntake < -Math.PI){
-            Intake.pitchIntake = 0;
+        Intake.Rotation = Intake.Rotation + (0.1 * Intake.CurrentVelocity);
+        if(Intake.Rotation > Math.PI || Intake.Rotation < -Math.PI){
+            Intake.Rotation = 0;
         }
     }
 
@@ -171,9 +189,19 @@ public class SubSystemSIM extends SubsystemBase {
     }
 
     private void handArticulation(){
-        Hand.OutPosition = handPID.calculate(Hand.CurrentPosition, Hand.SetPosition);
-        Hand.CurrentPosition += Hand.OutPosition * 0.02;
-        Hand.CurrentPosition = MathUtil.clamp(Hand.CurrentPosition, Hand.SIM_Zero, Hand.SIM_Articulation);
+        Hand.OutPosition = handPID.calculate(Hand.CurrentAngle, Hand.SetAngle);
+        Hand.CurrentAngle += Hand.OutPosition * 0.02;
+        Hand.CurrentAngle = MathUtil.clamp(Hand.CurrentAngle, Hand.SIM_Zero, Hand.SIM_Articulation);
+    }
+
+    private void handVelocity(){
+        double handVelocityOutput = handVelocity.calculate(Hand.CurrentVelocity, Hand.SetpointVelocity);
+        Hand.CurrentVelocity += handVelocityOutput * 0.02;
+
+        Hand.Rotation = Hand.Rotation + (0.1 * Hand.CurrentVelocity);
+        if(Hand.Rotation > Math.PI || Hand.Rotation < -Math.PI){
+            Hand.Rotation = 0;
+        }
     }
 
     /**
