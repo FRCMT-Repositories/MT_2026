@@ -18,7 +18,9 @@ import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import frc.robot.generated.TunerConstants;
 import frc.robot.subsystems.CommandSwerveDrivetrain;
-import frc.robot.subsystems.SubSystemSIM;
+import frc.robot.subsystems.SimElevator;
+import frc.robot.subsystems.SimHand;
+import frc.robot.subsystems.SimIntake;
 
 public class RobotContainer {
   public double MaxSpeed = 1.0 * TunerConstants.kSpeedAt12Volts.in(MetersPerSecond);
@@ -35,7 +37,10 @@ public class RobotContainer {
   // private SendableChooser<Command> autoChooser = new SendableChooser<>();
   private CommandSwerveDrivetrain driveBase = TunerConstants.createDrivetrain();
 
-  public SubSystemSIM mSim = new SubSystemSIM();
+  // public SubSystemSIM mSim = new SubSystemSIM();
+  private SimIntake mSimIntake = new SimIntake(20, 1.5, 3);
+  private SimElevator mSimElevator = new SimElevator(400, 1.5);
+  private SimHand mSimHand = new SimHand(-180, 180, 1.5, 3);
 
   public RobotContainer() {
     configureBindings();
@@ -51,26 +56,30 @@ public class RobotContainer {
     Cmdriver.start().onTrue(driveBase.runOnce(() -> driveBase.configAngleInit()));
     Cmdriver.rightBumper().whileTrue(driveBase.brakeX().onlyIf(()-> true));
 
-    Cmdriver.a().onTrue(Commands.runOnce(() -> mSim.setIntakePosition(50, 3)));
-    Cmdriver.b().onTrue(Commands.runOnce(() -> mSim.setIntakePosition(0, 3)));
+    Cmdriver.a().onTrue(Commands.runOnce(() -> mSimIntake.setPosition(20, 3)));
+    Cmdriver.b().onTrue(Commands.runOnce(() -> mSimIntake.setPosition(0, 3)));
 
-    Cmdriver.a().onTrue(Commands.runOnce(() -> mSim.setIntakeVelocity(2)));
-    Cmdriver.b().onTrue(Commands.runOnce(() -> mSim.setIntakeVelocity(0)));
+    Cmdriver.a().onTrue(Commands.runOnce(() -> mSimIntake.setVelocity(1)));
+    Cmdriver.b().onTrue(Commands.runOnce(() -> mSimIntake.setVelocity(0)));
 
-    Cmdriver.povUp().onTrue(Commands.runOnce(() -> mSim.setElevatorPosition(1000, 3)));
-    Cmdriver.povDown().onTrue(Commands.runOnce(() -> mSim.setElevatorPosition(0, 3)));
+    Cmdriver.povUp().onTrue(Commands.runOnce(() -> mSimElevator.setPosition(400, 3)));
+    Cmdriver.povDown().onTrue(Commands.runOnce(() -> mSimElevator.setPosition(0, 3)));
 
-    Cmdriver.povLeft().onTrue(Commands.runOnce(() -> mSim.setHandAngle(-45, 3)));
-    Cmdriver.povRight().onTrue(Commands.runOnce(() -> mSim.setHandAngle(45, 3)));
+    Cmdriver.povLeft().onTrue(Commands.runOnce(() -> mSimHand.setAngle(-45, 3)));
+    Cmdriver.povRight().onTrue(Commands.runOnce(() -> mSimHand.setAngle(45, 3)));
 
-    Cmdriver.y().onTrue(Commands.runOnce(() -> mSim.setHandVelocity(2)));
-    Cmdriver.x().onTrue(Commands.runOnce(() -> mSim.setHandVelocity(-2)));
-    Cmdriver.b().onTrue(Commands.runOnce(() -> mSim.setHandVelocity(0)));
+    Cmdriver.y().onTrue(Commands.runOnce(() -> mSimHand.setVelocity(2)));
+    Cmdriver.x().onTrue(Commands.runOnce(() -> mSimHand.setVelocity(-2)));
+    Cmdriver.b().onTrue(Commands.runOnce(() -> mSimHand.setVelocity(0)));
 
-    Cmdriver.back().onTrue(Commands.runOnce(() -> mSim.setHandAngle(0, 3)));
-    Cmdriver.back().onTrue(Commands.runOnce(() -> mSim.setElevatorPosition(0, 3)));
-    Cmdriver.back().onTrue(Commands.runOnce(() -> mSim.setIntakePosition(0, 3)));
-    Cmdriver.back().onTrue(Commands.runOnce(() -> mSim.setIntakeVelocity(0)));
+    Cmdriver.back().onTrue(Commands.runOnce(() -> mSimIntake.setPosition(0, 3)));
+    Cmdriver.back().onTrue(Commands.runOnce(() -> mSimIntake.setVelocity(0)));
+    Cmdriver.back().onTrue(Commands.runOnce(() -> mSimElevator.setPosition(0, 3)));
+    Cmdriver.back().onTrue(Commands.runOnce(() -> mSimHand.setAngle(0, 3)));
+    Cmdriver.back().onTrue(Commands.runOnce(() -> mSimHand.setVelocity(0)));
+
+    
+
   }
 
   public Command getAutonomousCommand() {
