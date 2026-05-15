@@ -30,7 +30,7 @@ public class SimElevator extends SubsystemBase {
         OutPosition = elevatorPID.calculate(CurrentPosition, SetPosition);
         CurrentPosition += OutPosition * 0.02;
         CurrentPosition = MathUtil.clamp(CurrentPosition, Elevator_Zero, Elevator_Up);
-
+        
         Logger.recordOutput("SubSystemSim/Elevator", new Pose3d[] { new Pose3d(
             0.0, 0.0, CurrentPosition, new Rotation3d(0.0, 0, 0))});
     }

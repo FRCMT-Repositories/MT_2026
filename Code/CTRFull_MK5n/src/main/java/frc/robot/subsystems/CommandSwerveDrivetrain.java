@@ -15,20 +15,17 @@ import edu.wpi.first.math.Matrix;
 import edu.wpi.first.math.controller.PIDController;
 import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.geometry.Rotation2d;
-import edu.wpi.first.math.geometry.Translation2d;
-import edu.wpi.first.math.kinematics.ChassisSpeeds;
+
 import edu.wpi.first.math.numbers.N1;
 import edu.wpi.first.math.numbers.N3;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.DriverStation.Alliance;
 import edu.wpi.first.wpilibj.Notifier;
 import edu.wpi.first.wpilibj.RobotController;
-import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.smartdashboard.Field2d;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Subsystem;
-import com.ctre.phoenix6.swerve.SwerveModule;
 
 import com.pathplanner.lib.auto.AutoBuilder;
 import com.pathplanner.lib.config.RobotConfig;
@@ -40,8 +37,7 @@ import frc.robot.generated.TunerConstants.TunerSwerveDrivetrain;
 public class CommandSwerveDrivetrain extends TunerSwerveDrivetrain implements Subsystem {
     PIDController headingPID = new PIDController(0.028, 0.0001, 0.001);
 
-    private double colisionProtect = 1;
-    private static double OmegaCmd = 0;
+    private static double OmegaCmd = 0;  
     private boolean ctrInit = true;
 
     public boolean shotOk = false;
