@@ -13,18 +13,18 @@ public class SimHand extends SubsystemBase {
     private PIDController handPID = new PIDController(1.5, 0, 0.0);
     private PIDController handVelocity = new PIDController(1.5, 0, 0.0);
 
-        private static double Encoder_Zero = -180;
-        private static double Encoder_Articulation = 180;
+    private static double Encoder_Zero = -180;
+    private static double Encoder_Articulation = 180;
 
-        private final static double Hand_Zero = -Math.PI;
-        private final static double Hand_Articulation = Math.PI;
-        private static double CurrentAngle = 0;
-        private static double OutPosition = 0;
-        private static double SetAngle = 0;
+    private final static double Hand_Zero = -Math.PI;
+    private final static double Hand_Articulation = Math.PI;
+    private static double CurrentAngle = 0;
+    private static double OutPosition = 0;
+    private static double SetAngle = 0;
 
-        private static double SetpointVelocity = 0;
-        private static double CurrentVelocity = 0;
-        private static double Rotation = 0;
+    private static double SetpointVelocity = 0;
+    private static double CurrentVelocity = 0;
+    private static double Rotation = 0;
 
     
     public SimHand(double articulationMin, double articulationMax, double kPAngle, double kPWheel){
@@ -40,23 +40,23 @@ public class SimHand extends SubsystemBase {
         handArticulation();
         handVelocity();
 
-        double Whell1_CO = 0.715675 * Math.sin(Math.toRadians(13.97 + Math.toDegrees(CurrentAngle)));
-        double Whell1_CA = 0.715675 * Math.cos(Math.toRadians(13.97 + Math.toDegrees(CurrentAngle)));
+        double Whell1_CO = 0.715675 * Math.sin(Math.toRadians(13.97 + Math.toDegrees(getRawAngle())));
+        double Whell1_CA = 0.715675 * Math.cos(Math.toRadians(13.97 + Math.toDegrees(getRawAngle())));
 
-        double Whell2_CO = 0.715675 * Math.sin(Math.toRadians(-13.97 + Math.toDegrees(CurrentAngle)));
-        double Whell2_CA = 0.715675 * Math.cos(Math.toRadians(-13.97 + Math.toDegrees(CurrentAngle)));
+        double Whell2_CO = 0.715675 * Math.sin(Math.toRadians(-13.97 + Math.toDegrees(getRawAngle())));
+        double Whell2_CA = 0.715675 * Math.cos(Math.toRadians(-13.97 + Math.toDegrees(getRawAngle())));
 
         Logger.recordOutput("SubSystemSim/HandVelocity", CurrentVelocity);
         Logger.recordOutput("SubSystemSim/AngleHand", Math.toDegrees(SetAngle));
 
         Logger.recordOutput("SubSystemSim/Hand", new Pose3d[] { new Pose3d(
-            -0.1524, 0.0, SimElevator.getPosition() + 0.983900, new Rotation3d(CurrentAngle, 0, 0))});
+            -0.1524, 0.0, SimElevator.getRawPosition() + 0.983900, new Rotation3d(getRawAngle(), 0, 0))});
 
         Logger.recordOutput("SubSystemSim/Hand/wheel1", new Pose3d[] { new Pose3d(
-            0.028800, Whell1_CO, SimElevator.getPosition() + (0.9839 - Whell1_CA), new Rotation3d(Rotation, 0, 0))});
+            0.028800, Whell1_CO, SimElevator.getRawPosition() + (0.9839 - Whell1_CA), new Rotation3d(Rotation, 0, 0))});
         
         Logger.recordOutput("SubSystemSim/Hand/wheel2", new Pose3d[] { new Pose3d(
-            0.028800, Whell2_CO, SimElevator.getPosition() + (0.9839 - Whell2_CA), new Rotation3d(-Rotation, 0, 0))});
+            0.028800, Whell2_CO, SimElevator.getRawPosition() + (0.9839 - Whell2_CA), new Rotation3d(-Rotation, 0, 0))});
     }
     
     /**
@@ -73,29 +73,69 @@ public class SimHand extends SubsystemBase {
         return result;
     }
 
+    /**
+    * @return null
+    *
+    * @param kP Define o ganho proporcional do sistema Hand.
+    */
     public void config(double kP) {
         handPID.setP(kP);
     }
 
-    public static double getAngle() {
+    /**
+    * @return Retorna o angulo do Hand com base no CAD.
+    *
+    * @param null.
+    */
+    public static double getRawAngle() {
         return CurrentAngle;
     }
 
+    /**
+    * @return Retorna o angulo do Hand com base no encoder.
+    *
+    * @param null.
+    */
+    public static double getRealAngle() {
+        return map(CurrentAngle, Hand_Zero, Hand_Articulation, Encoder_Zero, Encoder_Articulation);
+    }
+
+    /**
+    * @return null
+    *
+    * @param angle Define o setpoint do angulo do sistema Hand
+    * @param kP Define o ganho proporcional do sistema que angulo o Hand.
+    */
     public void setAngle(double angle, double kP) {
         config(kP);
         SetAngle = map(angle, Encoder_Zero, Encoder_Articulation, Hand_Zero, Hand_Articulation);
     }
 
+    /**
+    * @return null
+    *
+    * @param speed Define a velocidade do outtake.
+    */
     public void setVelocity(double speed) {
         SetpointVelocity = speed;
     }
 
+    /**
+    * @return null
+    *
+    * @param null.
+    */
     private void handArticulation(){
         OutPosition = handPID.calculate(CurrentAngle, SetAngle);
         CurrentAngle += OutPosition * 0.02;
         CurrentAngle = MathUtil.clamp(CurrentAngle, Hand_Zero, Hand_Articulation);
     }
 
+    /**
+    * @return null
+    *
+    * @param null.
+    */
     private void handVelocity(){
         double handVelocityOutput = handVelocity.calculate(CurrentVelocity, SetpointVelocity);
         CurrentVelocity += handVelocityOutput * 0.02;

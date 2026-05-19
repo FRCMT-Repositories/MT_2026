@@ -65,19 +65,49 @@ public class SimIntake extends SubsystemBase {
         return result;
     }
 
+    /**
+    * @return null
+    *
+    * @param kP Define o ganho proporcional do sistema Intake.
+    */
     public void config(double kP) {
         intakePID.setP(kP);
     }
 
-    public static double getPosition() {
+    /**
+    * @return Retorna a posição atual de articulação do intake com base no CAD.
+    *
+    * @param null.
+    */
+    public static double getRawPosition() {
+        return CurrentPosition;
+    }
+
+    /**
+    * @return Retorna a posição atual de articulação do intake com base no encoder
+    *
+    * @param null.
+    */
+    public static double getRealPosition() {
         return map(CurrentPosition, Intake_Zero, Intake_Foward, Encoder_Zero, Encoder_Foward);
     }
 
+    /**
+    * @return null.
+    *
+    * @param position Define a velocidade do sistema de coleta do intake.
+    * @param kP Define o ganho proporcional do sistema de articulação do intake.
+    */
     public void setPosition(double position, double kP) {
         config(kP);
         SetPosition = map(position, Encoder_Zero, Encoder_Foward, Intake_Zero, Intake_Foward);
     }
 
+    /**
+    * @return null.
+    *
+    * @param speed Define a velocidade do sistema de coleta do intake.
+    */
     public void setVelocity(double speed) {
         SetpointVelocity = speed;
     }

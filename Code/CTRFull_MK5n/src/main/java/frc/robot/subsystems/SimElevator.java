@@ -27,12 +27,12 @@ public class SimElevator extends SubsystemBase {
 
     @Override
     public void periodic() {
-        OutPosition = elevatorPID.calculate(CurrentPosition, SetPosition);
+        OutPosition = elevatorPID.calculate(getRawPosition(), SetPosition);
         CurrentPosition += OutPosition * 0.02;
-        CurrentPosition = MathUtil.clamp(CurrentPosition, Elevator_Zero, Elevator_Up);
+        CurrentPosition = MathUtil.clamp(getRawPosition(), Elevator_Zero, Elevator_Up);
         
         Logger.recordOutput("SubSystemSim/Elevator", new Pose3d[] { new Pose3d(
-            0.0, 0.0, CurrentPosition, new Rotation3d(0.0, 0, 0))});
+            0.0, 0.0, getRawPosition(), new Rotation3d(0.0, 0, 0))});
     }
     
     /**
@@ -49,14 +49,39 @@ public class SimElevator extends SubsystemBase {
         return result;
     }
 
+    /**
+    * @return null
+    *
+    * @param kP Define o ganho proporcional do sistema elevador.
+    */
     public void config(double kP) {
         elevatorPID.setP(kP);
     }
 
-    public static double getPosition() {
+    /**
+    * @return Posição do elevador com base no CAD
+    *
+    * @param null
+    */
+    public static double getRawPosition() {
         return CurrentPosition;
     }
 
+    /**
+    * @return Posição do elevador com base no encoder Real
+    *
+    * @param null
+    */
+    public static double getRealPosition() {
+        return map(CurrentPosition, Elevator_Zero, Elevator_Up, Encoder_Zero, Encoder_Up);
+    }
+
+    /**
+    * @return null
+    *
+    * @param position Define o setpoint de posição do elevador.
+    * @param kP Define o ganho proporcional do sistema elevador.
+    */
     public void setPosition(double position, double kP) {
         config(kP);
         SetPosition = map(position, Encoder_Zero, Encoder_Up, Elevator_Zero, Elevator_Up);
