@@ -6,6 +6,9 @@ import edu.wpi.first.math.MathUtil;
 import edu.wpi.first.math.controller.PIDController;
 import edu.wpi.first.math.geometry.Pose3d;
 import edu.wpi.first.math.geometry.Rotation3d;
+import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.Commands;
+import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class SimElevator extends SubsystemBase {
@@ -85,6 +88,11 @@ public class SimElevator extends SubsystemBase {
     public void setPosition(double position, double kP) {
         config(kP);
         SetPosition = map(position, Encoder_Zero, Encoder_Up, Elevator_Zero, Elevator_Up);
+    }
+
+
+    public Command CMDsetPosition(double position, double kP){
+        return Commands.runOnce(() -> setPosition(position, kP));
     }
 
 }
