@@ -103,6 +103,8 @@ Esses dados são fundamentais para permitir o posicionamento e movimentação co
 
 **ATENÇÃO**
 
+</div>
+
 <p align="center">
   <b style="color:#ff4d4d; font-size:18px;">
     ⚠️ É extremamente importante destacar que todas as bibliotecas disponibilizadas neste repositório foram testadas utilizando as versões referentes à temporada de 2026.
@@ -113,9 +115,5 @@ Esses dados são fundamentais para permitir o posicionamento e movimentação co
   </b>
 </p>
 
-
-
-
-</div>
 
 Aqui será descrito, como fazer a simulação dos modelos de Robô A e B, para eventual validação dos subsistemas.
