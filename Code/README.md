@@ -37,8 +37,8 @@ Dentro da pasta **Advantage Scope** existem duas pastas principais:
 Ambas as pastas contêm todos os componentes necessários para a simulação dos mecanismos do robô no AdvantageScope.
 
 A principal diferença entre os modelos está no CAD utilizado para o chassi:
-- O **Model A** utiliza módulos **MK4i**
-- O **Model B** utiliza módulos **MK5n**
+- O **Model A** utiliza módulos swerve **MK4i**
+- O **Model B** utiliza módulos swerve **MK5n**
 
 A escolha entre os modelos afeta apenas a representação visual e estética do robô durante a simulação, não influenciando no funcionamento da programação, lógica de controle ou comportamento dos subsistemas.
 
@@ -56,6 +56,18 @@ A escolha entre os modelos afeta apenas a representação visual e estética do 
 | `model_4.glb` | Modelo CAD do 5° componente, para o nosso exemplo este é a roda de coleta 1 do braço. |
 | `model_5.glb` | Modelo CAD do 6° componente, para o nosso exemplo este é a roda de coleta 2 do braço. |
 
+<h3>Adicionando ao Advantage Scope</h3>
+<div align="justify">
 
+Após a seleção do modelo, tornasse necessario copiar a pasta do modelo escolhido para o diretório autoAssets do Advantage Scope, geralmente presente no seguinte diretório `C:\Users\**usuario**\AppData\Roaming\AdvantageScope\autoAssets`.
+**Obs:**
+- Recomendo que crie um atalho, pois essa pasta é muito requisitada enquanto estamos trabalhando com simulação
+
+</div>
+
+<h2>PASSO 2: next </h2>
+<div align="justify">
+
+</div>
 
 Aqui será descrito, como fazer a simulação dos modelos de Robô A e B, para eventual validação dos subsistemas.
