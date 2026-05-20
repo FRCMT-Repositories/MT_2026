@@ -44,25 +44,25 @@ A escolha entre os modelos afeta apenas a representação visual e estética do 
 
 <h3>Entendendo os arquivos dos Models A e B</h3>
 
-<table align="center">
+<table>
 <tr>
-	<td align="center" width="100"><b style="font-size:22px;">
-		<b>config.json</b>
-	</b></td>
+	<td width="180">
+		<code><b>config.json</b></code>
+	</td>
 
-	<td align="center" width="1000"><b style="font-size:22px;">
+	<td width="900" align="left">
 		Conjunto de informações do modelo, como por exemplo nome, posicionamento 3D do modelo principal e componentes (subsistemas como intake, elevador e braço), além do posicionamento de vistas, como câmeras acopladas ao robô.
-	</b></td>
+	</td>
 </tr>
 
 <tr>
-	<td align="center" width="100"><b style="font-size:22px;">
-		<b>model.glb</b>
-	</b></td>
+	<td width="180">
+		<code><b>model.glb</b></code>
+	</td>
 
-	<td align="center" width="1000"><b style="font-size:22px;">
+	<td width="900" align="left">
 		Modelo CAD base do projeto, neste caso o chassi contendo todos os elementos fixos do robô.
-	</b></td>
+	</td>
 </tr>
 </table>
 
