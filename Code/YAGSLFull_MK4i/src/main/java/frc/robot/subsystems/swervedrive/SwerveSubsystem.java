@@ -18,8 +18,6 @@ import com.pathplanner.lib.util.DriveFeedforwards;
 import com.pathplanner.lib.util.swerve.SwerveSetpoint;
 import com.pathplanner.lib.util.swerve.SwerveSetpointGenerator;
 
-import edu.wpi.first.math.MathUtil;
-import edu.wpi.first.math.VecBuilder;
 import edu.wpi.first.math.controller.SimpleMotorFeedforward;
 import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.geometry.Rotation2d;
@@ -45,6 +43,7 @@ import java.util.concurrent.atomic.AtomicReference;
 import java.util.function.DoubleSupplier;
 import java.util.function.Supplier;
 import org.json.simple.parser.ParseException;
+import org.littletonrobotics.junction.Logger;
 import org.photonvision.targeting.PhotonPipelineResult;
 import swervelib.SwerveController;
 import swervelib.SwerveDrive;
@@ -72,6 +71,8 @@ public class SwerveSubsystem extends SubsystemBase
    * PhotonVision class to keep an accurate odometry.
    */
   private       Vision      vision;
+
+  private boolean ctrInit = true;
 
   /**
    * Initialize {@link SwerveDrive} with the directory provided.
@@ -146,11 +147,20 @@ public class SwerveSubsystem extends SubsystemBase
         vision.updatePoseEstimation(swerveDrive);
     }
 
+    Pose2d currentPose = this.getPose();
+    Logger.recordOutput("ODOMETRY", currentPose);
+    
   }
-  
+
   @Override
   public void simulationPeriodic()
   {
+    if(ctrInit){
+        /* Rodar Isso apenas se for na simulação */
+        if(!isRedAlliance()) this.resetOdometry(new Pose2d(2, 4, new Rotation2d(Math.PI)));
+        else this.resetOdometry(new Pose2d(13.5, 4, new Rotation2d(0)));
+        ctrInit = false;
+    }
   }
 
   /**
