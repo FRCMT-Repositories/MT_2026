@@ -101,19 +101,17 @@ A única exigência para a utilização correta da simulação do robô é a dis
 
 Esses dados são fundamentais para permitir o posicionamento e movimentação correta do robô dentro do ambiente de simulação.
 
-**ATENÇÃO**
+⚠️**ATENÇÃO**
+
+> [!WARNING]
+> É extremamente importante destacar que todas as bibliotecas disponibilizadas neste repositório foram testadas utilizando as versões referentes à temporada de 2026.
+> 
+> Atualizações futuras de bibliotecas, como por exemplo a YAGSL, podem ocasionar incompatibilidades ou pequenas quebras no código original.
+> 
+> Entretanto, na maioria dos casos, essas alterações podem ser corrigidas com pequenos ajustes e adaptações relacionadas às mudanças introduzidas pelas novas versões das bibliotecas.
 
 </div>
 
-<p align="center">
-  <b style="color:#ff4d4d; font-size:18px;">
-    ⚠️ É extremamente importante destacar que todas as bibliotecas disponibilizadas neste repositório foram testadas utilizando as versões referentes à temporada de 2026.
-    <br><br>
-    Atualizações futuras de bibliotecas, como por exemplo a YAGSL, podem ocasionar incompatibilidades ou pequenas quebras no código original.
-    <br><br>
-    Entretanto, na maioria dos casos, essas alterações podem ser corrigidas com pequenos ajustes e adaptações relacionadas às mudanças introduzidas pelas novas versões das bibliotecas.
-  </b>
-</p>
 
 
 Aqui será descrito, como fazer a simulação dos modelos de Robô A e B, para eventual validação dos subsistemas.
