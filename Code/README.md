@@ -107,6 +107,8 @@ A única exigência para a utilização correta da simulação do robô é a dis
 
 </div>
 
+<h2>PASSO 3: Definição do módulo swerve </h2>
+<div align="justify">
 
 
-Aqui será descrito, como fazer a simulação dos modelos de Robô A e B, para eventual validação dos subsistemas.
+</div>
