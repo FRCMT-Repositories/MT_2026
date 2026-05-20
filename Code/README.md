@@ -56,12 +56,12 @@ A escolha entre os modelos afeta apenas a representação visual e estética do 
 | `model_4.glb` | Modelo CAD do 5° componente, para o nosso exemplo este é a roda de coleta 1 do braço. |
 | `model_5.glb` | Modelo CAD do 6° componente, para o nosso exemplo este é a roda de coleta 2 do braço. |
 
-**[Aprenda a configurar o json e os models](https://github.com/FRCMT-Repositories/MT_2026/tree/main/Code/Advantage%20Scope/Robot_MTModelA)**
+**[Aprenda a configurar o .json e os models](https://github.com/FRCMT-Repositories/MT_2026/tree/main/Code/Advantage%20Scope/Robot_MTModelA)**
 
 <h3>Adicionando ao Advantage Scope</h3>
 <div align="justify">
 
-Após a seleção do modelo, tornasse necessario copiar a pasta do modelo escolhido para o diretório autoAssets do Advantage Scope, geralmente presente no seguinte diretório `C:\Users\**usuario**\AppData\Roaming\AdvantageScope\autoAssets`.
+Após a seleção do modelo, tornasse necessario copiar a pasta do modelo escolhido para o diretório autoAssets do Advantage Scope, geralmente presente no seguinte diretório `C:\Users\user\AppData\Roaming\AdvantageScope\autoAssets`.
 
 **ATENÇÃO:**
 
@@ -71,8 +71,22 @@ Após a seleção do modelo, tornasse necessario copiar a pasta do modelo escolh
 
 </div>
 
-<h2>PASSO 2: next </h2>
+<h2>PASSO 2: Definição do módulo swerve </h2>
 <div align="justify">
+
+Nesta etapa, tornasse necessario escolher a biblioteca responsável por controlar o seu módulo serve, atualmente temos 2 exemplos funcionais:
+
+| MÓDULO | BIBLIOTECA | TIPO DE MOTOR |
+| [MK4i](https://github.com/FRCMT-Repositories/MT_2026/tree/main/Code/YAGSLFull_MK4i) | YAGSL | NEO e KRAKEN |
+| [MK5n](https://github.com/FRCMT-Repositories/MT_2026/tree/main/Code/CTRFull_MK5n) | CTRe | KRAKEN |
+
+**Observação:**
+
+A escolha da biblioteca de desenvolvimento fica inteiramente a critério de cada equipe. Caso optem por utilizar soluções diferentes das apresentadas neste repositório, sintam-se totalmente à vontade para adaptá-las conforme as necessidades e preferências do projeto.
+
+A única exigência para a utilização correta da simulação do robô é a disponibilização do plot da odometria do robô. Em ambos os exemplos apresentados anteriormente, cada biblioteca possui, em seu escopo principal, a publicação das informações de odometria necessárias para integração com o Advantage Scope.
+
+Esses dados são fundamentais para permitir o posicionamento e movimentação correta do robô dentro do ambiente de simulação.
 
 </div>
 
