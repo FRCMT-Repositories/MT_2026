@@ -69,6 +69,12 @@ public Robot() {
 }
 ```
 
+**Explicação**
+
+A classe principal do robô precisa herdar (`extends`) de `LoggedRobot` para que o AdvantageKit consiga interceptar e gerenciar automaticamente o sistema de logs do projeto. É essa extensão que adiciona ao robô toda a estrutura necessária para gravação, publicação e sincronização dos sinais utilizados pelo Logger.
+
+Além disso, a inicialização utilizando `Logger.start()` é responsável por iniciar efetivamente o sistema de logging durante a execução do robô. Sem essa inicialização, mesmo que existam chamadas como `Logger.recordOutput()`, nenhuma informação será realmente enviada, gravada ou disponibilizada para ferramentas como o AdvantageScope.
+
 </div>
 
 
