@@ -43,8 +43,11 @@ A principal diferença entre os modelos está no CAD utilizado para o chassi:
 A escolha entre os modelos afeta apenas a representação visual e estética do robô durante a simulação, não influenciando no funcionamento da programação, lógica de controle ou comportamento dos subsistemas.
 
 <h3>Entendendo os arquivos dos Models A e B</h3>
+</div>
 
-<td align="center">| Arquivo | Descrição |</td>
+<div align="center">
+| Arquivo | Descrição |
+</div>
 |---|---|
 | `config.json` | Conjunto de informações do modelo, como nome do robô, posicionamento 3D do modelo principal, componentes dos subsistemas como intake, elevador e braço, além do posicionamento de vistas, como câmeras acopladas ao robô. |
 | `model.glb` | Modelo CAD base do projeto, contendo todos os elementos estruturais fixos do robô. |
@@ -54,10 +57,6 @@ A escolha entre os modelos afeta apenas a representação visual e estética do 
 | `model_3.glb` | Modelo CAD do 4° componente, para o nosso exemplo este é a articulação do braço. |
 | `model_4.glb` | Modelo CAD do 5° componente, para o nosso exemplo este é a roda de coleta 1 do braço. |
 | `model_5.glb` | Modelo CAD do 6° componente, para o nosso exemplo este é a roda de coleta 2 do braço. |
-
-</div>
-
-
 
 
 
