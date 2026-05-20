@@ -45,6 +45,7 @@ A escolha entre os modelos afeta apenas a representação visual e estética do 
 <h3>Entendendo os arquivos dos Models A e B</h3>
 
 <table>
+
 <tr>
 	<td width="180">
 		<code><b>config.json</b></code>
@@ -64,6 +65,7 @@ A escolha entre os modelos afeta apenas a representação visual e estética do 
 		Modelo CAD base do projeto, neste caso o chassi contendo todos os elementos fixos do robô.
 	</td>
 </tr>
+
 </table>
 
 </div>
