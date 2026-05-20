@@ -44,8 +44,10 @@ A escolha entre os modelos afeta apenas a representação visual e estética do 
 
 <h3>Entendendo os arquivos dos Models A e B</h3>
 
-<table>
+</div>
 
+
+<table>
 <tr>
 	<td width="180">
 		<code><b>config.json</b></code>
@@ -67,7 +69,5 @@ A escolha entre os modelos afeta apenas a representação visual e estética do 
 </tr>
 
 </table>
-
-</div>
 
 Aqui será descrito, como fazer a simulação dos modelos de Robô A e B, para eventual validação dos subsistemas.
