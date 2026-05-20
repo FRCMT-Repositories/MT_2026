@@ -63,7 +63,7 @@ A escolha entre os modelos afeta apenas a representação visual e estética do 
 
 Após a seleção do modelo, tornasse necessario copiar a pasta do modelo escolhido para o diretório autoAssets do Advantage Scope, geralmente presente no seguinte diretório `C:\Users\user\AppData\Roaming\AdvantageScope\autoAssets`.
 
-**ATENÇÃO:**
+**ATENÇÃO**
 
 - Recomenda-se criar um atalho para esta pasta, pois ela será utilizada com frequência durante o desenvolvimento e validação da simulação dos subsistemas.
 
@@ -74,7 +74,7 @@ Após a seleção do modelo, tornasse necessario copiar a pasta do modelo escolh
 <h2>PASSO 2: Definição do módulo swerve </h2>
 <div align="justify">
 
-Nesta etapa, tornasse necessario escolher a biblioteca responsável por controlar o seu módulo serve, atualmente temos 2 exemplos funcionais:
+Nesta etapa, tornasse necessario escolher a biblioteca responsável por controlar o seu módulo swerve, atualmente temos 2 exemplos funcionais:
 
 </div>
 
@@ -89,6 +89,10 @@ Nesta etapa, tornasse necessario escolher a biblioteca responsável por controla
 
 <div align="justify">
 
+De forma geral, a biblioteca YAGSL atende muito bem diferentes configurações de módulos swerve, oferecendo grande flexibilidade e facilidade de adaptação para diversos tipos de hardware.
+
+Entretanto, quando o robô é composto majoritariamente por dispositivos CTRE, a biblioteca oficial da CTRE tende a apresentar uma estrutura mais limpa, organizada e otimizada, além de proporcionar melhor desempenho e integração nativa entre os componentes.
+
 **Observação:**
 
 A escolha da biblioteca de desenvolvimento fica inteiramente a critério de cada equipe. Caso optem por utilizar soluções diferentes das apresentadas neste repositório, sintam-se totalmente à vontade para adaptá-las conforme as necessidades e preferências do projeto.
@@ -96,6 +100,21 @@ A escolha da biblioteca de desenvolvimento fica inteiramente a critério de cada
 A única exigência para a utilização correta da simulação do robô é a disponibilização do plot da odometria do robô. Em ambos os exemplos apresentados anteriormente, cada biblioteca possui, em seu escopo principal, a publicação das informações de odometria necessárias para integração com o Advantage Scope.
 
 Esses dados são fundamentais para permitir o posicionamento e movimentação correta do robô dentro do ambiente de simulação.
+
+**ATENÇÃO**
+
+<p align="center">
+  <b style="color:#ff4d4d; font-size:18px;">
+    ⚠️ É extremamente importante destacar que todas as bibliotecas disponibilizadas neste repositório foram testadas utilizando as versões referentes à temporada de 2026.
+    <br><br>
+    Atualizações futuras de bibliotecas, como por exemplo a YAGSL, podem ocasionar incompatibilidades ou pequenas quebras no código original.
+    <br><br>
+    Entretanto, na maioria dos casos, essas alterações podem ser corrigidas com pequenos ajustes e adaptações relacionadas às mudanças introduzidas pelas novas versões das bibliotecas.
+  </b>
+</p>
+
+
+
 
 </div>
 
