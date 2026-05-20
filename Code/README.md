@@ -101,9 +101,8 @@ A única exigência para a utilização correta da simulação do robô é a dis
 
 Esses dados são fundamentais para permitir o posicionamento e movimentação correta do robô dentro do ambiente de simulação.
 
-⚠️**ATENÇÃO**
+⚠️ **ATENÇÃO**
 
-> [!WARNING]
 > É extremamente importante destacar que todas as bibliotecas disponibilizadas neste repositório foram testadas utilizando as versões referentes à temporada de 2026.
 > 
 > Atualizações futuras de bibliotecas, como por exemplo a YAGSL, podem ocasionar incompatibilidades ou pequenas quebras no código original.
