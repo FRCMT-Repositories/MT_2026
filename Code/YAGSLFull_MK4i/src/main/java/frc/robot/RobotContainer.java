@@ -19,6 +19,9 @@ import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 import frc.robot.Constants.OperatorConstants;
+import frc.robot.subsystems.SimElevator;
+import frc.robot.subsystems.SimHand;
+import frc.robot.subsystems.SimIntake;
 import frc.robot.subsystems.swervedrive.SwerveSubsystem;
 import swervelib.SwerveInputStream;
 
@@ -37,6 +40,10 @@ public class RobotContainer {
                                                             .scaleTranslation(0.8)
                                                             .allianceRelativeControl(true);
 
+  private SimIntake mSimIntake = new SimIntake(20, 1.5, 3);
+  private SimElevator mSimElevator = new SimElevator(400, 1.5);
+  private SimHand mSimHand = new SimHand(-180, 180, 1.5, 3);
+
   public RobotContainer() {
     configureBindings();
 
@@ -50,7 +57,25 @@ public class RobotContainer {
     drivebase.setDefaultCommand(driveMode);
     Cmdriver.start().onTrue((Commands.runOnce(drivebase::zeroGyro)));
 
-    
+    Cmdriver.a().onTrue(Commands.runOnce(() -> mSimIntake.setPosition(20, 3)));
+    Cmdriver.a().onTrue(Commands.runOnce(() -> mSimIntake.setVelocity(1)));
+    Cmdriver.b().onTrue(Commands.runOnce(() -> mSimIntake.setPosition(0, 3)));
+    Cmdriver.b().onTrue(Commands.runOnce(() -> mSimIntake.setVelocity(0)));
+    Cmdriver.back().onTrue(Commands.runOnce(() -> mSimIntake.setPosition(0, 3)));
+    Cmdriver.back().onTrue(Commands.runOnce(() -> mSimIntake.setVelocity(0)));
+
+    Cmdriver.povUp().onTrue(mSimElevator.CMDsetPosition(400, 3));
+    Cmdriver.povDown().onTrue(mSimElevator.CMDsetPosition(0, 3));
+    Cmdriver.back().onTrue(Commands.runOnce(() -> mSimElevator.setPosition(0, 3)));
+
+    Cmdriver.povLeft().onTrue(Commands.runOnce(() -> mSimHand.setAngle(-45, 3)));
+    Cmdriver.povRight().onTrue(Commands.runOnce(() -> mSimHand.setAngle(45, 3)));
+
+    Cmdriver.y().onTrue(Commands.runOnce(() -> mSimHand.setVelocity(2)));
+    Cmdriver.x().onTrue(Commands.runOnce(() -> mSimHand.setVelocity(-2)));
+    Cmdriver.b().onTrue(Commands.runOnce(() -> mSimHand.setVelocity(0)));
+    Cmdriver.back().onTrue(Commands.runOnce(() -> mSimHand.setAngle(0, 3)));
+    Cmdriver.back().onTrue(Commands.runOnce(() -> mSimHand.setVelocity(0)));
   }
 
   public Command getAutonomousCommand() {
