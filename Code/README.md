@@ -53,9 +53,7 @@ A escolha entre os modelos afeta apenas a representação visual e estética do 
 	<td align="center" width="1000">
 		Conjunto de informações do modelo, como por exemplo nome, posicionamento 3D do modelo principal e componentes (subsistemas como intake, elevador e braço), além do posicionamento de vistas, como câmeras acopladas ao robô.
 	</td>
-</tr>
 
-<tr>
 	<td align="center" width="100">
 		<b>model.glb</b>
 	</td>
