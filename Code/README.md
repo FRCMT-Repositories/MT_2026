@@ -47,14 +47,14 @@ A escolha entre os modelos afeta apenas a representação visual e estética do 
 
 | Arquivo | Descrição |
 |---|---|
-| `config.json` | Conjunto de informações do modelo, como nome do robô, posicionamento 3D do modelo principal, componentes dos subsistemas como intake, elevador e braço, além do posicionamento de vistas, como câmeras acopladas ao robô. |
+| `config.json` | Conjunto de configurações responsáveis pela definição estrutural do modelo, incluindo nome do robô, posicionamento 3D do modelo principal, composição dos subsistemas (como intake, elevador e braço), além da configuração de elementos auxiliares, como câmeras e diferentes pontos de visualização utilizados na simulação. |
 | `model.glb` | Modelo CAD base do projeto, contendo todos os elementos estruturais fixos do robô. |
-| `model_0.glb` | Modelo CAD do 1° componente, para o nosso exemplo este é o Gaveta do intake. |
-| `model_1.glb` | Modelo CAD do 2° componente, para o nosso exemplo este é o Coletor do intake. |
-| `model_2.glb` | Modelo CAD do 3° componente, para o nosso exemplo este é o Elevador. |
-| `model_3.glb` | Modelo CAD do 4° componente, para o nosso exemplo este é a articulação do braço. |
-| `model_4.glb` | Modelo CAD do 5° componente, para o nosso exemplo este é a roda de coleta 1 do braço. |
-| `model_5.glb` | Modelo CAD do 6° componente, para o nosso exemplo este é a roda de coleta 2 do braço. |
+| `model_0.glb` | Modelo CAD correspondente ao 1º componente do mecanismo. Neste exemplo, o componente representado é a gaveta do intake. |
+| `model_1.glb` | Modelo CAD correspondente ao 2º componente do mecanismo. Neste exemplo, o componente representado é o coletor do intake. |
+| `model_2.glb` | Modelo CAD correspondente ao 3º componente do mecanismo. Neste exemplo, o componente representado é o elevador. |
+| `model_3.glb` | Modelo CAD correspondente ao 4º componente do mecanismo. Neste exemplo, o componente representado é o braço. |
+| `model_4.glb` | Modelo CAD correspondente ao 5º componente do mecanismo. Neste exemplo, o componente representado é a 1ª roda de coleta do braço. |
+| `model_5.glb` | Modelo CAD correspondente ao 6º componente do mecanismo. Neste exemplo, o componente representado é a 2ª roda de coleta do braço. |
 
 **[Aprenda a configurar o .json e os models](https://github.com/FRCMT-Repositories/MT_2026/tree/main/Code/Advantage%20Scope/Robot_MTModelA)**
 
@@ -97,16 +97,12 @@ Entretanto, quando o robô é composto majoritariamente por dispositivos CTRE, a
 
 A escolha da biblioteca de desenvolvimento fica inteiramente a critério de cada equipe. Caso optem por utilizar soluções diferentes das apresentadas neste repositório, sintam-se totalmente à vontade para adaptá-las conforme as necessidades e preferências do projeto.
 
-A única exigência para a utilização correta da simulação do robô é a disponibilização do plot da odometria do robô. Em ambos os exemplos apresentados anteriormente, cada biblioteca possui, em seu escopo principal, a publicação das informações de odometria necessárias para integração com o Advantage Scope.
-
-Esses dados são fundamentais para permitir o posicionamento e movimentação correta do robô dentro do ambiente de simulação.
+A única exigência para a utilização correta da simulação do robô é a disponibilização do plot da odometria do robô. Em ambos os exemplos apresentados anteriormente, cada biblioteca possui, em seu escopo principal, a publicação das informações de odometria necessárias para integração com o Advantage Scope. Esses dados são fundamentais para permitir o posicionamento e movimentação correta do robô dentro do ambiente de simulação.
 
 ⚠️ **ATENÇÃO**
 
 > É extremamente importante destacar que todas as bibliotecas disponibilizadas neste repositório foram testadas utilizando as versões referentes à temporada de 2026.
-> 
 > Atualizações futuras de bibliotecas, como por exemplo a YAGSL, podem ocasionar incompatibilidades ou pequenas quebras no código original.
-> 
 > Entretanto, na maioria dos casos, essas alterações podem ser corrigidas com pequenos ajustes e adaptações relacionadas às mudanças introduzidas pelas novas versões das bibliotecas.
 
 </div>
