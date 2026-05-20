@@ -81,11 +81,12 @@ Nesta etapa, tornasse necessario escolher a biblioteca responsável por controla
 <br>
 
 | MÓDULO | BIBLIOTECA | TIPO DE MOTOR |
-|---|---|
+|---|---| --- |
 | [MK4i](https://github.com/FRCMT-Repositories/MT_2026/tree/main/Code/YAGSLFull_MK4i) | YAGSL | NEO e KRAKEN |
 | [MK5n](https://github.com/FRCMT-Repositories/MT_2026/tree/main/Code/CTRFull_MK5n) | CTRe | KRAKEN |
 
 <div align="justify">
+
 **Observação:**
 
 A escolha da biblioteca de desenvolvimento fica inteiramente a critério de cada equipe. Caso optem por utilizar soluções diferentes das apresentadas neste repositório, sintam-se totalmente à vontade para adaptá-las conforme as necessidades e preferências do projeto.
