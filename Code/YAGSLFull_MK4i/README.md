@@ -25,6 +25,44 @@ A utilização do Logger facilita significativamente o monitoramento e visualiza
 
 <h2>PASSO 2: Looger e Odometria</h2>
 
+Apartir de agora, entramos de fato em modificações no código, para comprovar o funcionamento.
+
+<h3>Inicialização do Logger</h3>
+
+No arquivo principal do projeto, `Robot.java`, altere a extensão da classe para `LoggedRobot`, permitindo que os logs e sinais do robô sejam corretamente enviados e registrados pelo AdvantageKit.
+Além disso, também será necessário inicializar o sistema de logging dentro da classe `Robot`. Após realizar essa alteração, o próprio ambiente de desenvolvimento solicitará automaticamente os imports necessários para o funcionamento da biblioteca.
+
+Ao final, a estrutura do código deverá ficar semelhante ao exemplo apresentado abaixo:
+
+> import org.littletonrobotics.junction.LoggedRobot;
+> import org.littletonrobotics.junction.Logger;
+> import org.littletonrobotics.junction.networktables.NT4Publisher;
+> import org.littletonrobotics.junction.wpilog.WPILOGWriter;
+> 
+> import edu.wpi.first.wpilibj2.command.Command;
+> import edu.wpi.first.wpilibj2.command.CommandScheduler;
+> 
+> public class Robot extends LoggedRobot {
+>   private Command m_autonomousCommand;
+> 
+>   private final RobotContainer m_robotContainer;
+> 
+>   public Robot() {
+>     m_robotContainer = new RobotContainer();
+> 
+>     Logger.recordMetadata("ProjectName", "MeuRobo");
+>     
+>     if (isReal()) {
+>         Logger.addDataReceiver(new WPILOGWriter("/home/lvuser/logs"));
+>         Logger.addDataReceiver(new NT4Publisher());
+>     } else {
+>         Logger.addDataReceiver(new WPILOGWriter("logs"));
+>         Logger.addDataReceiver(new NT4Publisher());
+>     }
+> 
+>     Logger.start();
+>   }
+
 
 </div>
 

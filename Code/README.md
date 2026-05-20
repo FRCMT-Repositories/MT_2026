@@ -106,9 +106,3 @@ A única exigência para a utilização correta da simulação do robô é a dis
 > Entretanto, na maioria dos casos, essas alterações podem ser corrigidas com pequenos ajustes e adaptações relacionadas às mudanças introduzidas pelas novas versões das bibliotecas.
 
 </div>
-
-<h2>PASSO 3: Definição do módulo swerve </h2>
-<div align="justify">
-
-
-</div>
