@@ -46,16 +46,24 @@ A escolha entre os modelos afeta apenas a representação visual e estética do 
 
 <table align="center">
 <tr>
-	<td align="center" width="200"><b style="font-size:22px;">**config.json**</b></td>
-	<td align="center" width="200"><b style="font-size:22px;">Conjunto de informações do modelo, como por exemplo nome, posicionamento 3d do model principal e componentes (Subsistemas, como intake, elevador e Braço), posicionamento de vistas como câmeras acopladas ao robô</b></td>
+	<td align="center" width="100">
+		<b>config.json</b>
+	</td>
 
+	<td align="center" width="1000">
+		Conjunto de informações do modelo, como por exemplo nome, posicionamento 3D do modelo principal e componentes (subsistemas como intake, elevador e braço), além do posicionamento de vistas, como câmeras acopladas ao robô.
+	</td>
 </tr>
 
 <tr>
-	<td align="center" width="200"><b style="font-size:22px;">**model.glb**</b></td>
-	<td align="center" width="200"><b style="font-size:22px;">Modelo CAD em da base do projeto, nesse caso o Chassi com todos os elementos fixos</b></td>
-</tr>
+	<td align="center" width="100">
+		<b>model.glb</b>
+	</td>
 
+	<td align="center" width="1000">
+		Modelo CAD base do projeto, neste caso o chassi contendo todos os elementos fixos do robô.
+	</td>
+</tr>
 
 </table>
 
