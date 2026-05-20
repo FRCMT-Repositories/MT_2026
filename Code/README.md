@@ -80,10 +80,10 @@ Nesta etapa, tornasse necessario escolher a biblioteca responsável por controla
 
 <div align="center">
 
-| MÓDULO | BIBLIOTECA | TIPO DE MOTOR |
-|---|---| --- |
-| <td align="center">[MK4i](https://github.com/FRCMT-Repositories/MT_2026/tree/main/Code/YAGSLFull_MK4i)</td> | <td align="center">YAGSL</td> | <td align="center">NEO e KRAKEN</td> |
-| <td align="center">[MK5n](https://github.com/FRCMT-Repositories/MT_2026/tree/main/Code/CTRFull_MK5n)</td> | <td align="center">CTRe</td> | <td align="center">KRAKEN</td> |
+<td align="center">| MÓDULO | BIBLIOTECA | TIPO DE MOTOR |</td>
+|---|---|---|
+<td align="center">| [MK4i](https://github.com/FRCMT-Repositories/MT_2026/tree/main/Code/YAGSLFull_MK4i)| YAGSL | NEO e KRAKEN |</td>
+<td align="center">| [MK5n](https://github.com/FRCMT-Repositories/MT_2026/tree/main/Code/CTRFull_MK5n) | CTRe | KRAKEN |</td>
 
 </div>
 
