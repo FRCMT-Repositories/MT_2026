@@ -44,13 +44,21 @@ A escolha entre os modelos afeta apenas a representação visual e estética do 
 
 <h3>Entendendo os arquivos dos Models A e B</h3>
 
-</div>
-
-
 | Arquivo | Descrição |
 |---|---|
 | `config.json` | Conjunto de informações do modelo, como nome do robô, posicionamento 3D do modelo principal, componentes dos subsistemas como intake, elevador e braço, além do posicionamento de vistas, como câmeras acopladas ao robô. |
 | `model.glb` | Modelo CAD base do projeto, contendo todos os elementos estruturais fixos do robô. |
+| `model_0.glb` | Modelo CAD do 1° componente, para o nosso exemplo este é o Gaveta do intake. |
+| `model_1.glb` | Modelo CAD do 2° componente, para o nosso exemplo este é o Coletor do intake. |
+| `model_2.glb` | Modelo CAD do 3° componente, para o nosso exemplo este é o Elevador. |
+| `model_3.glb` | Modelo CAD do 4° componente, para o nosso exemplo este é a articulação do braço. |
+| `model_4.glb` | Modelo CAD do 5° componente, para o nosso exemplo este é a roda de coleta 1 do braço. |
+| `model_5.glb` | Modelo CAD do 6° componente, para o nosso exemplo este é a roda de coleta 2 do braço. |
+
+</div>
+
+
+
 
 
 Aqui será descrito, como fazer a simulação dos modelos de Robô A e B, para eventual validação dos subsistemas.
