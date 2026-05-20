@@ -60,8 +60,12 @@ A escolha entre os modelos afeta apenas a representação visual e estética do 
 <div align="justify">
 
 Após a seleção do modelo, tornasse necessario copiar a pasta do modelo escolhido para o diretório autoAssets do Advantage Scope, geralmente presente no seguinte diretório `C:\Users\**usuario**\AppData\Roaming\AdvantageScope\autoAssets`.
-**Obs:**
-- Recomendo que crie um atalho, pois essa pasta é muito requisitada enquanto estamos trabalhando com simulação
+
+**ATENÇÃO:**
+
+- Recomenda-se criar um atalho para esta pasta, pois ela será utilizada com frequência durante o desenvolvimento e validação da simulação dos subsistemas.
+
+- Durante o uso do Advantage Scope, em algumas situações o software pode remover automaticamente a pasta do modelo previamente carregada, tornando necessário adicioná-la novamente. Por esse motivo, recomenda-se não mover a pasta original do modelo diretamente para o diretório do Advantage Scope. Em vez disso, crie uma cópia da pasta do modelo dentro do diretório utilizado pelo software, preservando assim os arquivos originais do projeto.
 
 </div>
 
