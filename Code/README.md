@@ -22,9 +22,9 @@
 
 <tr>
 
- <td><b style="font-size:22px;">VISTA 1</b></td>
- <td><b style="font-size:22px;">SIMULAÇÃO DOS SUBSISTEMAS</b></td>
- <td><b style="font-size:22px;">VISTA 2</b></td>
+ <td align="center" width="700"><b style="font-size:22px;">VISTA 1</b></td>
+ <td align="center" width="700"><b style="font-size:22px;">SIMULAÇÃO DOS SUBSISTEMAS</b></td>
+ <td align="center" width="700"><b style="font-size:22px;">VISTA 2</b></td>
 
 </tr>
 </table>
