@@ -55,6 +55,7 @@ A escolha entre os modelos afeta apenas a representação visual e estética do 
 | `model_3.glb` | Modelo CAD do 4° componente, para o nosso exemplo este é a articulação do braço. |
 | `model_4.glb` | Modelo CAD do 5° componente, para o nosso exemplo este é a roda de coleta 1 do braço. |
 | `model_5.glb` | Modelo CAD do 6° componente, para o nosso exemplo este é a roda de coleta 2 do braço. |
+
 **[Aprenda a configurar o json e os models](https://github.com/FRCMT-Repositories/MT_2026/tree/main/Code/Advantage%20Scope/Robot_MTModelA)**
 
 <h3>Adicionando ao Advantage Scope</h3>
