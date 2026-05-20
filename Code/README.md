@@ -47,27 +47,10 @@ A escolha entre os modelos afeta apenas a representação visual e estética do 
 </div>
 
 
-<table>
-<tr>
-	<td width="180">
-		<code><b>config.json</b></code>
-	</td>
+| Arquivo | Descrição |
+|---|---|
+| `config.json` | Conjunto de informações do modelo, como nome do robô, posicionamento 3D do modelo principal, componentes dos subsistemas como intake, elevador e braço, além do posicionamento de vistas, como câmeras acopladas ao robô. |
+| `model.glb` | Modelo CAD base do projeto, contendo todos os elementos estruturais fixos do robô. |
 
-	<td width="900" align="left">
-		Conjunto de informações do modelo, como por exemplo nome, posicionamento 3D do modelo principal e componentes (subsistemas como intake, elevador e braço), além do posicionamento de vistas, como câmeras acopladas ao robô.
-	</td>
-</tr>
-
-<tr>
-	<td width="180">
-		<code><b>model.glb</b></code>
-	</td>
-
-	<td width="900" align="left">
-		Modelo CAD base do projeto, neste caso o chassi contendo todos os elementos fixos do robô.
-	</td>
-</tr>
-
-</table>
 
 Aqui será descrito, como fazer a simulação dos modelos de Robô A e B, para eventual validação dos subsistemas.
