@@ -44,7 +44,7 @@ A escolha entre os modelos afeta apenas a representação visual e estética do 
 
 <h3>Entendendo os arquivos dos Models A e B</h3>
 
-| Arquivo | Descrição |
+<td align="center">| Arquivo | Descrição |</td>
 |---|---|
 | `config.json` | Conjunto de informações do modelo, como nome do robô, posicionamento 3D do modelo principal, componentes dos subsistemas como intake, elevador e braço, além do posicionamento de vistas, como câmeras acopladas ao robô. |
 | `model.glb` | Modelo CAD base do projeto, contendo todos os elementos estruturais fixos do robô. |
