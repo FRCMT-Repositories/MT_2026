@@ -33,6 +33,7 @@ No arquivo principal do projeto, `Robot.java`, altere a extensão da classe para
 Além disso, também será necessário inicializar o sistema de logging dentro da classe `Robot`. Após realizar essa alteração, o próprio ambiente de desenvolvimento solicitará automaticamente os imports necessários para o funcionamento da biblioteca.
 
 Ao final, a estrutura do código deverá ficar semelhante ao exemplo apresentado abaixo:
+</div>
 
 >[!Imports]
 > import org.littletonrobotics.junction.LoggedRobot;
@@ -65,7 +66,6 @@ Ao final, a estrutura do código deverá ficar semelhante ao exemplo apresentado
 >   }
 
 
-</div>
 
 
 
