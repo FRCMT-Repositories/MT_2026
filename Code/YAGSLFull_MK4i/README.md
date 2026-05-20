@@ -33,37 +33,45 @@ No arquivo principal do projeto, `Robot.java`, altere a extensão da classe para
 Além disso, também será necessário inicializar o sistema de logging dentro da classe `Robot`. Após realizar essa alteração, o próprio ambiente de desenvolvimento solicitará automaticamente os imports necessários para o funcionamento da biblioteca.
 
 Ao final, a estrutura do código deverá ficar semelhante ao exemplo apresentado abaixo:
+
+### Imports
+
+```java
+import org.littletonrobotics.junction.LoggedRobot;
+import org.littletonrobotics.junction.Logger;
+import org.littletonrobotics.junction.networktables.NT4Publisher;
+import org.littletonrobotics.junction.wpilog.WPILOGWriter;
+```
+
+### Extensão da classe
+
+```java
+public class Robot extends LoggedRobot {
+```
+
+### Inicialização do Logger
+
+```java
+public Robot() {
+    m_robotContainer = new RobotContainer();
+
+    Logger.recordMetadata("ProjectName", "MeuRobo");
+
+    if (isReal()) {
+        Logger.addDataReceiver(new WPILOGWriter("/home/lvuser/logs"));
+        Logger.addDataReceiver(new NT4Publisher());
+    } else {
+        Logger.addDataReceiver(new WPILOGWriter("logs"));
+        Logger.addDataReceiver(new NT4Publisher());
+    }
+
+    Logger.start();
+}
+```
+
 </div>
 
->[!Imports]
-> import org.littletonrobotics.junction.LoggedRobot;
-> import org.littletonrobotics.junction.Logger;
-> import org.littletonrobotics.junction.networktables.NT4Publisher;
-> import org.littletonrobotics.junction.wpilog.WPILOGWriter;
 
-<b>
-
->[!Extends]
-> public class Robot extends LoggedRobot {
-
-<b>
-
->[!Robot]
->   public Robot() {
->     m_robotContainer = new RobotContainer();
-> 
->     Logger.recordMetadata("ProjectName", "MeuRobo");
->     
->     if (isReal()) {
->         Logger.addDataReceiver(new WPILOGWriter("/home/lvuser/logs"));
->         Logger.addDataReceiver(new NT4Publisher());
->     } else {
->         Logger.addDataReceiver(new WPILOGWriter("logs"));
->         Logger.addDataReceiver(new NT4Publisher());
->     }
-> 
->     Logger.start();
->   }
 
 
 
