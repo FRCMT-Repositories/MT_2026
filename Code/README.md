@@ -31,8 +31,8 @@
 <div align="justify">
 
 Dentro da pasta **Advantage Scope** existem duas pastas principais:
-- **[Robot_MTModelA](./Avantage Scope/Robot_MTModelA)**  
-- **[Robot_MTModelB](./Robot_MTModelB)**  
+- **[Robot_MTModelA](https://github.com/FRCMT-Repositories/MT_2026/tree/main/Code/Advantage%20Scope/Robot_MTModelA)**
+- **[Robot_MTModelB](https://github.com/FRCMT-Repositories/MT_2026/tree/main/Code/Advantage%20Scope/Robot_MTModelB)**
 
 Ambas as pastas contêm todos os componentes necessários para a simulação dos mecanismos do robô no AdvantageScope.
 
@@ -47,7 +47,10 @@ A escolha entre os modelos afeta apenas a representação visual e estética do 
 <table align="center">
 <tr>
 	<td align="center" width="200"><b style="font-size:22px;">**config.json**</b></td>
-	<td align="center" width="200"><b style="font-size:22px;">Conjunto de informações do modelo, como por exemplo nome, posicionamento 3d do model principal e componentes (Subsistemas, como intake, elevador e Braço), posicionamento de vistas como câmeras acopladas ao robô.</b></td>
+	<td align="center" width="200"><b style="font-size:22px;">Conjunto de informações do modelo, como por exemplo nome, posicionamento 3d do model principal e componentes (Subsistemas, como intake, elevador e Braço), posicionamento de vistas como câmeras acopladas ao robô</b></td>
+
+	<td align="center" width="200"><b style="font-size:22px;">**config**</b></td>
+	<td align="center" width="200"><b style="font-size:22px;">Conjunto de informações</b></td>
 
 	<td align="center" width="200"><b style="font-size:22px;">**model.glb**</b></td>
 	<td align="center" width="200"><b style="font-size:22px;">Modelo CAD em da base do projeto, nesse caso o Chassi com todos os elementos fixos</b></td>
