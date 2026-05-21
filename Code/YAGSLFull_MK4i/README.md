@@ -147,6 +147,20 @@ public class RobotContainer {
 >
 > Dessa forma, embora a simulação funcione corretamente, a utilização prática desse código em um robô real provavelmente não apresentará o comportamento esperado, a menos que os IDs CAN, relações mecânicas, offsets e valores de PID sejam idênticos aos utilizados no projeto original.
 
+Para finalizar, também será necessário, dentro do método `configureBindings()`, criar o comando responsável por utilizar o `SwerveInputStream` citado anteriormente como sistema principal de controle do chassi.
+Em seguida, definiremos esse comando como o comportamento padrão do drivetrain através do método `setDefaultCommand()`, garantindo que o robô permaneça constantemente recebendo os comandos de movimentação do controle durante sua execução.
+Além disso, por questões de praticidade e boas práticas de desenvolvimento, também é recomendado associar um botão responsável por resetar a odometria do robô utilizando o método `zeroGyro()`, facilitando testes, reposicionamentos e validações durante a simulação.
+
+```java
+  private void configureBindings() {
+    Command driveMode = drivebase.driveFieldOriented(driveAngularVelocity);
+
+    drivebase.setDefaultCommand(driveMode);
+    Cmdriver.start().onTrue((Commands.runOnce(drivebase::zeroGyro)));
+...
+```
+
+
 
 </div>
 
