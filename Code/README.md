@@ -56,7 +56,7 @@ A escolha entre os modelos afeta apenas a representação visual e estética do 
 | `model_4.glb` | Modelo CAD correspondente ao 5º componente do mecanismo. Neste exemplo, o componente representado é a 1ª roda de coleta do braço. |
 | `model_5.glb` | Modelo CAD correspondente ao 6º componente do mecanismo. Neste exemplo, o componente representado é a 2ª roda de coleta do braço. |
 
-**[Aprenda a configurar o .json e os models](https://github.com/FRCMT-Repositories/MT_2026/tree/main/Code/Advantage%20Scope/Robot_MTModelA)**
+**[Como configurar os models](https://github.com/FRCMT-Repositories/MT_2026/tree/main/Code/Advantage%20Scope)**
 
 <h3>Adicionando ao Advantage Scope</h3>
 <div align="justify">
