@@ -75,7 +75,7 @@ A classe principal do robô precisa herdar (`extends`) de `LoggedRobot` para que
 
 Além disso, a inicialização utilizando `Logger.start()` é responsável por iniciar efetivamente o sistema de logging durante a execução do robô. Sem essa inicialização, mesmo que existam chamadas como `Logger.recordOutput()`, nenhuma informação será realmente enviada, gravada ou disponibilizada para ferramentas como o AdvantageScope.
 
-### Envio da odometrya
+### Envio da odometria
 
 Por padrão, a biblioteca YAGSL já disponibiliza um método responsável por retornar a pose do robô dentro do arquivo `SwerveSubsystem.java`. Além disso, esse subsistema também possui um método `periodic()`, que é executado continuamente durante o funcionamento do robô.
 
@@ -115,7 +115,48 @@ Aproveitando que já estamos trabalhando nesta classe, também podemos definir u
 > A variável `ctrInit` consiste em um simples `private boolean ctrInit = true;` declarado globalmente, utilizado para garantir que determinadas instruções sejam executadas apenas no primeiro ciclo da simulação.
 > Dessa forma, o preset inicial da odometria consegue seguir corretamente a lógica definida dentro do `simulationPeriodic()`, evitando conflitos entre a posição inicial configurada e as atualizações de movimento do robô durante a simulação.
 
+
+<h2>PASSO 3: Movimentação e validação</h2>
+
+Garanta que os eixos do controle estejam corretamente associados aos movimentos do robô. Por padrão, a YAGSL já fornece algumas configurações de movimentação utilizando `SwerveInputStream`, normalmente localizadas no `RobotContainer`, contendo os principais bindings necessários para o controle do chassi.
+
+Em alguns casos, determinados eixos do joystick podem apresentar movimentação invertida em relação ao comportamento esperado. Nessas situações, basta multiplicar o eixo correspondente por `-1`, invertendo sua direção de leitura, conforme demonstrado no exemplo abaixo:
+
+```java
+public class RobotContainer {
+  final CommandXboxController Cmdriver = new CommandXboxController(0);
+
+  public final SwerveSubsystem drivebase = new SwerveSubsystem(new File(Filesystem.getDeployDirectory(), "swerve/MK4i"));
+
+  private final SendableChooser<Command> autoChooser;
+
+  SwerveInputStream driveAngularVelocity = SwerveInputStream.of(drivebase.getSwerveDrive(),
+                                                                () -> -Cmdriver.getLeftY(),
+                                                                () -> -Cmdriver.getLeftX())
+                                                            .withControllerRotationAxis(() -> (-Cmdriver.getRightX()) * 0.8)
+                                                            .deadband(OperatorConstants.DEADBAND)
+                                                            .scaleTranslation(0.8)
+                                                            .allianceRelativeControl(true);
+...
+```
+
+⚠️ **ATENÇÃO - ISSO NÃO AFETA A SIMULAÇÃO**
+> [!WARNING]
+> **ATENÇÃO — ESTA CONFIGURAÇÃO NÃO AFETA A SIMULAÇÃO**
+>
+> O código disponibilizado foi originalmente testado e validado utilizando o robô **MIRAGE**, da equipe **FRC 9168**. Por esse motivo, os valores presentes no diretório `src/main/deploy/swerve/MK4i` estão diretamente relacionados à configuração física do chassi da equipe AGROBOT.
+>
+> Dessa forma, embora a simulação funcione corretamente, a utilização prática desse código em um robô real provavelmente não apresentará o comportamento esperado, a menos que os IDs CAN, relações mecânicas, offsets e valores de PID sejam idênticos aos utilizados no projeto original.
+
+
 </div>
+
+
+
+
+
+
+
 
 
 
