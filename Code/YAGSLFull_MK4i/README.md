@@ -141,6 +141,7 @@ public class RobotContainer {
                                                             .allianceRelativeControl(true);
 ...
 ```
+</div>
 
 > [!WARNING]
 > **⚠️ ATENÇÃO — ESTA CONFIGURAÇÃO NÃO AFETA A SIMULAÇÃO**
@@ -148,6 +149,8 @@ public class RobotContainer {
 > O código disponibilizado foi originalmente testado e validado utilizando o robô **MIRAGE**, da equipe **FRC 9168**. Por esse motivo, os valores presentes no diretório `src/main/deploy/swerve/MK4i` estão diretamente relacionados à configuração física do chassi da equipe AGROBOT.
 >
 > Dessa forma, embora a simulação funcione corretamente, a utilização prática desse código em um robô real provavelmente não apresentará o comportamento esperado, a menos que os IDs CAN, relações mecânicas, offsets e valores de PID sejam idênticos aos utilizados no projeto original.
+
+<div align="justify">
 
 Para finalizar, também será necessário, dentro do método `configureBindings()`, criar o comando responsável por utilizar o `SwerveInputStream` citado anteriormente como sistema principal de controle do chassi.
 
@@ -215,6 +218,8 @@ Após alguns segundos de inicialização, uma janela semelhante à apresentada n
 
 Durante a execução da simulação, o VS Code permanecerá exibindo uma janela de controle contendo as opções para pausar, continuar ou encerrar a simulação do robô.
 
+</div>
+
 > [!WARNING]
 > **⚠️ ATENÇÃO — SITUAÇÕES EM QUE A SIMULAÇÃO NÃO INICIA**
 >
@@ -230,6 +235,8 @@ Durante a execução da simulação, o VS Code permanecerá exibindo uma janela 
 > - Loops ou chamadas recursivas indevidas
 >
 > Em geral, se determinado problema impede o funcionamento da simulação, existe uma grande chance de que o mesmo comportamento também cause falhas no robô real. Por esse motivo, recomenda-se sempre corrigir completamente os erros apresentados antes de prosseguir com novos testes ou implementações.
+
+<div align="justify">
 
 <table align="center">
 
@@ -335,6 +342,8 @@ Com o modo teleoperado habilitado na Driver Station, o robô passará a responde
 
 </table>
 
+</div>
+
 > [!NOTE]
 > **NOTA — VALIDAÇÃO E CORREÇÃO DOS CONTROLES**
 >
@@ -344,6 +353,7 @@ Com o modo teleoperado habilitado na Driver Station, o robô passará a responde
 >
 > A simulação é justamente uma excelente ferramenta para identificar e corrigir esse tipo de inconsistência antes da utilização prática no robô real.
 
+<div align="justify">
 
 Chegou até aqui e está tudo funcionando corretamente? Então agora vamos avançar para a próxima etapa: a simulação completa dos subsistemas e componentes do robô.
 
