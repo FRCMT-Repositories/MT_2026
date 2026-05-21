@@ -1,3 +1,4 @@
+<!-- INICIO -->
 <h2>SIMULAÇÃO - PASSO A PASSO</h2> 
 <table align="center">
 
@@ -63,6 +64,7 @@ A escolha entre os modelos afeta apenas a representação visual e estética do 
 
 Após a seleção do modelo, tornasse necessario copiar a pasta do modelo escolhido para o diretório autoAssets do Advantage Scope, geralmente presente no seguinte diretório `C:\Users\user\AppData\Roaming\AdvantageScope\autoAssets`.
 
+</div>
 
 > [!WARNING]
 > **⚠️ ATENÇÃO — PROBLEMAS COMUNS**
@@ -70,8 +72,6 @@ Após a seleção do modelo, tornasse necessario copiar a pasta do modelo escolh
 > Recomenda-se criar um atalho para esta pasta, pois ela será utilizada com frequência durante o desenvolvimento e validação da simulação dos subsistemas.
 >
 > Durante o uso do Advantage Scope, em algumas situações o software pode remover automaticamente a pasta do modelo previamente carregada, tornando necessário adicioná-la novamente. Por esse motivo, recomenda-se não mover a pasta original do modelo diretamente para o diretório do Advantage Scope. Em vez disso, crie uma cópia da pasta do modelo dentro do diretório utilizado pelo software, preservando assim os arquivos originais do projeto.
-
-</div>
 
 <h2>PASSO 2: Definição do módulo swerve </h2>
 <div align="justify">
@@ -95,6 +95,8 @@ De forma geral, a biblioteca YAGSL atende muito bem diferentes configurações d
 
 Entretanto, quando o robô é composto majoritariamente por dispositivos CTRE, a biblioteca oficial da CTRE tende a apresentar uma estrutura mais limpa, organizada e otimizada, além de proporcionar melhor desempenho e integração nativa entre os componentes.
 
+</div>
+
 > [!NOTE]
 > **NOTE — QUAL ESCOLHER?**
 >
@@ -108,5 +110,3 @@ Entretanto, quando o robô é composto majoritariamente por dispositivos CTRE, a
 > É extremamente importante destacar que todas as bibliotecas disponibilizadas neste repositório foram testadas utilizando as versões referentes à temporada de 2026.
 > Atualizações futuras de bibliotecas, como por exemplo a YAGSL, podem ocasionar incompatibilidades ou pequenas quebras no código original.
 > Entretanto, na maioria dos casos, essas alterações podem ser corrigidas com pequenos ajustes e adaptações relacionadas às mudanças introduzidas pelas novas versões das bibliotecas.
-
-</div>
