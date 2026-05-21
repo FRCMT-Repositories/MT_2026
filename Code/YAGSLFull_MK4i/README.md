@@ -342,7 +342,11 @@ Com o modo teleoperado habilitado na Driver Station, o robô passará a responde
 >
 > A simulação é justamente uma excelente ferramenta para identificar e corrigir esse tipo de inconsistência antes da utilização prática no robô real.
 
-Chegou até aqui, tudo ok? Vamos então entender como simular todos os componentes, para isso acesse a pasta `[SimLib](dasda)`
+
+Chegou até aqui e está tudo funcionando corretamente? Então agora vamos avançar para a próxima etapa: a simulação completa dos subsistemas e componentes do robô.
+
+Para isso, acesse a pasta [`SimLib`](https://github.com/FRCMT-Repositories/MT_2026/tree/main/Code/SimLib), onde estão disponíveis as estruturas, exemplos e utilitários responsáveis pela simulação dos mecanismos utilizados no projeto.
+
 </div>
 
 
