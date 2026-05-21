@@ -267,8 +267,47 @@ Além disso, a linha do tempo da simulação também deverá começar a avançar
 
 Por fim, a Driver Station deverá indicar que o robô está conectado e comunicando normalmente com a simulação, conforme destacado pela seleção em vermelho.
 
+<h3>4.3 - Comprovação do funcionamento</h3>
 
+Localize o plot criado anteriormente na classe `SwerveSubsystem`, identificado como `ODOMETRY`. Em seguida, arraste esse sinal para o campo `Poses`, presente na visualização `3D Field` ou `2D Field` do AdvantageScope.
 
+Ao realizar essa associação, o robô passará a ser exibido e atualizado dinamicamente no ambiente de simulação conforme as informações de odometria enviadas pelo código.
+
+<table align="center">
+
+<tr>
+
+<td align="center" width="800">
+	<img src="https://raw.githubusercontent.com/FRCMT-Repositories/.github/main/profile/A_6.png" width="800">
+</td>
+
+</tr>
+
+</table>
+
+A partir desse momento, uma projeção estimada do robô deverá ser exibida na arena virtual do AdvantageScope.
+
+Com o modo teleoperado habilitado na Driver Station, o robô passará a responder aos comandos do controle, movimentando-se dinamicamente dentro do campo conforme as informações de odometria e os comandos enviados durante a simulação.
+
+<table align="center">
+
+<tr>
+
+<td align="center" width="500">
+	<img src="https://raw.githubusercontent.com/FRCMT-Repositories/.github/main/profile/A_7.png" width="500">
+</td>
+
+</tr>
+
+<tr>
+
+<td align="center" width="500">
+	<img src="https://raw.githubusercontent.com/FRCMT-Repositories/.github/main/profile/A_8.png" width="500">
+</td>
+
+</tr>
+
+</table>
 
 </div>
 
