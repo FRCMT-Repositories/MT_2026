@@ -297,10 +297,6 @@ Com o modo teleoperado habilitado na Driver Station, o robô passará a responde
 	<img src="https://raw.githubusercontent.com/FRCMT-Repositories/.github/main/profile/A_7_.png" width="500">
 </td>
 
-</tr>
-
-<tr>
-
 <td align="center" width="500">
 	<img src="https://raw.githubusercontent.com/FRCMT-Repositories/.github/main/profile/A_8_.png" width="500">
 </td>
