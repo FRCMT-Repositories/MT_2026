@@ -1,8 +1,10 @@
+<!-- MK4i -->
 <h1>ENTENDENDO O CÓDIGO</h1>
 <div align="justify">
 
-⚠️ **ATENÇÃO**
-
+> [!NOTE]
+> **NOTE — INICIALIZAÇÃO**
+>
 > Estes passos servem apenas para nortear oque é desenvolvido para o funcionamento correto da simulação, considerando um novo template, ou seja, um código novo, caso queira utilizar o exemplo completo, os passos citados a seguir devem ser desconsiderados, visto que essas modificações já estão inclusas.
 
 <h2>PASSO 1: AdvantageKit</h2>
