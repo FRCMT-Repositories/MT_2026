@@ -190,9 +190,7 @@ Habilite essa opção e, em seguida, clique em `OK` para continuar a execução 
 <tr>
 
 <td align="center" width="500">
-
 	<img src="https://raw.githubusercontent.com/FRCMT-Repositories/.github/main/profile/A_1_1.png" width="500">
-
 </td>
 
 </tr>
@@ -206,9 +204,7 @@ Após alguns segundos de inicialização, uma janela semelhante à apresentada n
 <tr>
 
 <td align="center" width="1000">
-
 	<img src="https://raw.githubusercontent.com/FRCMT-Repositories/.github/main/profile/A_2.png" width="1000">
-
 </td>
 
 </tr>
@@ -222,9 +218,7 @@ Durante a execução da simulação, o VS Code permanecerá exibindo uma janela 
 <tr>
 
 <td align="center" width="300">
-
 	<img src="https://raw.githubusercontent.com/FRCMT-Repositories/.github/main/profile/A_3.png" width="300">
-
 </td>
 
 </tr>
