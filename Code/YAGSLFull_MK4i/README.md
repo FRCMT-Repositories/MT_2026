@@ -75,7 +75,50 @@ A classe principal do robô precisa herdar (`extends`) de `LoggedRobot` para que
 
 Além disso, a inicialização utilizando `Logger.start()` é responsável por iniciar efetivamente o sistema de logging durante a execução do robô. Sem essa inicialização, mesmo que existam chamadas como `Logger.recordOutput()`, nenhuma informação será realmente enviada, gravada ou disponibilizada para ferramentas como o AdvantageScope.
 
+### Envio da odometrya
+
+Por padrão, a biblioteca YAGSL já disponibiliza um método responsável por retornar a pose do robô dentro do arquivo `SwerveSubsystem.java`. Além disso, esse subsistema também possui um método `periodic()`, que é executado continuamente durante o funcionamento do robô.
+
+Dessa forma, podemos aproveitar essa estrutura para realizar o envio (plot) das informações de odometria para o AdvantageScope.
+
+```java
+  @Override
+  public void periodic() {
+    swerveDrive.updateOdometry();
+
+    if (visionDriveTest) {
+        vision.updatePoseEstimation(swerveDrive);
+    }
+
+    Pose2d currentPose = this.getPose();
+    Logger.recordOutput("ODOMETRY", currentPose);
+    
+  }
+```
+
+Note que, diferentemente do `SmartDashboard.put...`, o `Logger.recordOutput()` não precisa que informemos explicitamente o tipo de dado que será enviado. Isso acontece porque o Logger possui suporte automático para diferentes tipos de informações, sendo capaz de interpretar e registrar valores como números, booleanos, poses, arrays, estruturas geométricas e diversos outros objetos utilizados no WPILib.
+
+Aproveitando que já estamos trabalhando nesta classe, também podemos definir uma posição inicial fixa para o robô durante a simulação, facilitando testes, validações e a visualização do comportamento dos subsistemas dentro do ambiente virtual.
+
+```java
+  @Override
+  public void simulationPeriodic()
+  {
+    if(ctrInit){
+        if(!isRedAlliance()) this.resetOdometry(new Pose2d(2, 4, new Rotation2d(Math.PI)));
+        else this.resetOdometry(new Pose2d(13.5, 4, new Rotation2d(0)));
+        ctrInit = false;
+    }
+  }
+```
+
+> A variável `ctrInit` consiste em um simples `private boolean ctrInit = true;` declarado globalmente, utilizado para garantir que determinadas instruções sejam executadas apenas no primeiro ciclo da simulação.
+> Dessa forma, o preset inicial da odometria consegue seguir corretamente a lógica definida dentro do `simulationPeriodic()`, evitando conflitos entre a posição inicial configurada e as atualizações de movimento do robô durante a simulação.
+
 </div>
+
+
+
 
 
 
