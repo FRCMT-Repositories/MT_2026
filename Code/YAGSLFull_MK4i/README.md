@@ -1,12 +1,13 @@
 <!-- MK4i -->
 <h1>ENTENDENDO O CÓDIGO</h1>
-<div align="justify">
+
 
 > [!NOTE]
 > **NOTE — INICIALIZAÇÃO**
 >
 > Estes passos servem apenas para nortear oque é desenvolvido para o funcionamento correto da simulação, considerando um novo template, ou seja, um código novo, caso queira utilizar o exemplo completo, os passos citados a seguir devem ser desconsiderados, visto que essas modificações já estão inclusas.
 
+<div align="justify">
 <h2>PASSO 1: AdvantageKit</h2>
 
 Ao baixar o template desejado ou criar um novo projeto — seja ele baseado em Command Robot, Command Timed Skeleton ou qualquer outra estrutura — é altamente recomendável alterar a classe principal do robô para utilizar o `LoggedRobot`.
@@ -15,15 +16,28 @@ Além de auxiliar diretamente no desenvolvimento e validação dos subsistemas, 
 
 Para utilizar esta ferramenta, precisamos ter a biblioteca `AdvantageKit` instalada.
 
+</div>
+
+> [!NOTE]
+> **NOTE — AdvantageKit**
+>
 > A instalação do AdvatangeKit pode ser realizada na aba `WPILib Vendor Dependencies` presente no canto superior esquerdo do `WPILib VS Code`.
+
+
+<div align="justify">
 
 Esta etapa deve ser realizada como parte das boas práticas de desenvolvimento, sendo utilizada frequentemente para o envio de sinais, posições, estados e demais informações relevantes para dashboards e ferramentas de análise, como o AdvantageScope.
 A utilização do Logger facilita significativamente o monitoramento e visualização do comportamento do robô durante testes e partidas, tornando o processo de desenvolvimento mais organizado, eficiente e intuitivo.
 
-**Observação**
+</div>
 
+> [!NOTE]
+> **NOTE — Logger**
+>
 > O uso do Logger não é obrigatório para a validação da simulação. Para o funcionamento básico dos modelos e plots, é possível utilizar ferramentas como `SmartDashboard`, `Shuffleboard` ou qualquer outro sistema de publicação de dados.
 > Entretanto, conforme mencionado anteriormente, o uso do AdvantageKit é altamente recomendado devido à praticidade, organização e aos recursos avançados que a ferramenta oferece, especialmente para debug, análise temporal de sinais e revisão pós-teste ou pós-partida.
+
+<div align="justify">
 
 <h2>PASSO 2: Looger e Odometria</h2>
 
