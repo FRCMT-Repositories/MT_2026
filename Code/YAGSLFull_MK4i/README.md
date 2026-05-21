@@ -116,7 +116,7 @@ Aproveitando que já estamos trabalhando nesta classe, também podemos definir u
 > Dessa forma, o preset inicial da odometria consegue seguir corretamente a lógica definida dentro do `simulationPeriodic()`, evitando conflitos entre a posição inicial configurada e as atualizações de movimento do robô durante a simulação.
 
 
-<h2>PASSO 3: Movimentação e validação</h2>
+<h2>PASSO 3: Movimentação</h2>
 
 Garanta que os eixos do controle estejam corretamente associados aos movimentos do robô. Por padrão, a YAGSL já fornece algumas configurações de movimentação utilizando `SwerveInputStream`, normalmente localizadas no `RobotContainer`, contendo os principais bindings necessários para o controle do chassi.
 
@@ -162,13 +162,26 @@ Além disso, por questões de praticidade e boas práticas de desenvolvimento, t
 ...
 ```
 
+<h2>PASSO 4: Validação</h2>
+Agora que já configuramos a base do código, vamos iniciar a simulação.
 
+<h3>4.1 - Inicialização</h3>
+Clique no ícone da WPILib destacado em vermelho na imagem abaixo. Em seguida, pesquise por `simulate`, selecione a opção indicada pela seta verde — correspondente à mesma descrição apresentada — e, por fim, clique em `OK` para iniciar a simulação do projeto.
+
+<td align="center" width="1000">
+	<img src="https://raw.githubusercontent.com/FRCMT-Repositories/.github/main/profile/A_1.png" width="1000">
+</td>
+
+Após essa etapa, o projeto será compilado automaticamente (`build`). Caso não haja erros durante a compilação, uma nova janela será exibida solicitando a utilização da Driver Station em conjunto com a simulação.
+
+Habilite essa opção e, em seguida, clique em `OK` para continuar a execução da simulação do robô.<img src="https://raw.githubusercontent.com/FRCMT-Repositories/.github/main/profile/A_1_1.png" width="250">
 
 </div>
 
 
 
-
+<b>
+<b>
 
 
 

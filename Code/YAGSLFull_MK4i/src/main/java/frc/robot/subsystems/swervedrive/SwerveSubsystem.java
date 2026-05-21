@@ -156,7 +156,6 @@ public class SwerveSubsystem extends SubsystemBase
   public void simulationPeriodic()
   {
     if(ctrInit){
-        /* Rodar Isso apenas se for na simulação */
         if(!isRedAlliance()) this.resetOdometry(new Pose2d(2, 4, new Rotation2d(Math.PI)));
         else this.resetOdometry(new Pose2d(13.5, 4, new Rotation2d(0)));
         ctrInit = false;
