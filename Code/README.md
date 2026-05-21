@@ -101,8 +101,9 @@ A escolha da biblioteca de desenvolvimento fica inteiramente a critério de cada
 
 A única exigência para a utilização correta da simulação do robô é a disponibilização do plot da odometria do robô. Em ambos os exemplos apresentados anteriormente, cada biblioteca possui, em seu escopo principal, a publicação das informações de odometria necessárias para integração com o Advantage Scope. Esses dados são fundamentais para permitir o posicionamento e movimentação correta do robô dentro do ambiente de simulação.
 
-⚠️ **ATENÇÃO**
-
+> [!WARNING]
+> **⚠️ ATENÇÃO — PROBLEMA DE VERSÃO**
+>
 > É extremamente importante destacar que todas as bibliotecas disponibilizadas neste repositório foram testadas utilizando as versões referentes à temporada de 2026.
 > Atualizações futuras de bibliotecas, como por exemplo a YAGSL, podem ocasionar incompatibilidades ou pequenas quebras no código original.
 > Entretanto, na maioria dos casos, essas alterações podem ser corrigidas com pequenos ajustes e adaptações relacionadas às mudanças introduzidas pelas novas versões das bibliotecas.
