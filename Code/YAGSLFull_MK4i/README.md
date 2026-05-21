@@ -342,7 +342,7 @@ Com o modo teleoperado habilitado na Driver Station, o robô passará a responde
 >
 > A simulação é justamente uma excelente ferramenta para identificar e corrigir esse tipo de inconsistência antes da utilização prática no robô real.
 
-
+Chegou até aqui, tudo ok? Vamos então entender como simular todos os componentes, para isso acesse a pasta `[SimLib](dasda)`
 </div>
 
 
