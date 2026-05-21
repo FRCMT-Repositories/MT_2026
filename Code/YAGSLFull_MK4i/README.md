@@ -225,90 +225,51 @@ Durante a execução da simulação, o VS Code permanecerá exibindo uma janela 
 
 </table>
 
+<h3>4.2 - AdvantageScope</h3>
 
-</div>
+Com a simulação já em execução, agora podemos validar se a leitura da odometria está funcionando corretamente.
+
+Para isso, abra o `AdvantageScope`, seja diretamente pelo computador ou através da opção `Start Tool`, disponível no ícone da WPILib dentro do VS Code.
+
+Após iniciar o software, conecte-o à simulação utilizando a opção `File → Connect to Simulator → Default` ou, se preferir, através do atalho `Ctrl + Shift + K`.
+
+<table align="center">
+
+<tr>
+
+<td align="center" width="750">
+	<img src="https://raw.githubusercontent.com/FRCMT-Repositories/.github/main/profile/A_4.png" width="750">
+</td>
+
+</tr>
+
+</table>
+
+A partir desse momento, sua simulação estará funcionando integrada à Driver Station. Isso significa que o robô passará a respeitar os estados de habilitação (`Enable/Disable`) exatamente como ocorre em um robô real.
+
+Dessa forma, será possível executar normalmente o modo teleoperado através da Driver Station, enquanto os controles responsáveis pela movimentação e acionamento dos subsistemas também serão gerenciados por ela, reproduzindo com maior fidelidade o comportamento real do robô durante partidas e testes.
+
+<table align="center">
+
+<tr>
+
+<td align="center" width="750">
+	<img src="https://raw.githubusercontent.com/FRCMT-Repositories/.github/main/profile/A_5.png" width="750">
+</td>
+
+</tr>
+
+</table>
+
+Note que as variáveis de saída definidas no código já devem estar sendo exibidas no AdvantageScope, conforme destacado pela seleção em azul na imagem.
+
+Além disso, a linha do tempo da simulação também deverá começar a avançar continuamente, como indicado pela seleção em verde, demonstrando que os sinais estão sendo atualizados corretamente em tempo real.
+
+Por fim, a Driver Station deverá indicar que o robô está conectado e comunicando normalmente com a simulação, conforme destacado pela seleção em vermelho.
 
 
-
-<b>
-</b>
-
-
-
-
-
-
-
-
-
-
-
-
-
-| Arquivo | Descrição |
-|---|---|
-| `config.json` | Conjunto de configurações responsáveis pela definição estrutural do modelo, incluindo nome do robô, posicionamento 3D do modelo principal, composição dos subsistemas (como intake, elevador e braço), além da configuração de elementos auxiliares, como câmeras e diferentes pontos de visualização utilizados na simulação. |
-| `model.glb` | Modelo CAD base do projeto, contendo todos os elementos estruturais fixos do robô. |
-| `model_0.glb` | Modelo CAD correspondente ao 1º componente do mecanismo. Neste exemplo, o componente representado é a gaveta do intake. |
-| `model_1.glb` | Modelo CAD correspondente ao 2º componente do mecanismo. Neste exemplo, o componente representado é o coletor do intake. |
-| `model_2.glb` | Modelo CAD correspondente ao 3º componente do mecanismo. Neste exemplo, o componente representado é o elevador. |
-| `model_3.glb` | Modelo CAD correspondente ao 4º componente do mecanismo. Neste exemplo, o componente representado é o braço. |
-| `model_4.glb` | Modelo CAD correspondente ao 5º componente do mecanismo. Neste exemplo, o componente representado é a 1ª roda de coleta do braço. |
-| `model_5.glb` | Modelo CAD correspondente ao 6º componente do mecanismo. Neste exemplo, o componente representado é a 2ª roda de coleta do braço. |
-
-**[Aprenda a configurar o .json e os models](https://github.com/FRCMT-Repositories/MT_2026/tree/main/Code/Advantage%20Scope/Robot_MTModelA)**
-
-<h3>Adicionando ao Advantage Scope</h3>
-<div align="justify">
-
-Após a seleção do modelo, tornasse necessario copiar a pasta do modelo escolhido para o diretório autoAssets do Advantage Scope, geralmente presente no seguinte diretório `C:\Users\user\AppData\Roaming\AdvantageScope\autoAssets`.
-
-**ATENÇÃO**
-
-- Recomenda-se criar um atalho para esta pasta, pois ela será utilizada com frequência durante o desenvolvimento e validação da simulação dos subsistemas.
-
-- Durante o uso do Advantage Scope, em algumas situações o software pode remover automaticamente a pasta do modelo previamente carregada, tornando necessário adicioná-la novamente. Por esse motivo, recomenda-se não mover a pasta original do modelo diretamente para o diretório do Advantage Scope. Em vez disso, crie uma cópia da pasta do modelo dentro do diretório utilizado pelo software, preservando assim os arquivos originais do projeto.
-
-</div>
-
-<h2>PASSO 2: Definição do módulo swerve </h2>
-<div align="justify">
-
-Nesta etapa, tornasse necessario escolher a biblioteca responsável por controlar o seu módulo swerve, atualmente temos 2 exemplos funcionais:
-
-</div>
-
-<div align="center">
-
-| MÓDULO | BIBLIOTECA | TIPO DE MOTOR |
-|:---:|:---:|:---:|
-| [MK4i](https://github.com/FRCMT-Repositories/MT_2026/tree/main/Code/YAGSLFull_MK4i)| YAGSL | NEO e KRAKEN |
-| [MK5n](https://github.com/FRCMT-Repositories/MT_2026/tree/main/Code/CTRFull_MK5n) | CTRe | KRAKEN |
-
-</div>
-
-<div align="justify">
-
-De forma geral, a biblioteca YAGSL atende muito bem diferentes configurações de módulos swerve, oferecendo grande flexibilidade e facilidade de adaptação para diversos tipos de hardware.
-
-Entretanto, quando o robô é composto majoritariamente por dispositivos CTRE, a biblioteca oficial da CTRE tende a apresentar uma estrutura mais limpa, organizada e otimizada, além de proporcionar melhor desempenho e integração nativa entre os componentes.
-
-**Observação:**
-
-A escolha da biblioteca de desenvolvimento fica inteiramente a critério de cada equipe. Caso optem por utilizar soluções diferentes das apresentadas neste repositório, sintam-se totalmente à vontade para adaptá-las conforme as necessidades e preferências do projeto.
-
-A única exigência para a utilização correta da simulação do robô é a disponibilização do plot da odometria do robô. Em ambos os exemplos apresentados anteriormente, cada biblioteca possui, em seu escopo principal, a publicação das informações de odometria necessárias para integração com o Advantage Scope. Esses dados são fundamentais para permitir o posicionamento e movimentação correta do robô dentro do ambiente de simulação.
-
-⚠️ **ATENÇÃO**
-
-> É extremamente importante destacar que todas as bibliotecas disponibilizadas neste repositório foram testadas utilizando as versões referentes à temporada de 2026.
-> Atualizações futuras de bibliotecas, como por exemplo a YAGSL, podem ocasionar incompatibilidades ou pequenas quebras no código original.
-> Entretanto, na maioria dos casos, essas alterações podem ser corrigidas com pequenos ajustes e adaptações relacionadas às mudanças introduzidas pelas novas versões das bibliotecas.
-
-</div>
-
-<h2>PASSO 3: Definição do módulo swerve </h2>
-<div align="justify">
 
 
 </div>
+
+
