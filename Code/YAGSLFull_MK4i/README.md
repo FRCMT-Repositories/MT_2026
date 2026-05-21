@@ -166,6 +166,7 @@ Além disso, por questões de praticidade e boas práticas de desenvolvimento, t
 Agora que já configuramos a base do código, vamos iniciar a simulação.
 
 <h3>4.1 - Inicialização</h3>
+
 Clique no ícone da WPILib destacado em vermelho na imagem abaixo. Em seguida, pesquise por `simulate`, selecione a opção indicada pela seta verde — correspondente à mesma descrição apresentada — e, por fim, clique em `OK` para iniciar a simulação do projeto.
 
 <td align="center" width="1000">
@@ -174,7 +175,11 @@ Clique no ícone da WPILib destacado em vermelho na imagem abaixo. Em seguida, p
 
 Após essa etapa, o projeto será compilado automaticamente (`build`). Caso não haja erros durante a compilação, uma nova janela será exibida solicitando a utilização da Driver Station em conjunto com a simulação.
 
-Habilite essa opção e, em seguida, clique em `OK` para continuar a execução da simulação do robô.<img src="https://raw.githubusercontent.com/FRCMT-Repositories/.github/main/profile/A_1_1.png" width="250">
+Habilite essa opção e, em seguida, clique em `OK` para continuar a execução da simulação do robô.
+
+<td align="center">
+	<img src="https://raw.githubusercontent.com/FRCMT-Repositories/.github/main/profile/A_1_1.png" width="500">
+</td>
 
 </div>
 
