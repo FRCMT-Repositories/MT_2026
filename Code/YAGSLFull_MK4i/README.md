@@ -213,6 +213,22 @@ Após alguns segundos de inicialização, uma janela semelhante à apresentada n
 
 Durante a execução da simulação, o VS Code permanecerá exibindo uma janela de controle contendo as opções para pausar, continuar ou encerrar a simulação do robô.
 
+> [!WARNING]
+> **⚠️ ATENÇÃO — SITUAÇÕES EM QUE A SIMULAÇÃO NÃO INICIA**
+>
+> Durante o desenvolvimento do código, podem ocorrer situações em que a simulação deixe de iniciar corretamente. Na maioria dos casos, isso acontece porque o sistema detecta comportamentos considerados inseguros ou inconsistentes dentro da aplicação.
+>
+> Alguns exemplos comuns incluem:
+>
+> - Variáveis declaradas sem inicialização adequada
+> - Objetos ou subsistemas não instanciados corretamente
+> - Conflitos de controle simultâneo sobre um mesmo componente
+> - Erros de lógica envolvendo comandos, threads ou schedulers
+> - Referências nulas (`NullPointerException`)
+> - Loops ou chamadas recursivas indevidas
+>
+> Em geral, se determinado problema impede o funcionamento da simulação, existe uma grande chance de que o mesmo comportamento também cause falhas no robô real. Por esse motivo, recomenda-se sempre corrigir completamente os erros apresentados antes de prosseguir com novos testes ou implementações.
+
 <table align="center">
 
 <tr>
@@ -317,7 +333,14 @@ Com o modo teleoperado habilitado na Driver Station, o robô passará a responde
 
 </table>
 
-
+> [!NOTE]
+> **NOTA — VALIDAÇÃO E CORREÇÃO DOS CONTROLES**
+>
+> Com a simulação funcionando corretamente, o robô deverá respeitar adequadamente as orientações da arena e o comportamento esperado para cada aliança (`Blue` e `Red`).
+>
+> Dessa forma, ao operar o robô, é importante validar se os movimentos executados correspondem corretamente aos comandos enviados. Por exemplo, caso o robô gire no sentido oposto ao esperado ou apresente movimentações invertidas em relação ao campo, isso indica que determinados eixos, orientações ou referências de rotação ainda precisam ser ajustados na programação.
+>
+> A simulação é justamente uma excelente ferramenta para identificar e corrigir esse tipo de inconsistência antes da utilização prática no robô real.
 
 
 </div>
