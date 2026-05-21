@@ -170,23 +170,67 @@ Agora que já configuramos a base do código, vamos iniciar a simulação.
 Clique no ícone da WPILib destacado em vermelho na imagem abaixo. Em seguida, pesquise por `simulate`, selecione a opção indicada pela seta verde — correspondente à mesma descrição apresentada — e, por fim, clique em `OK` para iniciar a simulação do projeto.
 
 <table align="center">
+
 <tr>
+
 <td align="center" width="1000">
 	<img src="https://raw.githubusercontent.com/FRCMT-Repositories/.github/main/profile/A_1.png" width="1000">
 </td>
+
 </tr>
+
 </table>
+
 Após essa etapa, o projeto será compilado automaticamente (`build`). Caso não haja erros durante a compilação, uma nova janela será exibida solicitando a utilização da Driver Station em conjunto com a simulação.
 
 Habilite essa opção e, em seguida, clique em `OK` para continuar a execução da simulação do robô.
 
 <table align="center">
+
 <tr>
+
 <td align="center" width="500">
+
 	<img src="https://raw.githubusercontent.com/FRCMT-Repositories/.github/main/profile/A_1_1.png" width="500">
+
 </td>
+
 </tr>
+
 </table>
+
+Após alguns segundos de inicialização, uma janela semelhante à apresentada na imagem abaixo deverá ser aberta automaticamente:
+
+<table align="center">
+
+<tr>
+
+<td align="center" width="1000">
+
+	<img src="https://raw.githubusercontent.com/FRCMT-Repositories/.github/main/profile/A_2.png" width="1000">
+
+</td>
+
+</tr>
+
+</table>
+
+Durante a execução da simulação, o VS Code permanecerá exibindo uma janela de controle contendo as opções para pausar, continuar ou encerrar a simulação do robô.
+
+<table align="center">
+
+<tr>
+
+<td align="center" width="300">
+
+	<img src="https://raw.githubusercontent.com/FRCMT-Repositories/.github/main/profile/A_3.png" width="300">
+
+</td>
+
+</tr>
+
+</table>
+
 
 </div>
 
