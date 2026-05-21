@@ -62,16 +62,31 @@ A biblioteca também possui alguns métodos auxiliares importantes:
 - `setVelocity()`  
   Responsável por definir a velocidade de rotação de mecanismos contínuos, como rodas de intake, coletores ou componentes que giram em torno do próprio eixo.
 
-
-
-
 <h2>PASSO 2: Intake</h2>
 
+<h3>Direto ao ponto</h3>
 
+O arquivo `SimIntake.java` contém toda a estrutura e parametrização necessária para controlar os componentes `model_0` — responsável pela gaveta/articulação do intake — e `model_1` — correspondente ao coletor do intake.
 
-<h2>INTAKE</h2>
+Isso significa que, ao adicionar essa classe ao projeto e instanciar seu objeto dentro do `RobotContainer`, já será possível simular os acionamentos e movimentações do sistema de intake diretamente no AdvantageScope.
 
+```java
+private SimIntake mSimIntake = new SimIntake(20, 1.5, 3);
+```
 
+No RobotContainer mais especificamente no configureBindings podemos efetuar os acionamentos do intake como mostra o exemplo abaixo:
 
+```java
+  private void configureBindings() {
+    Cmdriver.a().onTrue(Commands.runOnce(() -> mSimIntake.setPosition(20, 3)));
+    Cmdriver.a().onTrue(Commands.runOnce(() -> mSimIntake.setVelocity(1)));
+    Cmdriver.b().onTrue(Commands.runOnce(() -> mSimIntake.setPosition(0, 3)));
+    Cmdriver.b().onTrue(Commands.runOnce(() -> mSimIntake.setVelocity(0)));
+    Cmdriver.back().onTrue(Commands.runOnce(() -> mSimIntake.setPosition(0, 3)));
+    Cmdriver.back().onTrue(Commands.runOnce(() -> mSimIntake.setVelocity(0)));
+
+...
+```
 
 </div>
+
