@@ -177,7 +177,7 @@ Após essa etapa, o projeto será compilado automaticamente (`build`). Caso não
 
 Habilite essa opção e, em seguida, clique em `OK` para continuar a execução da simulação do robô.
 
-<td align="center">
+<td align="center" width="500">
 	<img src="https://raw.githubusercontent.com/FRCMT-Repositories/.github/main/profile/A_1_1.png" width="500">
 </td>
 
@@ -186,7 +186,7 @@ Habilite essa opção e, em seguida, clique em `OK` para continuar a execução 
 
 
 <b>
-<b>
+</b>
 
 
 
