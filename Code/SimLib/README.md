@@ -21,7 +21,7 @@ Para alterar o modelo exibido no AdvantageScope, basta clicar no ícone indicado
 <tr>
 
 <td align="center" width="800">
-	<img src="https://raw.githubusercontent.com/FRCMT-Repositories/.github/main/profile/A_9.png" width="800">
+	<img src="https://raw.githubusercontent.com/FRCMT-Repositories/.github/main/profile/A_9_.png" width="800">
 </td>
 
 </tr>
