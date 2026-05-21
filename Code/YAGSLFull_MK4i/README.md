@@ -309,24 +309,24 @@ Com o modo teleoperado habilitado na Driver Station, o robô passará a responde
 
 <tr>
 
-<td align="center" width="480">
-	<img src="https://raw.githubusercontent.com/FRCMT-Repositories/.github/main/profile/A_7_.png" width="480">
+<td align="center" width="470">
+	<img src="https://raw.githubusercontent.com/FRCMT-Repositories/.github/main/profile/A_7_.png" width="470">
 </td>
 
-<td align="center" width="480">
-	<img src="https://raw.githubusercontent.com/FRCMT-Repositories/.github/main/profile/A_8_.png" width="480">
+<td align="center" width="470">
+	<img src="https://raw.githubusercontent.com/FRCMT-Repositories/.github/main/profile/A_8_.png" width="470">
 </td>
 
 </tr>
 
 <tr>
 
-<td align="center" width="480">
-	<img src="https://raw.githubusercontent.com/FRCMT-Repositories/.github/main/profile/POSE3D_.gif" width="480">
+<td align="center" width="470">
+	<img src="https://raw.githubusercontent.com/FRCMT-Repositories/.github/main/profile/POSE3D_.gif" width="470">
 </td>
 
-<td align="center" width="480">
-	<img src="https://raw.githubusercontent.com/FRCMT-Repositories/.github/main/profile/POSE2D.gif" width="480">
+<td align="center" width="470">
+	<img src="https://raw.githubusercontent.com/FRCMT-Repositories/.github/main/profile/POSE2D.gif" width="470">
 </td>
 
 </tr>
