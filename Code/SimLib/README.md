@@ -273,10 +273,14 @@ Com os valores calculados, já podemos realizar o plot da posição do component
 
 ```java
         Logger.recordOutput("SubSystemSim/Intake/Gaveta", new Pose3d[] { new Pose3d(
-            Intake_CA, 0.0, -Intake_CO, new Rotation3d(0.0, 0, 0))});
+            Intake_CA, 0.0, -Intake_CO, new Rotation3d(0.0, 0.0, 0.0))});
 ```
 
+Os valores de Rotation estão zerados pois, já estão parametrizados no arquivo `config.json`.
+
 Observe que o valor do Cateto Oposto está invertido `-Intake_CO`. Isso ocorre porque, ao avançar o mecanismo, a extremidade do intake tende a se aproximar do chão, fazendo com que o deslocamento no eixo vertical `Z` aconteça no sentido negativo dentro do sistema de coordenadas 3D utilizado pela simulação.
+
+
 
 </div>
 
