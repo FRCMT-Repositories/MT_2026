@@ -46,9 +46,7 @@ public class SimIntake extends SubsystemBase {
             Intake_CA, 0.0, -Intake_CO,new Rotation3d(0.0, 0, 0))});
 
         Logger.recordOutput("SubSystemSim/Intake/Coletor", new Pose3d[] { new Pose3d(
-            Intake_CA + 0.256619 , 0.0, -Intake_CO + 0.214588 , new Rotation3d(0, Rotation, 0))});
-            //0.256619 distancia do centro do robô até o centro do coletor {Intake recolhido}
-            //0.214588 distancia do chão até o centro do coletor {Intake recolhido}
+            Intake_CA + 0.27168 , 0.0, -Intake_CO + 0.21308 , new Rotation3d(0, Rotation, 0))});
     }
 
     /**

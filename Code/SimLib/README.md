@@ -79,7 +79,7 @@ private SimIntake mSimIntake = new SimIntake(20, 1.5, 3);
 > [!TIP]
 > **PARAMETRÔS**
 >
-> 20 = Valor real do encoder com meu sistema acionado no maximo, esse valor é varivel em função de cada robô.
+> 20 = Valor "real" do encoder com meu sistema acionado no maximo, esse valor é varivel em função de cada robô.
 >
 > 1.5 = Valor do kP para o sistema de movimento do intake.
 >
@@ -332,11 +332,57 @@ Dessa forma, o mecanismo será corretamente posicionado dentro da simulação, r
             Intake_CA + 0.27168 , 0.0, -Intake_CO + 0.21308 , new Rotation3d(0.0, Rotation, 0.0))});
 ```
 Nesse trecho:
-- Intake_CA representa o deslocamento horizontal da gaveta
-- -Intake_CO representa o deslocamento vertical da gaveta no sentido do chão
-- 0.27168 é o offset inicial do coletor no eixo X
-- 0.21308 é o offset inicial do coletor no eixo Z
-- Rotation representa a rotação contínua do coletor em torno do próprio eixo
+- `Intake_CA` representa o deslocamento horizontal da gaveta
+- `-Intake_CO` representa o deslocamento vertical da gaveta no sentido do chão
+- `0.27168` é o offset inicial do coletor no eixo X
+- `0.21308` é o offset inicial do coletor no eixo Z
+- `Rotation` representa a rotação contínua do coletor em torno do próprio eixo
+
+<h2>PASSO 3: Elevator</h2>
+
+<h3>Direto ao ponto</h3>
+
+O arquivo `SimElevator.java` contém toda a estrutura e parametrização necessária para controlar o componente `model_2` — responsável pela elevador.
+
+Isso significa que, ao adicionar essa classe ao projeto e instanciar seu objeto dentro do `RobotContainer`, já será possível simular os acionamentos e movimentações do sistema do elevador diretamente no AdvantageScope.
+
+```java
+private SimElevator mSimElevator = new SimElevator(400, 1.5);
+```
+
+</div>
+
+> [!TIP]
+> **PARAMETRÔS**
+>
+> 400 = Valor "real" do encoder com meu sistema acionado no maximo, esse valor é varivel em função de cada robô.
+>
+> 1.5 = Valor do kP para o sistema de movimento do elevador.
+
+<div align="justify">
+
+Dentro do `RobotContainer`, mais especificamente no método `configureBindings()`, podemos definir os comandos responsáveis pelo acionamento e controle do elevador, conforme demonstrado no exemplo abaixo:
+
+```java
+  private void configureBindings() {
+    Cmdriver.povUp().onTrue(mSimElevator.CMDsetPosition(400, 3));	// Move o elevador para a posição maxima
+    Cmdriver.povDown().onTrue(mSimElevator.CMDsetPosition(0, 3));	// Move o elevador para a posição minima
+    Cmdriver.back().onTrue(Commands.runOnce(() -> mSimElevator.setPosition(0, 3)));	// Move o elevador para a posição minima
+
+...
+```
+
+Para visualizar o movimento dos mecanismos durante a simulação, é necessário associar os componentes ao modelo do robô dentro do AdvantageScope.
+
+Para isso, abra o AdvantageScope e localize os plots relacionados ao intake no seguinte diretório:
+
+`AdvantageKit` → `SubSystemSim` → `Intake`
+
+Após localizar a pasta do intake, estarão disponíveis os plots `Coletor` e `Gaveta`, responsáveis pela simulação 3D dos mecanismos do sistema de intake.
+
+Para validar o funcionamento do mecanismo, basta arrastar o plot `Gaveta` para dentro do modelo principal do robô, previamente inserido na etapa anterior. Após essa associação, o componente passará a acompanhar dinamicamente os movimentos enviados pela simulação.
+
+
 
 </div>
 
