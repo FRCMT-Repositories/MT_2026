@@ -144,6 +144,21 @@ Para validar o funcionamento do mecanismo, basta arrastar o plot `Gaveta` para d
 
 <div align="justify">
 
+<table align="center">
+
+<tr>
+
+<td align="center" width="800">
+	<img src="https://github.com/FRCMT-Repositories/.github/blob/main/profile/IntakeCalc/IntakeFuncionando.gif" width="800">
+</td>
+
+</tr>
+
+</table>
+
+- Ao pressionar o botão A o intake deve avançar e acionar o rolete de coleta
+- Ao pressionar o botão B o intake deve recolher e desligar o rolete de coleta
+
 <h3>Por trás da classe</h3>
 
 Agora vamos desmembrar o funcionamento interno da classe do intake, entendendo como métodos como `setPosition()` e `setVelocity()` operam, não apenas do ponto de vista lógico, mas também como essas informações são convertidas em movimentações reais dos componentes 3D dentro do AdvantageScope.
