@@ -143,10 +143,109 @@ Para validar o funcionamento do mecanismo, basta arrastar o plot `Gaveta` para d
 > Caso a ordem seja alterada incorretamente, os movimentos da simulação serão aplicados nos componentes errados, causando comportamentos visuais inconsistentes dentro do AdvantageScope.
 
 <div align="justify">
+
 <h3>Por trás da classe</h3>
 
-Vamos desmembrar oque acontece dentro da classe do intake, para entender como as funções setPosition e setVelocity, funcionam, não apenas isso, mas tambem como isso se junta com a manipulação 3d dos objetos.
+Agora vamos desmembrar o funcionamento interno da classe do intake, entendendo como métodos como `setPosition()` e `setVelocity()` operam, não apenas do ponto de vista lógico, mas também como essas informações são convertidas em movimentações reais dos componentes 3D dentro do AdvantageScope.
 
+Conforme explicado anteriormente na fundamentação da biblioteca, a estrutura da classe é baseada em métodos padronizados, como:
+
+- `set...`
+- `get...`
+- `config()`
+- `periodic()`
+
+Os métodos `set...` são responsáveis por definir estados e comportamentos dos mecanismos, enquanto os métodos `get...` retornam informações relacionadas às posições, ângulos e valores processados pela simulação.
+
+Entretanto, é dentro do método `periodic()` que toda a lógica principal acontece. É nele que os cálculos de posicionamento, interpolação, suavização de movimento e atualização dos modelos 3D são efetivamente executados, permitindo que os componentes simulados acompanhem dinamicamente os valores enviados pelo código.
+
+```java
+    @Override
+    public void periodic() {
+
+        intakeMove();
+        intakeVelocity();
+
+        double Intake_CO = CurrentPosition * Math.sin(Math.toRadians(5.71));
+        double Intake_CA = CurrentPosition * Math.cos(Math.toRadians(5.71));
+
+        Logger.recordOutput("SubSystemSim/Intake/Velocity", CurrentVelocity);
+
+        Logger.recordOutput("SubSystemSim/Intake/Gaveta", new Pose3d[] { new Pose3d(
+            Intake_CA, 0.0, -Intake_CO,new Rotation3d(0.0, 0, 0))});
+
+        Logger.recordOutput("SubSystemSim/Intake/Coletor", new Pose3d[] { new Pose3d(
+            Intake_CA + 0.256619 , 0.0, -Intake_CO + 0.214588 , new Rotation3d(0, Rotation, 0))});
+    }
+```
+
+```java
+    private void intakeMove(){
+        OutPosition = intakePID.calculate(CurrentPosition, SetPosition);
+        CurrentPosition += OutPosition * 0.02;
+        CurrentPosition = MathUtil.clamp(CurrentPosition, Intake_Zero, Intake_Foward);
+    }
+```
+
+```java
+    private void intakeVelocity(){
+        double intakeVelocityOutput = intakeVelocity.calculate(CurrentVelocity, SetpointVelocity);
+        CurrentVelocity += intakeVelocityOutput * 0.02;
+
+        Rotation = Rotation + (0.1 * CurrentVelocity);
+        if(Rotation > Math.PI || Rotation < -Math.PI){
+            Rotation = 0;
+        }
+    }
+```
+
+As funções `intakeMove()` e `intakeVelocity()` são responsáveis principalmente pelo processamento e suavização dos movimentos simulados através de controladores PID.
+
+A função `intakeMove()` realiza o cálculo do PID utilizando um feedback hipotético de posição, já que, dentro da simulação, não existe um sensor físico retornando a posição real atual do mecanismo. Dessa forma, o próprio sistema mantém internamente uma estimativa da posição simulada do componente.
+
+Já a função `intakeVelocity()` é utilizada para controlar mecanismos com rotação contínua, como rodas de coleta. Nesse caso, o valor de rotação (`Rotation`) é reiniciado periodicamente para evitar o acúmulo infinito de ângulo ao longo do tempo.
+
+Isso é necessário porque, após completar uma rotação completa de `360°`, o componente pode reiniciar naturalmente sua referência angular, evitando inconsistências numéricas e facilitando o controle visual da simulação.
+
+Posto isso, vamos agora entender os cálculos responsáveis pelo posicionamento 3D do componente dentro da simulação.
+
+De forma simplificada, o principal conceito matemático utilizado neste sistema é a trigonometria. No caso específico da gaveta do intake, o movimento executado pelo mecanismo se comporta de maneira semelhante ao deslocamento de uma hipotenusa.
+
+Estamos considerando que os arquivos `.glb` foram exportados corretamente conforme a orientação descrita na seção [`Exportação do .glb`](https://github.com/FRCMT-Repositories/MT_2026/tree/main/CAD).
+
+O primeiro ponto importante a observar é que o movimento da gaveta ocorre de forma diagonal. Dessa maneira, precisamos determinar o curso total do mecanismo para calcular corretamente o quanto o componente poderá se deslocar dentro da simulação.
+
+Para isso, foi medida:
+- a posição do sistema em repouso
+- a posição do sistema totalmente avançado
+
+Em seguida, realizamos a diferença entre essas duas posições, obtendo um curso total de `210 mm`.
+
+Como o sistema de poses 3D utilizado pela programação trabalha em metros, convertemos esse valor para:
+
+```java
+private final static double Intake_Foward = 0.210;
+```
+
+<table align="center">
+
+<tr>
+
+<td align="center" width="500">
+	<img src="https://github.com/FRCMT-Repositories/.github/tree/main/profile/IntakeCalc/IntakeMedida2.png" width="500">
+</td>
+
+</tr>
+
+<tr>
+
+<td align="center" width="500">
+	<img src="https://github.com/FRCMT-Repositories/.github/tree/main/profile/IntakeCalc/IntakeMedida1.png" width="500">
+</td>
+
+</tr>
+
+</table>
 
 </div>
 
