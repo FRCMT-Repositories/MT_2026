@@ -306,6 +306,22 @@ Esses valores serão fundamentais para posicionar corretamente o modelo 3D e gar
 
 </table>
 
+Com esses valores definidos, agora já podemos criar o objeto 3D do coletor, aplicando apenas os offsets iniciais correspondentes às posições dos eixos `X` e `Z` do rolete.
+
+Além disso, como o coletor está fisicamente acoplado à gaveta do intake, o componente também passará a acompanhar automaticamente todo o movimento executado pela gaveta durante sua extensão e retração.
+
+Dessa forma, o mecanismo será corretamente posicionado dentro da simulação, respeitando tanto sua localização física no robô quanto o eixo real de rotação do componente.
+
+```java
+        Logger.recordOutput("SubSystemSim/Intake/Coletor", new Pose3d[] { new Pose3d(
+            Intake_CA + 0.27168 , 0.0, -Intake_CO + 0.21308 , new Rotation3d(0.0, Rotation, 0.0))});
+```
+Nesse trecho:
+- Intake_CA representa o deslocamento horizontal da gaveta
+- -Intake_CO representa o deslocamento vertical da gaveta no sentido do chão
+- 0.27168 é o offset inicial do coletor no eixo X
+- 0.21308 é o offset inicial do coletor no eixo Z
+- Rotation representa a rotação contínua do coletor em torno do próprio eixo
 
 </div>
 
