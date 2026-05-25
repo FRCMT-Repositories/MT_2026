@@ -78,8 +78,11 @@ private SimIntake mSimIntake = new SimIntake(20, 1.5, 3);
 
 > [!TIP]
 > **PARAMETRÔS**
+>
 > 20 = Valor real do encoder com meu sistema acionado no maximo, esse valor é varivel em função de cada robô.
+>
 > 1.5 = Valor do kP para o sistema de movimento do intake.
+>
 > 3 = Valor do kP para o sistema de coleta do intake.
 
 
@@ -90,9 +93,9 @@ Dentro do `RobotContainer`, mais especificamente no método `configureBindings()
 ```java
   private void configureBindings() {
     Cmdriver.a().onTrue(Commands.runOnce(() -> mSimIntake.setPosition(20, 3)));		// Move o intake para o máximo
-    Cmdriver.a().onTrue(Commands.runOnce(() -> mSimIntake.setVelocity(1)));		// Aciona o coletor do intake na velocidade 1
+    Cmdriver.a().onTrue(Commands.runOnce(() -> mSimIntake.setVelocity(1)));			// Aciona o coletor do intake na velocidade 1
     Cmdriver.b().onTrue(Commands.runOnce(() -> mSimIntake.setPosition(0, 3)));		// Move o intake para a posição minima
-    Cmdriver.b().onTrue(Commands.runOnce(() -> mSimIntake.setVelocity(0)));		// Desliga o coletor do intake
+    Cmdriver.b().onTrue(Commands.runOnce(() -> mSimIntake.setVelocity(0)));			// Desliga o coletor do intake
     Cmdriver.back().onTrue(Commands.runOnce(() -> mSimIntake.setPosition(0, 3)));	// Move o intake para a posição minima
     Cmdriver.back().onTrue(Commands.runOnce(() -> mSimIntake.setVelocity(0)));		// Desliga o coletor do intake
 
