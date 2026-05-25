@@ -231,16 +231,16 @@ private final static double Intake_Foward = 0.210;
 
 <tr>
 
-<td align="center" width="150">
-	<img src="https://github.com/FRCMT-Repositories/.github/blob/main/profile/IntakeCalc/IntakeMedida2.png" width="150">
+<td align="center" width="250">
+	<img src="https://github.com/FRCMT-Repositories/.github/blob/main/profile/IntakeCalc/IntakeMedida2.png" width="250">
 </td>
 
 <td align="center" width="300">
 	<img src="https://github.com/FRCMT-Repositories/.github/blob/main/profile/IntakeCalc/IntakeMedida1.png" width="300">
 </td>
 
-<td align="center" width="150">
-	<img src="https://github.com/FRCMT-Repositories/.github/blob/main/profile/IntakeCalc/IntakeAngulo_.png" width="150">
+<td align="center" width="250">
+	<img src="https://github.com/FRCMT-Repositories/.github/blob/main/profile/IntakeCalc/IntakeAngulo_.png" width="250">
 </td>
 
 </tr>
