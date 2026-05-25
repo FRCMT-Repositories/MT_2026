@@ -124,6 +124,25 @@ Para validar o funcionamento do mecanismo, basta arrastar o plot `Gaveta` para d
 
 </table>
 
+</div>
+
+> [!IMPORTANT]
+> **SEQUÊNCIA DE ASSOCIAÇÃO DOS COMPONENTES**
+>
+> É extremamente importante respeitar a ordem de inserção dos componentes conforme definida nos arquivos `model.glb` e `config.json`.
+>
+> Cada componente do modelo 3D possui um identificador específico (`model_0`, `model_1`, `model_2`, etc.), e esses identificadores precisam corresponder exatamente aos parâmetros configurados no `config.json`.
+>
+> Por exemplo, neste projeto:
+>
+> - `model_0` → corresponde à `Gaveta`
+> - `model_1` → corresponde ao `Coletor`
+>
+> Da mesma forma, no arquivo `config.json`, o `model_0` possui os parâmetros 3D relacionados à gaveta, enquanto o `model_1` está associado ao coletor.
+>
+> Caso a ordem seja alterada incorretamente, os movimentos da simulação serão aplicados nos componentes errados, causando comportamentos visuais inconsistentes dentro do AdvantageScope.
+
+<div align="justify">
 <h3>Por trás da classe</h3>
 
 Vamos desmembrar oque acontece dentro da classe do intake, para entender como as funções setPosition e setVelocity, funcionam, não apenas isso, mas tambem como isso se junta com a manipulação 3d dos objetos.
