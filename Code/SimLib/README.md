@@ -280,6 +280,31 @@ Os valores de Rotation estão zerados pois, já estão parametrizados no arquivo
 
 Observe que o valor do Cateto Oposto está invertido `-Intake_CO`. Isso ocorre porque, ao avançar o mecanismo, a extremidade do intake tende a se aproximar do chão, fazendo com que o deslocamento no eixo vertical `Z` aconteça no sentido negativo dentro do sistema de coordenadas 3D utilizado pela simulação.
 
+Com esse sistema funcionando corretamente, agora podemos aplicar o mesmo conceito ao coletor, porém com alguns pontos importantes de atenção.
+
+Diferentemente da gaveta do intake — que foi exportada considerando como referência o centro do robô — mecanismos que realizam rotação em torno do próprio eixo precisam possuir seu ponto de origem (`offset`) diretamente associado ao eixo do próprio componente.
+
+Ou seja:
+- na gaveta, o deslocamento foi calculado em função do robô
+- no coletor, a rotação precisa acontecer em função do eixo central do próprio mecanismo
+
+Sabendo disso, precisamos determinar corretamente:
+- a distância do eixo `Z`, considerando a posição inicial do componente em repouso (`posição 0`)
+- e a distância entre o centro do robô e o eixo central do coletor, também com o mecanismo em sua posição inicial de repouso
+
+Esses valores serão fundamentais para posicionar corretamente o modelo 3D e garantir que a rotação aconteça exatamente sobre o eixo físico esperado do mecanismo dentro da simulação.
+
+<table align="center">
+
+<tr>
+
+<td align="center" width="400">
+	<img src="https://github.com/FRCMT-Repositories/.github/blob/main/profile/IntakeCalc/IntakeMedidasColetor.png" width="400">
+</td>
+
+</tr>
+
+</table>
 
 
 </div>
