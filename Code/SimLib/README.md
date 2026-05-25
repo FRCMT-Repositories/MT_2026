@@ -74,11 +74,16 @@ Isso significa que, ao adicionar essa classe ao projeto e instanciar seu objeto 
 private SimIntake mSimIntake = new SimIntake(20, 1.5, 3);
 ```
 
+</div>
+
 > [!TIP]
 > **PARAMETRÔS**
 > 20 = Valor real do encoder com meu sistema acionado no maximo, esse valor é varivel em função de cada robô.
 > 1.5 = Valor do kP para o sistema de movimento do intake.
 > 3 = Valor do kP para o sistema de coleta do intake.
+
+
+<div align="justify">
 
 Dentro do `RobotContainer`, mais especificamente no método `configureBindings()`, podemos definir os comandos responsáveis pelo acionamento e controle do intake, conforme demonstrado no exemplo abaixo:
 
