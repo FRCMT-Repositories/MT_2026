@@ -102,6 +102,31 @@ Dentro do `RobotContainer`, mais especificamente no método `configureBindings()
 ...
 ```
 
+Para visualizar o movimento dos mecanismos durante a simulação, é necessário associar os componentes ao modelo do robô dentro do AdvantageScope.
+
+Para isso, abra o AdvantageScope e localize os plots relacionados ao intake no seguinte diretório:
+
+`AdvantageKit` → `SubSystemSim` → `Intake`
+
+Após localizar a pasta do intake, estarão disponíveis os plots `Coletor` e `Gaveta`, responsáveis pela simulação 3D dos mecanismos do sistema de intake.
+
+Para validar o funcionamento do mecanismo, basta arrastar o plot `Gaveta` para dentro do modelo principal do robô, previamente inserido na etapa anterior. Após essa associação, o componente passará a acompanhar dinamicamente os movimentos enviados pela simulação.
+
+<table align="center">
+
+<tr>
+
+<td align="center" width="800">
+	<img src="https://raw.githubusercontent.com/FRCMT-Repositories/.github/main/profile/IntakeComponent.gif" width="800">
+</td>
+
+</tr>
+
+</table>
+
+<h3>Por trás da classe</h3>
+
+Vamos desmembrar oque acontece dentro da classe do intake, para entender como as funções setPosition e setVelocity, funcionam, não apenas isso, mas tambem como isso se junta com a manipulação 3d dos objetos.
 
 
 </div>
