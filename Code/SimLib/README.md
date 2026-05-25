@@ -372,17 +372,27 @@ Dentro do `RobotContainer`, mais especificamente no método `configureBindings()
 ...
 ```
 
-Para visualizar o movimento dos mecanismos durante a simulação, é necessário associar os componentes ao modelo do robô dentro do AdvantageScope.
+Para visualizar o movimento dos mecanismos durante a simulação, é necessário associar o componente ao modelo principal do robô dentro do AdvantageScope.
 
-Para isso, abra o AdvantageScope e localize os plots relacionados ao intake no seguinte diretório:
+Os plots relacionados ao elevador estarão disponíveis no diretório:
 
-`AdvantageKit` → `SubSystemSim` → `Intake`
+`AdvantageKit` → `SubSystemSim` → `Elevator`
 
-Após localizar a pasta do intake, estarão disponíveis os plots `Coletor` e `Gaveta`, responsáveis pela simulação 3D dos mecanismos do sistema de intake.
+Assim como realizado anteriormente no sistema de intake, basta arrastar o componente correspondente para dentro do modelo principal do robô.
 
-Para validar o funcionamento do mecanismo, basta arrastar o plot `Gaveta` para dentro do modelo principal do robô, previamente inserido na etapa anterior. Após essa associação, o componente passará a acompanhar dinamicamente os movimentos enviados pela simulação.
+Durante essa etapa, é extremamente importante respeitar a ordem correta dos componentes definida no `config.json` e no modelo `.glb`. Neste caso, o sistema de elevador deve ser associado como o terceiro componente (`model_2`) do robô.
 
+<table align="center">
 
+<tr>
+
+<td align="center" width="800">
+	<img src="https://github.com/FRCMT-Repositories/.github/blob/main/profile/ElevatorCalc/Elevator.gif" width="800">
+</td>
+
+</tr>
+
+</table>
 
 </div>
 
