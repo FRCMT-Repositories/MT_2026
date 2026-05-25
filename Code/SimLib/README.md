@@ -240,7 +240,7 @@ private final static double Intake_Foward = 0.210;
 </td>
 
 <td align="center" width="150">
-	<img src="https://github.com/FRCMT-Repositories/.github/blob/main/profile/IntakeCalc/IntakeAngulo.png" width="150">
+	<img src="https://github.com/FRCMT-Repositories/.github/blob/main/profile/IntakeCalc/IntakeAngulo_.png" width="150">
 </td>
 
 </tr>
