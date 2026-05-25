@@ -342,7 +342,7 @@ Nesse trecho:
 
 <h3>Direto ao ponto</h3>
 
-O arquivo `SimElevator.java` contém toda a estrutura e parametrização necessária para controlar o componente `model_2` — responsável pela elevador.
+O arquivo `SimElevator.java` contém toda a estrutura e parametrização necessária para controlar o componente `model_2` — responsável pelo elevador.
 
 Isso significa que, ao adicionar essa classe ao projeto e instanciar seu objeto dentro do `RobotContainer`, já será possível simular os acionamentos e movimentações do sistema do elevador diretamente no AdvantageScope.
 
@@ -393,6 +393,35 @@ Durante essa etapa, é extremamente importante respeitar a ordem correta dos com
 </tr>
 
 </table>
+
+Para validar o funcionamento do sistema, utilize os botões `POV Up` e `POV Down` do controle.
+
+Ao pressionar:
+- `POV Up` → o elevador deverá subir até sua posição máxima
+- `POV Down` → o elevador deverá retornar para sua posição mínima
+
+Durante a execução dos comandos, o movimento do mecanismo deverá ser exibido dinamicamente dentro do AdvantageScope, permitindo a validação visual do comportamento do subsistema.
+
+<table align="center">
+
+<tr>
+
+<td align="center" width="800">
+	<img src="https://github.com/FRCMT-Repositories/.github/blob/main/profile/ElevatorCalc/ElevatorAciona.gif" width="800">
+</td>
+
+</tr>
+
+</table>
+
+<h3>Por trás da classe</h3>
+
+Assim como realizado anteriormente no subsistema de intake, agora vamos explorar o funcionamento do sistema de elevador.
+
+Neste projeto, o elevador representa o mecanismo mais simples do robô em termos de lógica de movimentação e manipulação 3D, tornando-o um excelente exemplo para compreender os conceitos fundamentais utilizados pela biblioteca de simulação.
+
+
+
 
 </div>
 
