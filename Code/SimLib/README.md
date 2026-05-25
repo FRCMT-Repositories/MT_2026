@@ -265,6 +265,10 @@ Nesse caso:
 - CurrentPosition representa a extensão atual do mecanismo
 - 5.71° corresponde ao ângulo de inclinação do intake
 
+Observe também que utilizamos Math.toRadians(). Isso é necessário porque as funções trigonométricas da biblioteca Java (Math.sin() e Math.cos()) trabalham utilizando ângulos em radianos, e não em graus.
+
+Além disso, o próprio sistema de rotações 3D utilizado pelo Pose3d e Rotation3d dentro do WPILib também utiliza radianos como unidade padrão para representação angular.
+
 Com os valores calculados, já podemos realizar o plot da posição do componente 3D dentro do AdvantageScope:
 
 ```java
