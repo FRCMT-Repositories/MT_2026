@@ -218,14 +218,7 @@ O primeiro ponto importante a observar é que o movimento da gaveta ocorre de fo
 Para isso, foi medida:
 - a posição do sistema em repouso
 - a posição do sistema totalmente avançado
-
-Em seguida, realizamos a diferença entre essas duas posições, obtendo um curso total de `210 mm`.
-
-Como o sistema de poses 3D utilizado pela programação trabalha em metros, convertemos esse valor para:
-
-```java
-private final static double Intake_Foward = 0.210;
-```
+- o ângulo do intake em relação ao chão
 
 <table align="center">
 
@@ -247,9 +240,42 @@ private final static double Intake_Foward = 0.210;
 
 </table>
 
-Com o curso maximo definido agora e sabendo que o angulo do intake em relação ao chão é de 5,71°, podemos aplicar os calculos trigonométricos para encotrar o valor de x e y no nosso objeto 3d.
+Em seguida, realizamos a diferença entre essas duas posições `386.7 - 176.7`, obtendo um curso total de `210 mm`.
 
+Como o sistema de poses 3D utilizado pela programação trabalha em metros, convertemos esse valor para:
 
+```java
+private final static double Intake_Foward = 0.210;
+```
+
+Com o curso máximo definido e conhecendo o ângulo de inclinação do intake, agora já podemos aplicar os cálculos trigonométricos necessários para determinar os deslocamentos nos eixos `X` e `Y` do objeto 3D.
+
+Quando o mecanismo está em repouso, ambos os deslocamentos possuem valor `0`. Entretanto, para simular corretamente o avanço diagonal da gaveta — semelhante ao comportamento de uma hipotenusa — precisamos calcular os valores correspondentes ao:
+- Cateto Oposto (`CO`)
+- Cateto Adjacente (`CA`)
+
+Para isso, utilizamos as seguintes equações trigonométricas:
+
+```java
+        double Intake_CO = CurrentPosition * Math.sin(Math.toRadians(5.71));
+        double Intake_CA = CurrentPosition * Math.cos(Math.toRadians(5.71));
+```
+
+Nesse caso:
+- CurrentPosition representa a extensão atual do mecanismo
+- 5.71° corresponde ao ângulo de inclinação do intake
+
+Com os valores calculados, já podemos realizar o plot da posição do componente 3D dentro do AdvantageScope:
+
+```java
+        Logger.recordOutput("SubSystemSim/Intake/Gaveta", new Pose3d[] { new Pose3d(
+            Intake_CA, 0.0, -Intake_CO, new Rotation3d(0.0, 0, 0))});
+```
+
+Observe que o valor do Cateto Oposto está invertido `-Intake_CO`. Isso ocorre porque, ao avançar o mecanismo, a extremidade do intake tende a se aproximar do chão, fazendo com que o deslocamento no eixo vertical `Z` aconteça no sentido negativo dentro do sistema de coordenadas 3D utilizado pela simulação.
 
 </div>
+
+
+
 
