@@ -231,8 +231,8 @@ private final static double Intake_Foward = 0.210;
 
 <tr>
 
-<td align="center" width="400">
-	<img src="https://github.com/FRCMT-Repositories/.github/blob/main/profile/IntakeCalc/IntakeMedida2.png" width="400">
+<td align="center" width="350">
+	<img src="https://github.com/FRCMT-Repositories/.github/blob/main/profile/IntakeCalc/IntakeMedida2.png" width="350">
 </td>
 
 <td align="center" width="500">
