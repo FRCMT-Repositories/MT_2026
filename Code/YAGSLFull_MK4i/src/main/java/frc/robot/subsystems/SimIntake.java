@@ -16,7 +16,7 @@ public class SimIntake extends SubsystemBase {
     private static double Encoder_Foward = 50;
     
     private final static double Intake_Zero = 0;
-    private final static double Intake_Foward = 0.214334;
+    private final static double Intake_Foward = 0.210;
     private static double SetPosition = 0;
     private static double CurrentPosition = 0;
     private static double OutPosition = 0;
@@ -43,7 +43,7 @@ public class SimIntake extends SubsystemBase {
         Logger.recordOutput("SubSystemSim/Intake/Velocity", CurrentVelocity);
 
         Logger.recordOutput("SubSystemSim/Intake/Gaveta", new Pose3d[] { new Pose3d(
-            Intake_CA, 0.0, -Intake_CO,new Rotation3d(0.0, 0, 0))});
+            Intake_CA, 0.0, -Intake_CO, new Rotation3d(0.0, 0, 0))});
 
         Logger.recordOutput("SubSystemSim/Intake/Coletor", new Pose3d[] { new Pose3d(
             Intake_CA + 0.256619 , 0.0, -Intake_CO + 0.214588 , new Rotation3d(0, Rotation, 0))});
