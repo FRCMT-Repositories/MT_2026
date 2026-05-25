@@ -1,6 +1,6 @@
 <!-- LIBRARY -->
 > [!WARNING]
-> **ATENÇÃO — LINHA DE RACIOCÍNIO E PRÉ-REQUISITOS**
+> **LINHA DE RACIOCÍNIO E PRÉ-REQUISITOS**
 >
 > Os procedimentos descritos a seguir consideram que todas as etapas de validação apresentadas na seção `Comprovação do Funcionamento` já foram devidamente concluídas nos respectivos exemplos específicos das bibliotecas `YAGSL` ou `CTRE`.
 >
@@ -74,7 +74,7 @@ Isso significa que, ao adicionar essa classe ao projeto e instanciar seu objeto 
 private SimIntake mSimIntake = new SimIntake(20, 1.5, 3);
 ```
 
-No RobotContainer mais especificamente no configureBindings podemos efetuar os acionamentos do intake como mostra o exemplo abaixo:
+Dentro do `RobotContainer`, mais especificamente no método `configureBindings()`, podemos definir os comandos responsáveis pelo acionamento e controle do intake, conforme demonstrado no exemplo abaixo:
 
 ```java
   private void configureBindings() {
@@ -87,6 +87,8 @@ No RobotContainer mais especificamente no configureBindings podemos efetuar os a
 
 ...
 ```
+
+
 
 </div>
 

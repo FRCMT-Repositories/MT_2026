@@ -3,7 +3,7 @@
 
 
 > [!NOTE]
-> **NOTE — INICIALIZAÇÃO**
+> **INICIALIZAÇÃO**
 >
 > Estes passos servem apenas para nortear oque é desenvolvido para o funcionamento correto da simulação, considerando um novo template, ou seja, um código novo, caso queira utilizar o exemplo completo, os passos citados a seguir devem ser desconsiderados, visto que essas modificações já estão inclusas.
 
@@ -19,7 +19,7 @@ Para utilizar esta ferramenta, precisamos ter a biblioteca `AdvantageKit` instal
 </div>
 
 > [!NOTE]
-> **NOTE — AdvantageKit**
+> **AdvantageKit**
 >
 > A instalação do AdvatangeKit pode ser realizada na aba `WPILib Vendor Dependencies` presente no canto superior esquerdo do `WPILib VS Code`.
 
@@ -32,7 +32,7 @@ A utilização do Logger facilita significativamente o monitoramento e visualiza
 </div>
 
 > [!NOTE]
-> **NOTE — Logger**
+> **Logger**
 >
 > O uso do Logger não é obrigatório para a validação da simulação. Para o funcionamento básico dos modelos e plots, é possível utilizar ferramentas como `SmartDashboard`, `Shuffleboard` ou qualquer outro sistema de publicação de dados.
 > Entretanto, conforme mencionado anteriormente, o uso do AdvantageKit é altamente recomendado devido à praticidade, organização e aos recursos avançados que a ferramenta oferece, especialmente para debug, análise temporal de sinais e revisão pós-teste ou pós-partida.
@@ -158,7 +158,7 @@ public class RobotContainer {
 </div>
 
 > [!WARNING]
-> **⚠️ ATENÇÃO — ESTA CONFIGURAÇÃO NÃO AFETA A SIMULAÇÃO**
+> **ESTA CONFIGURAÇÃO NÃO AFETA A SIMULAÇÃO**
 >
 > O código disponibilizado foi originalmente testado e validado utilizando o robô **MIRAGE**, da equipe **FRC 9168**. Por esse motivo, os valores presentes no diretório `src/main/deploy/swerve/MK4i` estão diretamente relacionados à configuração física do chassi da equipe AGROBOT.
 >
@@ -235,7 +235,7 @@ Durante a execução da simulação, o VS Code permanecerá exibindo uma janela 
 </div>
 
 > [!WARNING]
-> **⚠️ ATENÇÃO — SITUAÇÕES EM QUE A SIMULAÇÃO NÃO INICIA**
+> **SITUAÇÕES EM QUE A SIMULAÇÃO NÃO INICIA**
 >
 > Durante o desenvolvimento do código, podem ocorrer situações em que a simulação deixe de iniciar corretamente. Na maioria dos casos, isso acontece porque o sistema detecta comportamentos considerados inseguros ou inconsistentes dentro da aplicação.
 >
@@ -359,7 +359,7 @@ Com o modo teleoperado habilitado na Driver Station, o robô passará a responde
 </div>
 
 > [!NOTE]
-> **NOTA — VALIDAÇÃO E CORREÇÃO DOS CONTROLES**
+> **VALIDAÇÃO E CORREÇÃO DOS CONTROLES**
 >
 > Com a simulação funcionando corretamente, o robô deverá respeitar adequadamente as orientações da arena e o comportamento esperado para cada aliança (`Blue` e `Red`).
 >
