@@ -545,6 +545,46 @@ Além da movimentação vertical do elevador, o sistema também executará autom
 
 </table>
 
+<h3>Por trás da classe</h3>
+
+Em comparação com os sistemas apresentados anteriormente, o subsistema do braço é o mais complexo e denso em termos de cálculos e manipulação 3D. Entretanto, aplicando corretamente os conceitos de trigonometria e posicionamento espacial, toda a lógica do mecanismo se torna muito mais simples de compreender e implementar.
+
+```java
+    @Override
+    public void periodic() {
+
+        handArticulation();
+        handVelocity();
+
+        double Whell1_CO = 0.715675 * Math.sin(Math.toRadians(13.97 + Math.toDegrees(getRawAngle())));
+        double Whell1_CA = 0.715675 * Math.cos(Math.toRadians(13.97 + Math.toDegrees(getRawAngle())));
+
+        double Whell2_CO = 0.715675 * Math.sin(Math.toRadians(-13.97 + Math.toDegrees(getRawAngle())));
+        double Whell2_CA = 0.715675 * Math.cos(Math.toRadians(-13.97 + Math.toDegrees(getRawAngle())));
+
+        Logger.recordOutput("SubSystemSim/HandVelocity", CurrentVelocity);
+        Logger.recordOutput("SubSystemSim/AngleHand", Math.toDegrees(SetAngle));
+
+        Logger.recordOutput("SubSystemSim/Hand", new Pose3d[] { new Pose3d(
+            -0.1524, 0.0, SimElevator.getRawPosition() + 0.983900, new Rotation3d(getRawAngle(), 0, 0))});
+
+        Logger.recordOutput("SubSystemSim/Hand/wheel1", new Pose3d[] { new Pose3d(
+            0.028800, Whell1_CO, SimElevator.getRawPosition() + (0.9839 - Whell1_CA), new Rotation3d(Rotation, 0, 0))});
+        
+        Logger.recordOutput("SubSystemSim/Hand/wheel2", new Pose3d[] { new Pose3d(
+            0.028800, Whell2_CO, SimElevator.getRawPosition() + (0.9839 - Whell2_CA), new Rotation3d(-Rotation, 0, 0))});
+    }
+```
+
+O primeiro ponto que precisamos entender é que o braço `Hand` precisa acompanhar dinamicamente o movimento do sistema de elevador no eixo `Z`.
+
+Por esse motivo, utilizamos o método `SimElevator.getRawPosition()`, responsável por retornar a posição atual do elevador dentro da simulação.
+
+Além disso, somamos o valor `0.9839`, pois essa é a distância entre o eixo de articulação do braço e o chão (o ponto `0` do robô no eixo `Z`).
+
+Dessa forma, independentemente da altura atual do elevador, o braço permanecerá corretamente posicionado e acoplado ao mecanismo durante toda a simulação.
+
+
 </div>
 
 
