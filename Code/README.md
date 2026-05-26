@@ -99,10 +99,11 @@ Entretanto, quando o robô é composto majoritariamente por dispositivos CTRE, a
 
 > [!NOTE]
 > **QUAL ESCOLHER?**
->
+> <div align="justify">
 >A escolha da biblioteca de desenvolvimento fica inteiramente a critério de cada equipe. Caso optem por utilizar soluções diferentes das apresentadas neste repositório, sintam-se totalmente à vontade para adaptá-las conforme as necessidades e preferências do projeto.
 >
 >A única exigência para a utilização correta da simulação do robô é a disponibilização do plot da odometria do robô. Em ambos os exemplos apresentados anteriormente, cada biblioteca possui, em seu escopo principal, a publicação das informações de odometria necessárias para integração com o Advantage Scope. Esses dados são fundamentais para permitir o posicionamento e movimentação correta do robô dentro do ambiente de simulação.
+></div>
 
 > [!WARNING]
 > **PROBLEMA DE VERSÃO**
