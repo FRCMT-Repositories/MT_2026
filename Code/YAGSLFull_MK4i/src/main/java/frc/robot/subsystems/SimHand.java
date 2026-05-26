@@ -50,7 +50,7 @@ public class SimHand extends SubsystemBase {
         Logger.recordOutput("SubSystemSim/AngleHand", Math.toDegrees(SetAngle));
 
         Logger.recordOutput("SubSystemSim/Hand", new Pose3d[] { new Pose3d(
-            -0.1524, 0.0, SimElevator.getRawPosition() + 0.983900, new Rotation3d(getRawAngle(), 0, 0))});
+            -0.1524, 0.0, SimElevator.getRawPosition() + 0.9839, new Rotation3d(getRawAngle(), 0, 0))});
 
         Logger.recordOutput("SubSystemSim/Hand/wheel1", new Pose3d[] { new Pose3d(
             0.028800, Whell1_CO, SimElevator.getRawPosition() + (0.9839 - Whell1_CA), new Rotation3d(Rotation, 0, 0))});
