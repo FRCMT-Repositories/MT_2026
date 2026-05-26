@@ -81,7 +81,9 @@ private SimIntake mSimIntake = new SimIntake(20, 1.5, 3);
 > <div align="justify">
 >
 > 20 = Valor "real" do encoder com meu sistema acionado no maximo, esse valor é varivel em função de cada robô.
+>
 > 1.5 = Valor do kP para o sistema de movimento do intake.
+>
 > 3 = Valor do kP para o sistema de coleta do intake.
 > </div>
 
@@ -357,6 +359,7 @@ private SimElevator mSimElevator = new SimElevator(400, 1.5);
 > <div align="justify">
 >
 > 400 = Valor "real" do encoder com meu sistema acionado no maximo, esse valor é varivel em função de cada robô.
+>
 > 1.5 = Valor do kP para o sistema de movimento do elevador.
 > </div>
 
@@ -480,8 +483,11 @@ private SimHand mSimHand = new SimHand(-180, 180, 1.5, 3);
 > <div align="justify">
 >
 > -180 = range minimo de articulação "real" do sistema.
+>
 > 180 = range máximo de articulação "real" do sistema.
+>
 > 1.5 = kP do sistema de articulação do braço.
+>
 > 3 = kP de velocidade dos roletes de coleta 1 e 2.
 > </div>
 
