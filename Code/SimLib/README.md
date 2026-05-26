@@ -450,8 +450,8 @@ Ou seja, durante a simulação, o movimento do elevador acontece exclusivamente 
 
 <tr>
 
-<td align="center" width="300">
-	<img src="https://github.com/FRCMT-Repositories/.github/blob/main/profile/ElevatorCalc/ElevadorMed1.png" width="300">
+<td align="center" width="400">
+	<img src="https://github.com/FRCMT-Repositories/.github/blob/main/profile/ElevatorCalc/ElevadorMed1.png" width="400">
 </td>
 
 <td align="center" width="300">
