@@ -463,6 +463,88 @@ Ou seja, durante a simulação, o movimento do elevador acontece exclusivamente 
 
 </table>
 
+<h2>PASSO 4: Hand</h2>
+
+<h3>Direto ao ponto</h3>
+
+O arquivo `SimHand.java` contém toda a estrutura e parametrização necessária para controlar os componentes `model_3` — responsável pelo braço articulavel, `model_4` — responsável pelo 1º rolete coletor, `model_5` — responsável pelo 2º rolete coletor.
+
+Isso significa que, ao adicionar essa classe ao projeto e instanciar seu objeto dentro do `RobotContainer`, já será possível simular os acionamentos e movimentações do sistema do elevador diretamente no AdvantageScope.
+
+```java
+private SimHand mSimHand = new SimHand(-180, 180, 1.5, 3);
+```
+
+</div>
+
+> [!TIP]
+> **PARAMETRÔS**
+
+> <div align="justify">
+
+> -180 = range minimo de articulação "real" do sistema.
+>
+> 180 = range máximo de articulação "real" do sistema.
+>
+> 1.5 = kP do sistema de articulação do braço.
+>
+> 3 = kP de velocidade dos roletes de coleta 1 e 2.
+> </div>
+
+Dentro do `RobotContainer`, mais especificamente no método `configureBindings()`, podemos definir os comandos responsáveis pelo acionamento e controle do elevador, conforme demonstrado no exemplo abaixo:
+
+```java
+  private void configureBindings() {
+    Cmdriver.povLeft().onTrue(Commands.runOnce(() -> mSimHand.setAngle(-45, 3)));
+    Cmdriver.povRight().onTrue(Commands.runOnce(() -> mSimHand.setAngle(45, 3)));
+
+    Cmdriver.y().onTrue(Commands.runOnce(() -> mSimHand.setVelocity(2)));
+    Cmdriver.x().onTrue(Commands.runOnce(() -> mSimHand.setVelocity(-2)));
+    Cmdriver.b().onTrue(Commands.runOnce(() -> mSimHand.setVelocity(0)));
+    Cmdriver.back().onTrue(Commands.runOnce(() -> mSimHand.setAngle(0, 3)));
+    Cmdriver.back().onTrue(Commands.runOnce(() -> mSimHand.setVelocity(0)));
+...
+```
+
+Para visualizar o movimento dos mecanismos durante a simulação, é necessário associar o componente ao modelo principal do robô dentro do AdvantageScope.
+
+Os plots relacionados ao elevador estarão disponíveis no diretório:
+`AdvantageKit` → `SubSystemSim` → `Hand`
+
+Assim como realizado anteriormente, basta arrastar o componente correspondente para dentro do modelo principal do robô, respeitando a ordem correta dos componentes definida no config.json e no modelo .glb.
+
+<table align="center">
+
+<tr>
+
+<td align="center" width="800">
+	<img src="https://github.com/FRCMT-Repositories/.github/blob/main/profile/Hand/HandInsert.gif" width="800">
+</td>
+
+</tr>
+
+</table>
+
+Para validar o funcionamento do sistema, utilize os botões `POV Up`, `POV Down`, `POV Left`, `POV Right`, `Y`, `B` e `X`.
+Além da movimentação vertical do elevador, o sistema também executará automaticamente o deslocamento do mecanismo associado ao eixo conforme o elevador é elevado através do comando `POV Up`, permitindo visualizar o comportamento completo do subsistema durante a simulação.
+- `POV Left` → articula o sistema do braço para -45°.
+- `POV Right` → articula o sistema do braço para 45°.
+- `Y` → Liga os roletes para depositar.
+- `X` → Liga os roletes para coletar.
+- `B` → Desliga os roletes do coletor.
+
+<table align="center">
+
+<tr>
+
+<td align="center" width="800">
+	<img src="https://github.com/FRCMT-Repositories/.github/blob/main/profile/Hand/HandTest.gif" width="800">
+</td>
+
+</tr>
+
+</table>
+
 </div>
 
 
