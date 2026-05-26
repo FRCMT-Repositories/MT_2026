@@ -68,11 +68,11 @@ Após a seleção do modelo, tornasse necessario copiar a pasta do modelo escolh
 
 > [!WARNING]
 > **PROBLEMAS COMUNS**
->
+> <div align="justify">
 > Recomenda-se criar um atalho para esta pasta, pois ela será utilizada com frequência durante o desenvolvimento e validação da simulação dos subsistemas.
 >
 > Durante o uso do Advantage Scope, em algumas situações o software pode remover automaticamente a pasta do modelo previamente carregada, tornando necessário adicioná-la novamente. Por esse motivo, recomenda-se não mover a pasta original do modelo diretamente para o diretório do Advantage Scope. Em vez disso, crie uma cópia da pasta do modelo dentro do diretório utilizado pelo software, preservando assim os arquivos originais do projeto.
-
+> </div>
 <h2>PASSO 2: Definição do módulo swerve </h2>
 <div align="justify">
 
@@ -107,7 +107,8 @@ Entretanto, quando o robô é composto majoritariamente por dispositivos CTRE, a
 
 > [!WARNING]
 > **PROBLEMA DE VERSÃO**
->
+> <div align="justify">
 > É extremamente importante destacar que todas as bibliotecas disponibilizadas neste repositório foram testadas utilizando as versões referentes à temporada de 2026.
 > Atualizações futuras de bibliotecas, como por exemplo a YAGSL, podem ocasionar incompatibilidades ou pequenas quebras no código original.
 > Entretanto, na maioria dos casos, essas alterações podem ser corrigidas com pequenos ajustes e adaptações relacionadas às mudanças introduzidas pelas novas versões das bibliotecas.
+> </div>

@@ -1,11 +1,11 @@
 <!-- MK4i -->
 <h1>ENTENDENDO O CÓDIGO</h1>
 
-
 > [!NOTE]
 > **INICIALIZAÇÃO**
->
+> <div align="justify">
 > Estes passos servem apenas para nortear oque é desenvolvido para o funcionamento correto da simulação, considerando um novo template, ou seja, um código novo, caso queira utilizar o exemplo completo, os passos citados a seguir devem ser desconsiderados, visto que essas modificações já estão inclusas.
+> </div>
 
 <div align="justify">
 <h2>PASSO 1: AdvantageKit</h2>
@@ -20,8 +20,9 @@ Para utilizar esta ferramenta, precisamos ter a biblioteca `AdvantageKit` instal
 
 > [!NOTE]
 > **AdvantageKit**
->
+> <div align="justify">
 > A instalação do AdvatangeKit pode ser realizada na aba `WPILib Vendor Dependencies` presente no canto superior esquerdo do `WPILib VS Code`.
+> </div>
 
 
 <div align="justify">
@@ -33,10 +34,10 @@ A utilização do Logger facilita significativamente o monitoramento e visualiza
 
 > [!NOTE]
 > **Logger**
->
+> <div align="justify">
 > O uso do Logger não é obrigatório para a validação da simulação. Para o funcionamento básico dos modelos e plots, é possível utilizar ferramentas como `SmartDashboard`, `Shuffleboard` ou qualquer outro sistema de publicação de dados.
 > Entretanto, conforme mencionado anteriormente, o uso do AdvantageKit é altamente recomendado devido à praticidade, organização e aos recursos avançados que a ferramenta oferece, especialmente para debug, análise temporal de sinais e revisão pós-teste ou pós-partida.
-
+</div>
 <div align="justify">
 
 <h2>PASSO 2: Looger e Odometria</h2>
@@ -159,10 +160,11 @@ public class RobotContainer {
 
 > [!WARNING]
 > **ESTA CONFIGURAÇÃO NÃO AFETA A SIMULAÇÃO**
->
+> <div align="justify">
 > O código disponibilizado foi originalmente testado e validado utilizando o robô **MIRAGE**, da equipe **FRC 9168**. Por esse motivo, os valores presentes no diretório `src/main/deploy/swerve/MK4i` estão diretamente relacionados à configuração física do chassi da equipe AGROBOT.
 >
 > Dessa forma, embora a simulação funcione corretamente, a utilização prática desse código em um robô real provavelmente não apresentará o comportamento esperado, a menos que os IDs CAN, relações mecânicas, offsets e valores de PID sejam idênticos aos utilizados no projeto original.
+> </div>
 
 <div align="justify">
 
@@ -236,7 +238,7 @@ Durante a execução da simulação, o VS Code permanecerá exibindo uma janela 
 
 > [!WARNING]
 > **SITUAÇÕES EM QUE A SIMULAÇÃO NÃO INICIA**
->
+> <div align="justify">
 > Durante o desenvolvimento do código, podem ocorrer situações em que a simulação deixe de iniciar corretamente. Na maioria dos casos, isso acontece porque o sistema detecta comportamentos considerados inseguros ou inconsistentes dentro da aplicação.
 >
 > Alguns exemplos comuns incluem:
@@ -249,7 +251,7 @@ Durante a execução da simulação, o VS Code permanecerá exibindo uma janela 
 > - Loops ou chamadas recursivas indevidas
 >
 > Em geral, se determinado problema impede o funcionamento da simulação, existe uma grande chance de que o mesmo comportamento também cause falhas no robô real. Por esse motivo, recomenda-se sempre corrigir completamente os erros apresentados antes de prosseguir com novos testes ou implementações.
-
+> </div>
 <div align="justify">
 
 <table align="center">
@@ -360,12 +362,13 @@ Com o modo teleoperado habilitado na Driver Station, o robô passará a responde
 
 > [!NOTE]
 > **VALIDAÇÃO E CORREÇÃO DOS CONTROLES**
->
+> <div align="justify">
 > Com a simulação funcionando corretamente, o robô deverá respeitar adequadamente as orientações da arena e o comportamento esperado para cada aliança (`Blue` e `Red`).
 >
 > Dessa forma, ao operar o robô, é importante validar se os movimentos executados correspondem corretamente aos comandos enviados. Por exemplo, caso o robô gire no sentido oposto ao esperado ou apresente movimentações invertidas em relação ao campo, isso indica que determinados eixos, orientações ou referências de rotação ainda precisam ser ajustados na programação.
 >
 > A simulação é justamente uma excelente ferramenta para identificar e corrigir esse tipo de inconsistência antes da utilização prática no robô real.
+> </div>
 
 <div align="justify">
 

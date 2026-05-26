@@ -1,13 +1,13 @@
 <!-- LIBRARY -->
 > [!WARNING]
 > **LINHA DE RACIOCÍNIO E PRÉ-REQUISITOS**
->
+> <div align="justify">
 > Os procedimentos descritos a seguir consideram que todas as etapas de validação apresentadas na seção `Comprovação do Funcionamento` já foram devidamente concluídas nos respectivos exemplos específicos das bibliotecas `YAGSL` ou `CTRE`.
 >
 > Dessa forma, antes de prosseguir, recomenda-se garantir que o drivetrain, a odometria e os controles básicos já estejam funcionando corretamente, evitando inconsistências durante as próximas etapas da simulação e integração dos subsistemas.
 >
 > Também estamos considerando que a pasta `Robot_MTModelA` ou `Robot_MTModelB` já foi corretamente adicionada ao AdvantageScope, conforme demonstrado na seção [`Adicionando ao AdvantageScope`](https://github.com/FRCMT-Repositories/MT_2026/tree/main/Code#adicionando-ao-advantage-scope).
-
+> </div>
 <div align="justify">
 
 <h2>PASSO 1: Fundamentação</h2>
@@ -78,13 +78,13 @@ private SimIntake mSimIntake = new SimIntake(20, 1.5, 3);
 
 > [!TIP]
 > **PARAMETRÔS**
->
+> <div align="justify">
 > 20 = Valor "real" do encoder com meu sistema acionado no maximo, esse valor é varivel em função de cada robô.
 >
 > 1.5 = Valor do kP para o sistema de movimento do intake.
 >
 > 3 = Valor do kP para o sistema de coleta do intake.
-
+> </div>
 
 <div align="justify">
 
@@ -128,7 +128,7 @@ Para validar o funcionamento do mecanismo, basta arrastar o plot `Gaveta` para d
 
 > [!IMPORTANT]
 > **SEQUÊNCIA DE ASSOCIAÇÃO DOS COMPONENTES**
->
+> <div align="justify">
 > É extremamente importante respeitar a ordem de inserção dos componentes conforme definida nos arquivos `model.glb` e `config.json`.
 >
 > Cada componente do modelo 3D possui um identificador específico (`model_0`, `model_1`, `model_2`, etc.), e esses identificadores precisam corresponder exatamente aos parâmetros configurados no `config.json`.
@@ -141,6 +141,7 @@ Para validar o funcionamento do mecanismo, basta arrastar o plot `Gaveta` para d
 > Da mesma forma, no arquivo `config.json`, o `model_0` possui os parâmetros 3D relacionados à gaveta, enquanto o `model_1` está associado ao coletor.
 >
 > Caso a ordem seja alterada incorretamente, os movimentos da simulação serão aplicados nos componentes errados, causando comportamentos visuais inconsistentes dentro do AdvantageScope.
+> </div>
 
 <div align="justify">
 
@@ -354,10 +355,11 @@ private SimElevator mSimElevator = new SimElevator(400, 1.5);
 
 > [!TIP]
 > **PARAMETRÔS**
->
+> <div align="justify">
 > 400 = Valor "real" do encoder com meu sistema acionado no maximo, esse valor é varivel em função de cada robô.
 >
 > 1.5 = Valor do kP para o sistema de movimento do elevador.
+> </div>
 
 <div align="justify">
 
