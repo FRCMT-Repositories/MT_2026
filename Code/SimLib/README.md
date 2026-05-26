@@ -479,9 +479,7 @@ private SimHand mSimHand = new SimHand(-180, 180, 1.5, 3);
 
 > [!TIP]
 > **PARAMETRÔS**
-
 > <div align="justify">
-
 > -180 = range minimo de articulação "real" do sistema.
 >
 > 180 = range máximo de articulação "real" do sistema.
@@ -537,8 +535,8 @@ Além da movimentação vertical do elevador, o sistema também executará autom
 
 <tr>
 
-<td align="center" width="800">
-	<img src="https://github.com/FRCMT-Repositories/.github/blob/main/profile/Hand/HandTest.gif" width="800">
+<td align="center" width="1000">
+	<img src="https://github.com/FRCMT-Repositories/.github/blob/main/profile/Hand/HandTest.gif" width="1000">
 </td>
 
 </tr>
