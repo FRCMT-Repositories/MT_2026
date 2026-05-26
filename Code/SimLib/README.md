@@ -79,6 +79,7 @@ private SimIntake mSimIntake = new SimIntake(20, 1.5, 3);
 > [!TIP]
 > **PARAMETRÔS**
 > <div align="justify">
+>
 > 20 = Valor "real" do encoder com meu sistema acionado no maximo, esse valor é varivel em função de cada robô.
 >
 > 1.5 = Valor do kP para o sistema de movimento do intake.
