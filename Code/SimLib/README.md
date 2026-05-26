@@ -535,8 +535,8 @@ Além da movimentação vertical do elevador, o sistema também executará autom
 
 <tr>
 
-<td align="center" width="1000">
-	<img src="https://github.com/FRCMT-Repositories/.github/blob/main/profile/Hand/HandTest.gif" width="1000">
+<td align="center" width="950">
+	<img src="https://github.com/FRCMT-Repositories/.github/blob/main/profile/Hand/HandTest.gif" width="950">
 </td>
 
 </tr>
