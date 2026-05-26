@@ -424,7 +424,44 @@ Assim como realizado anteriormente no subsistema de intake, agora vamos explorar
 Neste projeto, o elevador representa o mecanismo mais simples do robô em termos de lógica de movimentação e manipulação 3D, tornando-o um excelente exemplo para compreender os conceitos fundamentais utilizados pela biblioteca de simulação.
 
 
+```java
+    public void periodic() {
+        OutPosition = elevatorPID.calculate(getRawPosition(), SetPosition);
+        CurrentPosition += OutPosition * 0.02;
+        CurrentPosition = MathUtil.clamp(getRawPosition(), Elevator_Zero, Elevator_Up);
+        
+        Logger.recordOutput("SubSystemSim/Elevator", new Pose3d[] { new Pose3d(
+            0.0, 0.0, getRawPosition(), new Rotation3d(0.0, 0, 0))});
+    }
+```
 
+Como podemos perceber, o sistema do elevador não necessita de cálculos trigonométricos para definição de posição, justamente porque o arquivo `.glb` foi exportado utilizando como referência o próprio robô completo.
+
+Dessa forma, o componente já está corretamente alinhado aos eixos do modelo 3D, tornando necessário apenas o deslocamento no eixo vertical (`Z`).
+
+Nesse sistema:
+- os valores dos eixos `X` e `Y` permanecem fixos em `0`
+- `Z = 0` representa a posição mínima do elevador
+- e `Z = 0.4` representa sua posição máxima de extensão
+
+Ou seja, durante a simulação, o movimento do elevador acontece exclusivamente ao longo do eixo `Z`, com um curso máximo definido em `0.4 metros`. Definido em `private final static double Elevator_Up = 0.4;`
+
+<table align="center">
+
+<tr>
+
+<td align="center" width="250">
+	<img src="https://github.com/FRCMT-Repositories/.github/tree/main/profile/ElevatorCalc/ElevadorMed1.png" width="250">
+</td>
+
+<td align="center" width="350">
+	<img src="https://github.com/FRCMT-Repositories/.github/tree/main/profile/ElevatorCalc/ElevadorMed2.png" width="250">
+
+</td>
+
+</tr>
+
+</table>
 
 </div>
 
