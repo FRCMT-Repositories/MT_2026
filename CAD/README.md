@@ -122,8 +122,8 @@ Por esse motivo, o rolete também deve ser removido deste arquivo, deixando apen
 	<img src="https://github.com/FRCMT-Repositories/.github/blob/main/profile/CAD/Modelintake.gif" width="350">
 </td>
 
-<td align="center" width="370">
-	<img src="https://github.com/FRCMT-Repositories/.github/blob/main/profile/CAD/INTAKE.png" width="370">
+<td align="center" width="450">
+	<img src="https://github.com/FRCMT-Repositories/.github/blob/main/profile/CAD/INTAKE.png" width="450">
 </td>
 
 </tr>
