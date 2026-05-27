@@ -589,12 +589,39 @@ Dessa forma, independentemente da altura atual do elevador, o braço permanecer�
 <tr>
 
 <td align="center" width="950">
-	<img src="https://github.com/FRCMT-Repositories/.github/blob/main/profile/Hand/HandMed2.png" width="950">
+	<img src="https://github.com/FRCMT-Repositories/.github/blob/main/profile/Hand/HandMed.png" width="950">
 </td>
 
 </tr>
 
 </table>
+
+
+O com base n imagem fica claro entender o valor dos catetos adjacente e oposto dos roletes:
+
+> </div>
+
+> [!TIP]
+> **ENTENDO OS VALORES DE MANIPULAÇÃO DO ROLETES**
+> <div align="justify">
+> Com as medidas acima agora fica claro de onde surgiu os parametros 0.715675 = 715,675 mm e o angulo de 14.07, das equações citadas anteriormente.
+> `double Whell1_CO = 0.715675 * Math.sin(Math.toRadians(14.07 + Math.toDegrees(getRawAngle())));`
+> `double Whell1_CA = 0.715675 * Math.cos(Math.toRadians(14.07 + Math.toDegrees(getRawAngle())));`
+> `getRawAngle()` é nada mais do que o valor do angulo do braço em graus em relação ao elevador.
+> A diferença de um rolete para o outro é apenas o angulo, que fica inverso por se tratar do rolete oposto.
+> Logger.recordOutput("SubSystemSim/Hand/wheel1", new Pose3d[] { new Pose3d(
+            0.028800, Whell1_CO, SimElevator.getRawPosition() + (0.9839 - Whell1_CA), new Rotation3d(Rotation, 0, 0))});
+
+> </div>
+
+> [!TIP]
+> **ENTENDENDO OS VALORES DE MANIPULAÇÃO DO HAND**
+> <div align="justify">
+> Com as medidas acima agora fica claro de onde surgiu os parametros 0.715675 = 715,675 mm e o angulo de 14.07, das equações citadas anteriormente.
+> double Whell1_CO = 0.715675 * Math.sin(Math.toRadians(14.07 + Math.toDegrees(getRawAngle())));
+> double Whell1_CA = 0.715675 * Math.cos(Math.toRadians(14.07 + Math.toDegrees(getRawAngle())));
+> A diferença de um rolete para o outro é apenas o angulo, que fica inverso por se tratar do rolete oposto.
+
 
 
 </div>
