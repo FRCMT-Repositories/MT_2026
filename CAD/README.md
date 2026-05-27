@@ -157,7 +157,15 @@ Esse procedimento garante que:
 </table>
 
 <h2>model_2.glb</h2>
-Este arquivo representa exclusivamente o sistema movel do levador.
+Este arquivo representa exclusivamente a estrutura móvel do sistema de elevador.
+
+Assim como realizado anteriormente no sistema de intake, abra o projeto CAD completo do robô e remova todos os componentes que não estejam diretamente relacionados ao movimento do elevador.
+
+No exemplo deste projeto, o modelo final permanece contendo apenas:
+- o tubo de elevação
+- e os componentes responsáveis pelo deslocamento vertical do sistema
+
+O objetivo é garantir que somente os elementos realmente móveis do elevador sejam exportados e manipulados individualmente pela simulação.
 
 <table align="center">
 
