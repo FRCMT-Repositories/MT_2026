@@ -26,12 +26,12 @@ Essa padronização simplifica significativamente o processo de configuração d
 
 <tr>
 
-<td align="center" width="500">
-	<img src="https://github.com/FRCMT-Repositories/.github/blob/main/profile/CAD/RobotPerspectiva.gif" width="500">
+<td align="center" width="450">
+	<img src="https://github.com/FRCMT-Repositories/.github/blob/main/profile/CAD/RobotPerspectiva.gif" width="450">
 </td>
 
-<td align="center" width="450">
-	<img src="https://github.com/FRCMT-Repositories/.github/blob/main/profile/CAD/ROBOT1.png" width="450">
+<td align="center" width="400">
+	<img src="https://github.com/FRCMT-Repositories/.github/blob/main/profile/CAD/ROBOT1.png" width="400">
 </td>
 
 </tr>
@@ -61,8 +61,8 @@ O objetivo é garantir que o arquivo `model.glb` contenha exclusivamente o chass
 	<img src="https://github.com/FRCMT-Repositories/.github/blob/main/profile/CAD/ModelChassi.gif" width="350">
 </td>
 
-<td align="center" width="450">
-	<img src="https://github.com/FRCMT-Repositories/.github/blob/main/profile/CAD/CHASSI.png" width="450">
+<td align="center" width="400">
+	<img src="https://github.com/FRCMT-Repositories/.github/blob/main/profile/CAD/CHASSI.png" width="400">
 </td>
 
 </tr>
