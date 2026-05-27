@@ -237,4 +237,226 @@ Toda a lógica de posicionamento, orientação e comportamento individual dos co
 
 </table>
 
+<h2>config.json</h2>
+
+O arquivo `config.json` é responsável por definir toda a estrutura de posicionamento, orientação e associação dos componentes 3D utilizados pelo AdvantageScope.
+
+É através dele que configuramos:
+- nome do modelo
+- rotações globais do robô
+- posição inicial
+- câmeras
+- componentes articuláveis
+- offsets e orientações individuais dos modelos
+
+Além disso, este arquivo também é responsável por relacionar os componentes `model_x.glb` com os plots enviados pela programação durante a simulação.
+
+---
+
+<h3>Estrutura Base</h3>
+
+```json
+{
+  "name": "MT Model A",
+  "rotations": [],
+  "position": [],
+  "cameras": [],
+  "components": []
+}
+
+
+| Campo | Função |
+|---|---|
+| `name` | Nome do modelo |
+| `rotations` | Rotação global do robô |
+| `position` | Offset inicial |
+| `cameras` | Configuração de câmeras |
+| `components` | Componentes articuláveis |
+
+---
+
+<h3>Rotação Global do Robô</h3>
+
+A seção `rotations` é responsável por corrigir a orientação do CAD exportado em relação ao sistema de coordenadas utilizado pelo WPILib e pelo AdvantageScope.
+
+```json
+{
+"rotations": [
+  { "axis": "x", "degrees": 90 },
+  { "axis": "y", "degrees": 0 },
+  { "axis": "z", "degrees": 90 }
+]
+}
+
+Entendendo os parâmetros
+
+| Campo | Função |
+|---|---|
+| `axis` | Eixo de rotação(x, y ou z) |
+| `rotations` | Valor da rotação em graus |
+
+Esses valores podem variar dependendo:
+
+do software CAD utilizado
+da orientação de exportação
+da forma como o modelo foi construído
+
+<h3>Posição Inicial</h3>
+```json
+{
+"position": [0.0, 0.0, 0.0]
+}
+
+Define o offset inicial do robô no ambiente 3D.
+
+| Índice | Representa |
+|---|---|
+| `[0]` | Eixo X |
+| `[1]` | Eixo Y |
+| `[2]` | Eixo Z |
+
+Na maioria dos casos:
+```json
+{
+"position": [0.0, 0.0, 0.0]
+}
+já será suficiente.
+
+<h3>Componentes Articuláveis</h3>
+
+A seção `components` define todos os componentes móveis do robô.
+
+Cada item dessa lista representa um `model_x.glb`.
+```json
+{
+{
+  "name": "model_0",
+  "zeroedRotations": [
+    { "axis": "x", "degrees": 90 },
+    { "axis": "y", "degrees": 0 },
+    { "axis": "z", "degrees": 180 }
+  ],
+  "zeroedPosition": [0.0, 0.0, 0.0]
+}
+}
+
+Entendendo cada parâmetro
+
+| Campo | Função |
+|---|---|
+| `name` | Nome do arquivo `.glb` |
+| `zeroedRotations` | Rotação inicial do componente |
+| `zeroedPosition` | Offset inicial do componente |
+
+<h3>zeroedRotations</h3>
+
+```json
+"zeroedRotations": [
+  { "axis": "x", "degrees": 90 },
+  { "axis": "y", "degrees": 0 },
+  { "axis": "z", "degrees": 180 }
+]
+
+Responsável pela orientação inicial do componente dentro do modelo principal.
+Essas rotações são extremamente importantes para:
+
+- alinhar corretamente os mecanismos
+- corrigir exportações do CAD
+- definir o eixo correto de movimentação
+- garantir que as rotações aconteçam no sentido esperado
+
+<h3>zeroedPosition</h3>
+
+```json
+"zeroedPosition": [0.0, 0.0, 0.0]
+
+Define a posição inicial do componente antes da aplicação dos plots enviados pela programação.
+
+Na maioria dos casos, os componentes já são exportados corretamente alinhados ao robô principal, tornando possível manter os valores zerados.
+
+<h3>Associação dos Models</h3>
+A lógica utilizada neste projeto foi:
+
+| Model | Componente |
+|---|---|
+| `model_0` | Intake |
+| `model_1` | Rolete do Intake |
+| `model_2` | Elevator |
+| `model_3` | Hand/braço articulável |
+| `model_4` | Rolete de coleta 1 |
+| `model_5` | Rolete de coleta 2 |
+
+É extremamente importante respeitar essa sequência tanto:
+- no config.json
+- quanto na associação dos componentes dentro do AdvantageScope
+
+Caso a ordem seja alterada incorretamente, os movimentos poderão ser aplicados aos componentes errados.
+```json
+{
+  "name": "MT Model A",
+  "rotations": [
+    { "axis": "x", "degrees": 90 },
+    { "axis": "y", "degrees": 0  },
+    { "axis": "z", "degrees": 90 }
+  ],
+  "position": [0.0, 0.0, 0.0],
+  "cameras": [],
+  "components": [
+    {
+      "name": "model_0",
+      "zeroedRotations": [
+        { "axis": "x", "degrees": 90 },
+        { "axis": "y", "degrees": 0 },
+        { "axis": "z", "degrees": 180 }
+      ],
+      "zeroedPosition": [0.0, 0.0, 0.0]
+    },
+    {
+      "name": "model_1",
+      "zeroedRotations": [
+        { "axis": "x", "degrees": 90 },
+        { "axis": "y", "degrees": 0 },
+        { "axis": "z", "degrees": 180 }
+      ],
+      "zeroedPosition": [0.0 , 0.0, 0.0]
+    },
+    {
+      "name": "model_2",
+      "zeroedRotations": [
+        { "axis": "x", "degrees": 90 },
+        { "axis": "y", "degrees": 0 },
+        { "axis": "z", "degrees": 180 }
+      ],
+      "zeroedPosition": [0.0, 0.0, 0.0]
+    },
+    {
+      "name": "model_3",
+      "zeroedRotations": [
+        { "axis": "x", "degrees": 180 },
+        { "axis": "y", "degrees": 0 },
+        { "axis": "z", "degrees": 0 }
+      ],
+      "zeroedPosition": [0.0, 0.0, 0.0]
+    },
+    {
+      "name": "model_4",
+      "zeroedRotations": [
+        { "axis": "x", "degrees": 90 },
+        { "axis": "y", "degrees": 0 },
+        { "axis": "z", "degrees": -90 }
+      ],
+      "zeroedPosition": [0.0, 0.0, 0.0]
+    },
+    {
+      "name": "model_5",
+      "zeroedRotations": [
+        { "axis": "x", "degrees": 90 },
+        { "axis": "y", "degrees": 0 },
+        { "axis": "z", "degrees": -90 }
+      ],
+      "zeroedPosition": [0.0, 0.0, 0.0]
+    }
+  ]
+}
+
 </div>
