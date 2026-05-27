@@ -597,7 +597,7 @@ Dessa forma, independentemente da altura atual do elevador, o braço permanecer�
 </table>
 
 
-Com base na imagem, fica mais fácil compreender como os valores dos catetos adjacente e oposto influenciam diretamente no posicionamento do sistema de roletes do braço dentro da simulação.
+Com base na imagem, fica mais fácil compreender como os valores de distancia e offset de cada mecanismo foi gerada, e tambem como foi possivel calcular os catetos adjacente e oposto que influenciam diretamente no posicionamento do sistema de roletes do braço dentro da simulação.
 
 </div>
 
@@ -642,20 +642,87 @@ Com base na imagem, fica mais fácil compreender como os valores dos catetos adj
 > </div>
 
 > [!TIP]
-> **ENTENDO OS VALORES DE MANIPULAÇÃO DO ROLETES**
+> **ENTENDENDO OS VALORES DE MANIPULAÇÃO DOS ROLETES**
+>
 > <div align="justify">
 >
-> Com as medidas acima agora fica claro de onde surgiu os parametros 0.715675 = 715,675 mm e o angulo de 14.07, das equações citadas anteriormente.
+> Com as medidas apresentadas anteriormente, agora fica mais fácil compreender de onde surgem os valores `0.715675` (`715.675 mm`) e o ângulo `14.07°`, utilizados nas equações trigonométricas responsáveis pelo posicionamento dos roletes.
 >
-> `double Whell1_CO = 0.715675 * Math.sin(Math.toRadians(14.07 + Math.toDegrees(getRawAngle())));`
+> ```java
+> double Whell1_CO = 0.715675 * Math.sin(
+>     Math.toRadians(14.07 + Math.toDegrees(getRawAngle()))
+> );
 >
-> `double Whell1_CA = 0.715675 * Math.cos(Math.toRadians(14.07 + Math.toDegrees(getRawAngle())));`
+> double Whell1_CA = 0.715675 * Math.cos(
+>     Math.toRadians(14.07 + Math.toDegrees(getRawAngle()))
+> );
+> ```
 >
-> `getRawAngle()` é nada mais do que o valor do angulo do braço em graus em relação ao elevador.
+> Nesse caso:
 >
-> A diferença de um rolete para o outro é apenas o angulo, que fica inverso por se tratar do rolete oposto.
+> - `0.715675`
 >
-> `Logger.recordOutput("SubSystemSim/Hand/wheel1", new Pose3d[] { new Pose3d(0.028800, Whell1_CO, SimElevator.getRawPosition() + (0.9839 - Whell1_CA), new Rotation3d(Rotation, 0, 0))});`
+> Representa a distância entre o eixo principal de articulação do braço e o centro do rolete.
+>
+> ---
+>
+> - `14.07°`
+>
+> Corresponde ao ângulo inicial do rolete em relação ao braço quando o mecanismo está em repouso.
+>
+> ---
+>
+> - `getRawAngle()`
+>
+> Representa o ângulo atual do braço em relação ao elevador.
+>
+> O valor é convertido utilizando `Math.toDegrees()` porque o sistema interno trabalha em radianos, enquanto os cálculos trigonométricos desta lógica foram definidos em graus.
+>
+> ---
+>
+> A diferença entre um rolete e o outro está apenas na orientação angular aplicada nas equações, já que o segundo rolete encontra-se no lado oposto do mecanismo.
+>
+> Com os valores calculados, já podemos posicionar o rolete dentro do ambiente 3D:
+>
+> ```java
+> Logger.recordOutput("SubSystemSim/Hand/wheel1", new Pose3d[] {
+>     new Pose3d(
+>         0.028800,
+>         Whell1_CO,
+>         SimElevator.getRawPosition() + (0.9839 - Whell1_CA),
+>         new Rotation3d(Rotation, 0, 0)
+>     )
+> });
+> ```
+>
+> ### Entendendo os parâmetros:
+>
+> - `0.028800`
+>
+> Representa a distância entre o centro do robô e o offset inicial (`posição 0`) do rolete no eixo `X`.
+>
+> ---
+>
+> - `Whell1_CO`
+>
+> Define o deslocamento lateral do rolete com base na inclinação atual do braço.
+>
+> ---
+>
+> - `0.9839 - Whell1_CA`
+>
+> Responsável por recalcular dinamicamente a posição do eixo `Z` do rolete em função da articulação do braço (`Roll`).
+>
+> Conforme o braço gira, a altura dos roletes também precisa ser atualizada para acompanhar corretamente a geometria do mecanismo.
+>
+> ---
+>
+> - `Rotation`
+>
+> Utilizado apenas para ilustrar visualmente a rotação contínua do rolete durante a simulação.
+>
+> </div>
+
 
 
 
