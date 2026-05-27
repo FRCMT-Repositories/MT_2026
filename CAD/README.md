@@ -265,6 +265,8 @@ Além disso, este arquivo também é responsável por relacionar os componentes 
 }
 ```
 
+<div align="center">
+
 | Campo | Função |
 |---|---|
 | `name` | Nome do modelo |
@@ -273,6 +275,7 @@ Além disso, este arquivo também é responsável por relacionar os componentes 
 | `cameras` | Configuração de câmeras |
 | `components` | Componentes articuláveis |
 
+</div>
 ---
 
 <h3>Rotação Global do Robô</h3>
@@ -291,10 +294,14 @@ A seção `rotations` é responsável por corrigir a orientação do CAD exporta
 
 Entendendo os parâmetros
 
+<div align="center">
+
 | Campo | Função |
 |---|---|
 | `axis` | Eixo de rotação(x, y ou z) |
 | `rotations` | Valor da rotação em graus |
+
+</div>
 
 Esses valores podem variar dependendo:
 
@@ -309,11 +316,15 @@ da forma como o modelo foi construído
 
 Define o offset inicial do robô no ambiente 3D.
 
+<div align="center">
+
 | Índice | Representa |
 |---|---|
 | `[0]` | Eixo X |
 | `[1]` | Eixo Y |
 | `[2]` | Eixo Z |
+
+</div>
 
 Na maioria dos casos:
 ```json
@@ -342,11 +353,15 @@ Cada item dessa lista representa um `model_x.glb`.
 
 Entendendo cada parâmetro
 
+<div align="center">
+
 | Campo | Função |
 |---|---|
 | `name` | Nome do arquivo `.glb` |
 | `zeroedRotations` | Rotação inicial do componente |
 | `zeroedPosition` | Offset inicial do componente |
+
+</div>
 
 <h3>zeroedRotations</h3>
 
@@ -379,6 +394,8 @@ Na maioria dos casos, os componentes já são exportados corretamente alinhados 
 <h3>Associação dos Models</h3>
 A lógica utilizada neste projeto foi:
 
+<div align="center">
+
 | Model | Componente |
 |---|---|
 | `model_0` | Intake |
@@ -387,6 +404,8 @@ A lógica utilizada neste projeto foi:
 | `model_3` | Hand/braço articulável |
 | `model_4` | Rolete de coleta 1 |
 | `model_5` | Rolete de coleta 2 |
+
+</div>
 
 É extremamente importante respeitar essa sequência tanto:
 - no config.json
