@@ -57,8 +57,8 @@ O objetivo é garantir que o arquivo `model.glb` contenha exclusivamente o chass
 
 <tr>
 
-<td align="center" width="500">
-	<img src="https://github.com/FRCMT-Repositories/.github/blob/main/profile/CAD/ModelChassi.gif" width="500">
+<td align="center" width="350">
+	<img src="https://github.com/FRCMT-Repositories/.github/blob/main/profile/CAD/ModelChassi.gif" width="350">
 </td>
 
 <td align="center" width="450">
