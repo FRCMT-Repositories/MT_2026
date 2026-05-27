@@ -263,7 +263,7 @@ Além disso, este arquivo também é responsável por relacionar os componentes 
   "cameras": [],
   "components": []
 }
-
+```
 
 | Campo | Função |
 |---|---|
@@ -287,6 +287,7 @@ A seção `rotations` é responsável por corrigir a orientação do CAD exporta
   { "axis": "z", "degrees": 90 }
 ]
 }
+```
 
 Entendendo os parâmetros
 
@@ -303,9 +304,8 @@ da forma como o modelo foi construído
 
 <h3>Posição Inicial</h3>
 ```json
-{
 "position": [0.0, 0.0, 0.0]
-}
+```
 
 Define o offset inicial do robô no ambiente 3D.
 
@@ -317,9 +317,9 @@ Define o offset inicial do robô no ambiente 3D.
 
 Na maioria dos casos:
 ```json
-{
 "position": [0.0, 0.0, 0.0]
-}
+```
+
 já será suficiente.
 
 <h3>Componentes Articuláveis</h3>
@@ -327,8 +327,8 @@ já será suficiente.
 A seção `components` define todos os componentes móveis do robô.
 
 Cada item dessa lista representa um `model_x.glb`.
+
 ```json
-{
 {
   "name": "model_0",
   "zeroedRotations": [
@@ -338,7 +338,7 @@ Cada item dessa lista representa um `model_x.glb`.
   ],
   "zeroedPosition": [0.0, 0.0, 0.0]
 }
-}
+```
 
 Entendendo cada parâmetro
 
@@ -356,6 +356,7 @@ Entendendo cada parâmetro
   { "axis": "y", "degrees": 0 },
   { "axis": "z", "degrees": 180 }
 ]
+```
 
 Responsável pela orientação inicial do componente dentro do modelo principal.
 Essas rotações são extremamente importantes para:
@@ -369,6 +370,7 @@ Essas rotações são extremamente importantes para:
 
 ```json
 "zeroedPosition": [0.0, 0.0, 0.0]
+```
 
 Define a posição inicial do componente antes da aplicação dos plots enviados pela programação.
 
@@ -391,6 +393,9 @@ A lógica utilizada neste projeto foi:
 - quanto na associação dos componentes dentro do AdvantageScope
 
 Caso a ordem seja alterada incorretamente, os movimentos poderão ser aplicados aos componentes errados.
+
+<h3>Arquivo Completo</h3> <details> <summary><b>config.json completo</b></summary>
+
 ```json
 {
   "name": "MT Model A",
@@ -458,5 +463,6 @@ Caso a ordem seja alterada incorretamente, os movimentos poderão ser aplicados 
     }
   ]
 }
+```
 
 </div>
