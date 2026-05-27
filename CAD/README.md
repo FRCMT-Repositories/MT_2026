@@ -181,6 +181,35 @@ O objetivo é garantir que somente os elementos realmente móveis do elevador se
 
 </table>
 
+Após concluir a separação dos componentes necessários, basta exportar o modelo novamente seguindo o mesmo procedimento realizado anteriormente, garantindo que o arquivo seja salvo no formato `.glb`.
+
+<h2>model_3.glb</h2>
+Este arquivo representa exclusivamente a estrutura articulável do braço (`Hand`).
+
+Diferentemente dos modelos anteriores, este componente precisa possuir seu ponto de origem (`offset`) diretamente alinhado ao pino de articulação do braço. Isso é necessário porque toda a rotação do mecanismo será executada em função desse ponto específico.
+
+Em outras palavras, o eixo central do pino será utilizado como referência para a movimentação angular do braço dentro da simulação.
+
+Assim como realizado anteriormente no sistema de intake, nosso objetivo neste projeto também é simular individualmente as rodas de coleta 1 e 2 presentes no braço.
+
+Por esse motivo, ambas as rodas devem ser removidas deste modelo principal e exportadas separadamente em arquivos `.glb` individuais, permitindo que cada componente seja manipulado independentemente durante a simulação.
+
+<table align="center">
+
+<tr>
+
+<td align="center" width="350">
+	<img src="https://github.com/FRCMT-Repositories/.github/blob/main/profile/CAD/ModelHand_.gif" width="350">
+</td>
+
+<td align="center" width="140">
+	<img src="https://github.com/FRCMT-Repositories/.github/blob/main/profile/CAD/HandPerspectiva_.gif" width="140">
+</td>
+
+</tr>
+
+</table>
+
 
 
 </div>
