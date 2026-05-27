@@ -130,5 +130,30 @@ Por esse motivo, o rolete também deve ser removido deste arquivo, deixando apen
 
 </table>
 
+Assim como realizado no modelo anterior, exporte novamente o componente utilizando o formato `.glb`, garantindo que o arquivo seja salvo corretamente para posterior utilização no AdvantageScope.
+
+<h2>model_1.glb</h2>
+Este arquivo representa exclusivamente o rolete de coleta do sistema de intake.
+
+Diferentemente dos modelos anteriores, mecanismos que precisam realizar rotação em torno do próprio eixo exigem um cuidado especial durante a exportação.
+
+Para esses casos, recomenda-se abrir diretamente o CAD individual do componente que será rotacionado — neste exemplo, o rolete de coleta — e exportá-lo separadamente em formato `.glb`.
+
+Esse procedimento garante que:
+- o eixo de origem (`offset`) do modelo fique centralizado corretamente
+- a rotação aconteça em torno do próprio eixo físico do componente
+- e a manipulação 3D dentro do AdvantageScope ocorra de maneira natural e precisa durante a simulação
+
+<table align="center">
+
+<tr>
+
+<td align="center" width="400">
+	<img src="https://github.com/FRCMT-Repositories/.github/blob/main/profile/CAD/RoletePerspectiva.gif" width="400">
+</td>
+
+</tr>
+
+</table>
 
 </div>
