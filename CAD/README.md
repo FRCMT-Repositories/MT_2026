@@ -18,8 +18,8 @@ Primeiro ponto e crucial para facilitar a configuração e entendimento do arqui
 	<img src="https://github.com/FRCMT-Repositories/.github/blob/main/profile/CAD/RobotPerspectiva.gif" width="500">
 </td>
 
-<td align="center" width="500">
-	<img src="https://github.com/FRCMT-Repositories/.github/blob/main/profile/CAD/ROBOT1.png" width="500">
+<td align="center" width="450">
+	<img src="https://github.com/FRCMT-Repositories/.github/blob/main/profile/CAD/ROBOT1.png" width="450">
 </td>
 
 </tr>
