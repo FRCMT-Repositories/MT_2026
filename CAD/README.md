@@ -203,7 +203,7 @@ Por esse motivo, ambas as rodas devem ser removidas deste modelo principal e exp
 </td>
 
 <td align="center" width="140">
-	<img src="https://github.com/FRCMT-Repositories/.github/blob/main/profile/CAD/HandPerspectiva_.gif" width="140">
+	<img src="https://github.com/FRCMT-Repositories/.github/blob/main/profile/CAD/HandPerspective_.gif" width="140">
 </td>
 
 </tr>
