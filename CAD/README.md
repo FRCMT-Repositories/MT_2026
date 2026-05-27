@@ -211,6 +211,7 @@ Por esse motivo, ambas as rodas devem ser removidas deste modelo principal e exp
 </table>
 
 <h2>model_4.glb e model_5.glb</h2>
+
 Estes arquivos representam exclusivamente os roletes de coleta e deposição presentes no sistema do braço (`Hand`).
 
 Assim como realizado anteriormente no `model_1.glb`, a exportação desses componentes deve ser feita utilizando o CAD individual de cada rolete, garantindo que o ponto de origem (`offset`) esteja centralizado diretamente no eixo do próprio componente.
