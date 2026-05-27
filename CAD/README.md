@@ -210,6 +210,30 @@ Por esse motivo, ambas as rodas devem ser removidas deste modelo principal e exp
 
 </table>
 
+<h2>model_4.glb e model_5.glb</h2>
+Estes arquivos representam exclusivamente os roletes de coleta e deposição presentes no sistema do braço (`Hand`).
 
+Assim como realizado anteriormente no `model_1.glb`, a exportação desses componentes deve ser feita utilizando o CAD individual de cada rolete, garantindo que o ponto de origem (`offset`) esteja centralizado diretamente no eixo do próprio componente.
+
+Esse cuidado é fundamental para permitir que o objeto realize rotações corretamente em torno do próprio eixo durante a simulação.
+
+Como o braço possui dois roletes com a mesma geometria, uma alternativa prática é:
+- exportar inicialmente apenas o `model_4.glb`
+- duplicar o arquivo exportado
+- e renomear a cópia para `model_5.glb`
+
+Toda a lógica de posicionamento, orientação e comportamento individual dos componentes será posteriormente definida através do `config.json` em conjunto com a programação da simulação.
+
+<table align="center">
+
+<tr>
+
+<td align="center" width="300">
+	<img src="https://github.com/FRCMT-Repositories/.github/blob/main/profile/CAD/RoleteHandPerspectiva.gif" width="300">
+</td>
+
+</tr>
+
+</table>
 
 </div>
