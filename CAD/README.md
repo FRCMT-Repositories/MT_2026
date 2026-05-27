@@ -173,8 +173,8 @@ O objetivo é garantir que somente os elementos realmente móveis do elevador se
 	<img src="https://github.com/FRCMT-Repositories/.github/blob/main/profile/CAD/ModelElevator.gif" width="350">
 </td>
 
-<td align="center" width="50">
-	<img src="https://github.com/FRCMT-Repositories/.github/blob/main/profile/CAD/ELEVATOR.png" width="50">
+<td align="center" width="100">
+	<img src="https://github.com/FRCMT-Repositories/.github/blob/main/profile/CAD/ELEVATOR.png" width="100">
 </td>
 
 </tr>
