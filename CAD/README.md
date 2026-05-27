@@ -276,6 +276,7 @@ Além disso, este arquivo também é responsável por relacionar os componentes 
 | `components` | Componentes articuláveis |
 
 </div>
+
 ---
 
 <h3>Rotação Global do Robô</h3>
@@ -309,6 +310,8 @@ do software CAD utilizado
 da orientação de exportação
 da forma como o modelo foi construído
 
+---
+
 <h3>Posição Inicial</h3>
 ```json
 "position": [0.0, 0.0, 0.0]
@@ -332,6 +335,8 @@ Na maioria dos casos:
 ```
 
 já será suficiente.
+
+---
 
 <h3>Componentes Articuláveis</h3>
 
@@ -363,6 +368,8 @@ Entendendo cada parâmetro
 
 </div>
 
+---
+
 <h3>zeroedRotations</h3>
 
 ```json
@@ -381,6 +388,8 @@ Essas rotações são extremamente importantes para:
 - definir o eixo correto de movimentação
 - garantir que as rotações aconteçam no sentido esperado
 
+---
+
 <h3>zeroedPosition</h3>
 
 ```json
@@ -390,6 +399,8 @@ Essas rotações são extremamente importantes para:
 Define a posição inicial do componente antes da aplicação dos plots enviados pela programação.
 
 Na maioria dos casos, os componentes já são exportados corretamente alinhados ao robô principal, tornando possível manter os valores zerados.
+
+---
 
 <h3>Associação dos Models</h3>
 A lógica utilizada neste projeto foi:
@@ -412,6 +423,8 @@ A lógica utilizada neste projeto foi:
 - quanto na associação dos componentes dentro do AdvantageScope
 
 Caso a ordem seja alterada incorretamente, os movimentos poderão ser aplicados aos componentes errados.
+
+---
 
 <h3>Arquivo Completo</h3> <details> <summary><b>config.json completo</b></summary>
 
