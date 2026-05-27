@@ -82,4 +82,53 @@ Em seguida:
 
 Antes de concluir a exportação, verifique se o tipo de arquivo selecionado está definido como `.glb`. Caso não esteja, altere manualmente o formato para `.glb` antes de salvar o arquivo.
 
+A partir deste ponto, a ordem de exportação dos arquivos `model_x` não interfere diretamente no funcionamento da simulação. Entretanto, é extremamente importante manter consistência entre os nomes dos arquivos, o `config.json` e a ordem de associação dos componentes dentro do AdvantageScope.
+
+Ou seja:
+- `model_0` deverá ser associado como o primeiro componente
+- `model_1` como o segundo
+- `model_2` como o terceiro
+- e assim sucessivamente
+
+A lógica utilizada neste projeto foi a seguinte:
+
+- `model_0` → Intake (sem o rolete)
+- `model_1` → Rolete do intake
+- `model_2` → Elevator
+- `model_3` → Hand / braço articulável (sem os roletes)
+- `model_4` → Rolete de coleta 1
+- `model_5` → Rolete de coleta 2
+
+Manter essa organização facilita significativamente o entendimento do projeto, a configuração do `config.json` e a associação correta dos componentes durante a manipulação 3D no AdvantageScope.
+
+<h2>model_0.glb</h2>
+Este arquivo representa exclusivamente a parte móvel do sistema de intake.
+
+Com o CAD completo do robô já separado anteriormente, agora remova todos os componentes que não fazem parte diretamente da estrutura móvel do intake, como por exemplo:
+- chassi
+- elevador
+- hand / braço articulável
+- mecanismos auxiliares externos ao intake
+
+Além disso, como a proposta deste projeto também inclui a simulação individual do rolete de coleta, o mesmo deverá ser exportado separadamente como outro `model_x`.
+
+Por esse motivo, o rolete também deve ser removido deste arquivo, deixando apenas a estrutura articulável principal do intake.
+
+<table align="center">
+
+<tr>
+
+<td align="center" width="350">
+	<img src="https://github.com/FRCMT-Repositories/.github/blob/main/profile/CAD/Modelintake.gif" width="350">
+</td>
+
+<td align="center" width="370">
+	<img src="https://github.com/FRCMT-Repositories/.github/blob/main/profile/CAD/INTAKE.png" width="370">
+</td>
+
+</tr>
+
+</table>
+
+
 </div>
