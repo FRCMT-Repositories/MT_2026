@@ -156,4 +156,25 @@ Esse procedimento garante que:
 
 </table>
 
+<h2>model_2.glb</h2>
+Este arquivo representa exclusivamente o sistema movel do levador.
+
+<table align="center">
+
+<tr>
+
+<td align="center" width="350">
+	<img src="https://github.com/FRCMT-Repositories/.github/blob/main/profile/CAD/ModelElevator.gif" width="350">
+</td>
+
+<td align="center" width="300">
+	<img src="https://github.com/FRCMT-Repositories/.github/blob/main/profile/CAD/ELEVATOR.png" width="300">
+</td>
+
+</tr>
+
+</table>
+
+
+
 </div>
