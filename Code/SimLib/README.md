@@ -589,7 +589,7 @@ Dessa forma, independentemente da altura atual do elevador, o braÃ§o permanecerÃ
 <tr>
 
 <td align="center" width="950">
-	<img src="https://github.com/FRCMT-Repositories/.github/blob/main/profile/Hand/HandMed1.png" width="950">
+	<img src="https://github.com/FRCMT-Repositories/.github/blob/main/profile/Hand/HandMed2.png" width="950">
 </td>
 
 </tr>
