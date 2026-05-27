@@ -199,11 +199,11 @@ Por esse motivo, ambas as rodas devem ser removidas deste modelo principal e exp
 <tr>
 
 <td align="center" width="350">
-	<img src="https://github.com/FRCMT-Repositories/.github/blob/main/profile/CAD/ModelHand_.gif" width="350">
+	<img src="https://github.com/FRCMT-Repositories/.github/blob/main/profile/CAD/ModelHand.gif" width="350">
 </td>
 
-<td align="center" width="140">
-	<img src="https://github.com/FRCMT-Repositories/.github/blob/main/profile/CAD/HandPerspective_.gif" width="140">
+<td align="center" width="300">
+	<img src="https://github.com/FRCMT-Repositories/.github/blob/main/profile/CAD/HandPerspective_.gif" width="300">
 </td>
 
 </tr>
