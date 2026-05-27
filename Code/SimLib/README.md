@@ -584,6 +584,18 @@ Além disso, somamos o valor `0.9839`, pois essa é a distância entre o eixo de
 
 Dessa forma, independentemente da altura atual do elevador, o braço permanecerá corretamente posicionado e acoplado ao mecanismo durante toda a simulação.
 
+<table align="center">
+
+<tr>
+
+<td align="center" width="950">
+	<img src="https://github.com/FRCMT-Repositories/.github/blob/main/profile/Hand/HandMed1.png" width="950">
+</td>
+
+</tr>
+
+</table>
+
 
 </div>
 
