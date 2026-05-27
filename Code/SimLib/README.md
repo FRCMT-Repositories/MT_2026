@@ -597,8 +597,48 @@ Dessa forma, independentemente da altura atual do elevador, o braço permanecer�
 </table>
 
 
-O com base n imagem fica claro entender o valor dos catetos adjacente e oposto dos roletes:
+Com base na imagem, fica mais fácil compreender como os valores dos catetos adjacente e oposto influenciam diretamente no posicionamento do sistema de roletes do braço dentro da simulação.
 
+</div>
+
+> [!TIP]
+> **ENTENDENDO OS VALORES DE MANIPULAÇÃO DO HAND**
+>
+> <div align="justify">
+>
+> ```java
+> Logger.recordOutput("SubSystemSim/Hand", new Pose3d[] {
+>     new Pose3d(
+>         -0.1524,
+>         0.0,
+>         SimElevator.getRawPosition() + 0.9839,
+>         new Rotation3d(getRawAngle(), 0, 0)
+>     )
+> });
+> ```
+>
+> ### Entendendo cada valor:
+>
+> - `Eixo X = -0.1524`
+>
+> Representa a distância entre o centro do mecanismo de articulação do braço e o centro do robô.
+>
+> O valor é negativo porque o mecanismo está posicionado antes do centro do robô no eixo `X`, e não após ele.
+>
+> ---
+>
+> - `Eixo Z = SimElevator.getRawPosition() + 0.9839`
+>
+> O valor `0.9839` corresponde à distância entre o solo (posição `Z = 0`) e o centro do mecanismo de articulação do braço.
+>
+> Já `SimElevator.getRawPosition()` faz com que o braço acompanhe automaticamente toda a movimentação vertical executada pelo elevador.
+>
+> ---
+>
+> - `getRawAngle()`
+>
+> Responsável por manipular diretamente a inclinação do braço através do eixo `Roll`, controlando a rotação do mecanismo durante a simulação.
+>
 > </div>
 
 > [!TIP]
@@ -614,21 +654,11 @@ O com base n imagem fica claro entender o valor dos catetos adjacente e oposto d
 > `getRawAngle()` é nada mais do que o valor do angulo do braço em graus em relação ao elevador.
 >
 > A diferença de um rolete para o outro é apenas o angulo, que fica inverso por se tratar do rolete oposto.
+>
 > `Logger.recordOutput("SubSystemSim/Hand/wheel1", new Pose3d[] { new Pose3d(0.028800, Whell1_CO, SimElevator.getRawPosition() + (0.9839 - Whell1_CA), new Rotation3d(Rotation, 0, 0))});`
 
-</div>
 
-> [!TIP]
-> **ENTENDENDO OS VALORES DE MANIPULAÇÃO DO HAND**
-> <div align="justify">
->
-> Com as medidas acima agora fica claro de onde surgiu os parametros 0.715675 = 715,675 mm e o angulo de 14.07, das equações citadas anteriormente.
->
-> double Whell1_CO = 0.715675 * Math.sin(Math.toRadians(14.07 + Math.toDegrees(getRawAngle())));
->
-> double Whell1_CA = 0.715675 * Math.cos(Math.toRadians(14.07 + Math.toDegrees(getRawAngle())));
->
-> A diferença de um rolete para o outro é apenas o angulo, que fica inverso por se tratar do rolete oposto.
+
 
 
 
