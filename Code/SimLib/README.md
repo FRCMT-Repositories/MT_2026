@@ -606,6 +606,7 @@ O com base n imagem fica claro entender o valor dos catetos adjacente e oposto d
 > <div align="justify">
 >
 > Com as medidas acima agora fica claro de onde surgiu os parametros 0.715675 = 715,675 mm e o angulo de 14.07, das equações citadas anteriormente.
+>
 > `double Whell1_CO = 0.715675 * Math.sin(Math.toRadians(14.07 + Math.toDegrees(getRawAngle())));`
 > `double Whell1_CA = 0.715675 * Math.cos(Math.toRadians(14.07 + Math.toDegrees(getRawAngle())));`
 > `getRawAngle()` é nada mais do que o valor do angulo do braço em graus em relação ao elevador.
@@ -619,6 +620,7 @@ O com base n imagem fica claro entender o valor dos catetos adjacente e oposto d
 > <div align="justify">
 >
 > Com as medidas acima agora fica claro de onde surgiu os parametros 0.715675 = 715,675 mm e o angulo de 14.07, das equações citadas anteriormente.
+>
 > double Whell1_CO = 0.715675 * Math.sin(Math.toRadians(14.07 + Math.toDegrees(getRawAngle())));
 > double Whell1_CA = 0.715675 * Math.cos(Math.toRadians(14.07 + Math.toDegrees(getRawAngle())));
 > A diferença de um rolete para o outro é apenas o angulo, que fica inverso por se tratar do rolete oposto.
