@@ -614,9 +614,8 @@ O com base n imagem fica claro entender o valor dos catetos adjacente e oposto d
 > `getRawAngle()` é nada mais do que o valor do angulo do braço em graus em relação ao elevador.
 >
 > A diferença de um rolete para o outro é apenas o angulo, que fica inverso por se tratar do rolete oposto.
->
-> Logger.recordOutput("SubSystemSim/Hand/wheel1", new Pose3d[] { new Pose3d(
-            0.028800, Whell1_CO, SimElevator.getRawPosition() + (0.9839 - Whell1_CA), new Rotation3d(Rotation, 0, 0))});
+> `Logger.recordOutput("SubSystemSim/Hand/wheel1", new Pose3d[] { new Pose3d(
+            0.028800, Whell1_CO, SimElevator.getRawPosition() + (0.9839 - Whell1_CA), new Rotation3d(Rotation, 0, 0))});`
 
 </div>
 
