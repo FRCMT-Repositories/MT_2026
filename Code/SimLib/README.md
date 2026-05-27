@@ -556,11 +556,11 @@ Em comparação com os sistemas apresentados anteriormente, o subsistema do bra�
         handArticulation();
         handVelocity();
 
-        double Whell1_CO = 0.715675 * Math.sin(Math.toRadians(13.97 + Math.toDegrees(getRawAngle())));
-        double Whell1_CA = 0.715675 * Math.cos(Math.toRadians(13.97 + Math.toDegrees(getRawAngle())));
+        double Whell1_CO = 0.715675 * Math.sin(Math.toRadians(14.07 + Math.toDegrees(getRawAngle())));
+        double Whell1_CA = 0.715675 * Math.cos(Math.toRadians(14.07 + Math.toDegrees(getRawAngle())));
 
-        double Whell2_CO = 0.715675 * Math.sin(Math.toRadians(-13.97 + Math.toDegrees(getRawAngle())));
-        double Whell2_CA = 0.715675 * Math.cos(Math.toRadians(-13.97 + Math.toDegrees(getRawAngle())));
+        double Whell2_CO = 0.715675 * Math.sin(Math.toRadians(-14.07 + Math.toDegrees(getRawAngle())));
+        double Whell2_CA = 0.715675 * Math.cos(Math.toRadians(-14.07 + Math.toDegrees(getRawAngle())));
 
         Logger.recordOutput("SubSystemSim/HandVelocity", CurrentVelocity);
         Logger.recordOutput("SubSystemSim/AngleHand", Math.toDegrees(SetAngle));
