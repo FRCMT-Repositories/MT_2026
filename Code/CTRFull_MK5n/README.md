@@ -95,38 +95,33 @@ Além disso, a inicialização utilizando `Logger.start()` é responsável por i
 
 ### Envio da odometria
 
-Por padrão, a biblioteca YAGSL já disponibiliza um método responsável por retornar a pose do robô dentro do arquivo `SwerveSubsystem.java`. Além disso, esse subsistema também possui um método `periodic()`, que é executado continuamente durante o funcionamento do robô.
+Por padrão, a biblioteca CTRE já disponibiliza um método responsável por retornar a pose do robô dentro do arquivo `CommandSwerveDrivetrain.java`. Além disso, esse subsistema também possui um método `periodic()`, que é executado continuamente durante o funcionamento do robô.
 
 Dessa forma, podemos aproveitar essa estrutura para realizar o envio (plot) das informações de odometria para o AdvantageScope.
 
 ```java
   @Override
   public void periodic() {
-    swerveDrive.updateOdometry();
 
-    if (visionDriveTest) {
-        vision.updatePoseEstimation(swerveDrive);
-    }
-
-    Pose2d currentPose = this.getPose();
-    Logger.recordOutput("ODOMETRY", currentPose);
+    Pose2d currentPose = this.getState().Pose;
+    Logger.recordOutput("ODOMETRIA", currentPose);
     
   }
 ```
 
 Note que, diferentemente do `SmartDashboard.put...`, o `Logger.recordOutput()` não precisa que informemos explicitamente o tipo de dado que será enviado. Isso acontece porque o Logger possui suporte automático para diferentes tipos de informações, sendo capaz de interpretar e registrar valores como números, booleanos, poses, arrays, estruturas geométricas e diversos outros objetos utilizados no WPILib.
 
-Aproveitando que já estamos trabalhando nesta classe, também podemos definir uma posição inicial fixa para o robô durante a simulação, facilitando testes, validações e a visualização do comportamento dos subsistemas dentro do ambiente virtual.
-
+Aproveitando que já estamos trabalhando nesta classe, também podemos definir uma posição inicial fixa para o robô durante a simulação, facilitando 
+testes, validações e a visualização do comportamento dos subsistemas dentro do ambiente virtual.
 ```java
   @Override
   public void simulationPeriodic()
   {
-    if(ctrInit){
-        if(!isRedAlliance()) this.resetOdometry(new Pose2d(2, 4, new Rotation2d(Math.PI)));
-        else this.resetOdometry(new Pose2d(13.5, 4, new Rotation2d(0)));
-        ctrInit = false;
-    }
+     if(ctrInit){
+       if(!isRedAlliance()) this.resetPose(new Pose2d(2, 4, new Rotation2d(Math.PI)));
+       else this.resetPose(new Pose2d(13.5, 4, new Rotation2d(0)));
+       ctrInit = false;
+     }
   }
 ```
 
