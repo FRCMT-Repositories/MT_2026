@@ -167,7 +167,9 @@ Por fim, dentro do método `configureBindings()`, definimos o comando padrão do
     }));
 ...
 ```
+
 </div>
+
 > [!IMPORTANT]
 > <div align="justify">
 > 
