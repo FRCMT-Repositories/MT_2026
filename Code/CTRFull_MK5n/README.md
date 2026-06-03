@@ -180,6 +180,7 @@ Por fim, dentro do método `configureBindings()`, definimos o comando padrão do
 > [!WARNING]
 > **ESTA CONFIGURAÇÃO NÃO AFETA A SIMULAÇÃO**
 > <div align="justify">
+> 
 > O código disponibilizado foi originalmente testado e validado utilizando o robô **APEX 2.0**, da equipe **FRC 10291**. Por esse motivo, os valores presentes no arquivo `TunerConstants.java` estão diretamente relacionados à configuração física do chassi da equipe MUTUM X.
 >
 > Dessa forma, embora a simulação funcione corretamente, a utilização prática desse código em um robô real provavelmente não apresentará o comportamento esperado, a menos que os IDs CAN, relações mecânicas, offsets e valores de PID sejam idênticos aos utilizados no projeto original.

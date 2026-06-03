@@ -166,6 +166,7 @@ public class RobotContainer {
 > [!WARNING]
 > **ESTA CONFIGURAÇÃO NÃO AFETA A SIMULAÇÃO**
 > <div align="justify">
+> 
 > O código disponibilizado foi originalmente testado e validado utilizando o robô **MIRAGE**, da equipe **FRC 9168**. Por esse motivo, os valores presentes no diretório `src/main/deploy/swerve/MK4i` estão diretamente relacionados à configuração física do chassi da equipe AGROBOT.
 >
 > Dessa forma, embora a simulação funcione corretamente, a utilização prática desse código em um robô real provavelmente não apresentará o comportamento esperado, a menos que os IDs CAN, relações mecânicas, offsets e valores de PID sejam idênticos aos utilizados no projeto original.
