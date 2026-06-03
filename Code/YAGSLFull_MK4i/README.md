@@ -8,6 +8,11 @@
 > </div>
 
 <div align="justify">
+
+O template base utilizado neste projeto foi derivado do exemplo oficial `full_example` disponibilizado pela equipe de desenvolvimento da YAGSL, juntamente com sua documentação oficial, disponível [aqui](https://github.com/Yet-Another-Software-Suite/YAGSL/tree/main/examples/full_example).
+
+A partir desse template foram realizadas diversas adaptações e expansões para incorporar recursos de simulação, integração com o AdvantageScope, utilização do AdvantageKit e implementação dos subsistemas específicos utilizados nos robôs modelos A e B.
+
 <h2>PASSO 1: AdvantageKit</h2>
 
 Ao baixar o template desejado ou criar um novo projeto — seja ele baseado em Command Robot, Command Timed Skeleton ou qualquer outra estrutura — é altamente recomendável alterar a classe principal do robô para utilizar o `LoggedRobot`.

@@ -9,6 +9,11 @@
 > </div>
 
 <div align="justify">
+
+O template base utilizado neste projeto foi desenvolvido a partir dos exemplos oficiais fornecidos pela própria CTRE através do Phoenix Tuner X, juntamente com sua documentação oficial, disponível [aqui](https://pro.docs.ctr-electronics.com/en/latest/docs/tuner/tuner-swerve/index.html).
+
+A partir dessa estrutura inicial, foram realizadas diversas adaptações e expansões para incorporar recursos de simulação, integração com o AdvantageScope, utilização do AdvantageKit e implementação dos subsistemas específicos presentes nos robôs Modelo A e Modelo B.
+
 <h2>PASSO 1: AdvantageKit</h2>
 
 Ao baixar o template desejado ou criar um novo projeto — seja ele baseado em Command Robot, Command Timed Skeleton ou qualquer outra estrutura — é altamente recomendável alterar a classe principal do robô para utilizar o `LoggedRobot`.
@@ -22,7 +27,7 @@ Para utilizar esta ferramenta, precisamos ter a biblioteca `AdvantageKit` instal
 > [!NOTE]
 > **AdvantageKit**
 > <div align="justify">
-> A instalação do AdvatangeKit pode ser realizada na aba `WPILib Vendor Dependencies` presente no canto superior esquerdo do `WPILib VS Code`.
+> A instalação do AdvatangeKit pode ser realizada na aba WPILib Vendor Dependencies presente no canto superior esquerdo do WPILib VS Code.
 > </div>
 
 
@@ -130,6 +135,42 @@ testes, validações e a visualização do comportamento dos subsistemas dentro 
 
 
 <h2>PASSO 3: Movimentação</h2>
+
+No `RobotContainer`, precisamos definir o estilo de movimentação desejado para o drivetrain, além de configurar os principais parâmetros operacionais, como velocidade máxima de translação (`MaxSpeed`) e velocidade máxima angular (`MaxAngularRate`).
+
+```java
+public double MaxSpeed = 1.0 * TunerConstants.kSpeedAt12Volts.in(MetersPerSecond);
+private double MaxAngularRate = RotationsPerSecond.of(0.75).in(RadiansPerSecond);
+
+Em seguida, definimos o modo de direção utilizado pelo robô. Neste exemplo, estamos utilizando controle `FieldCentric`, com deadband para translação e rotação, além do modo `OpenLoopVoltage` para o acionamento dos módulos:
+
+```java
+  private final SwerveRequest.FieldCentric drive = new SwerveRequest.FieldCentric()
+      .withDeadband(MaxSpeed * 0.1).withRotationalDeadband(MaxAngularRate * 0.1)
+      .withDriveRequestType(DriveRequestType.OpenLoopVoltage);
+```
+
+Também precisamos instanciar o drivetrain utilizando os parâmetros gerados automaticamente pelo Phoenix Tuner X no arquivo `TunerConstants` durante a configuração do sistema swerve:
+
+```java
+  private CommandSwerveDrivetrain driveBase = TunerConstants.createDrivetrain();
+```
+
+Por fim, dentro do método `configureBindings()`, definimos o comando padrão do drivetrain através do `setDefaultCommand()`. É neste ponto que associamos os eixos do controle aos movimentos do robô:
+```java
+  private void configureBindings() {
+    driveBase.setDefaultCommand(driveBase.applyRequest(() -> { return drive
+      .withVelocityX(-driver.getLeftY() * MaxSpeed * driver.getRightTriggerAxis())
+      .withVelocityY(-driver.getLeftX() * MaxSpeed * driver.getRightTriggerAxis())
+      .withRotationalRate(-driver.getRightX() * MaxSpeed);
+    }));
+...
+```
+</div>
+> [!IMPORTANT]
+> <div align="justify">
+> 
+> Para a rotação do robô, utilize MaxAngularRate, e não MaxSpeed, pois MaxSpeed representa velocidade linear em metros por segundo, enquanto MaxAngularRate representa velocidade angular em radianos por segundo.
 
 Garanta que os eixos do controle estejam corretamente associados aos movimentos do robô. Por padrão, a YAGSL já fornece algumas configurações de movimentação utilizando `SwerveInputStream`, normalmente localizadas no `RobotContainer`, contendo os principais bindings necessários para o controle do chassi.
 

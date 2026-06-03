@@ -100,16 +100,12 @@ public class CommandSwerveDrivetrain extends TunerSwerveDrivetrain implements Su
             });
         }
 
-        if(ctrInit){
-            headingPID.enableContinuousInput(-180, 180);
-            headingPID.setTolerance(2);
+        // if(ctrInit){
+        //     headingPID.enableContinuousInput(-180, 180);
+        //     headingPID.setTolerance(2);
 
-            /* Rodar Isso apenas se for na simulação */
-            if(!isRedAlliance()) this.resetPose(new Pose2d(2, 4, new Rotation2d(Math.PI)));
-            else this.resetPose(new Pose2d(13.5, 4, new Rotation2d(0)));
-
-            ctrInit = false;
-        }
+        //     ctrInit = false;
+        // }
 
         double YawRaw = this.getPigeon2().getYaw().getValueAsDouble();
         double YawReal = YawRaw;
@@ -126,6 +122,18 @@ public class CommandSwerveDrivetrain extends TunerSwerveDrivetrain implements Su
         SmartDashboard.putData("FIELD", field);
         field.getObject("Robot").setPose(robot);
     }
+    
+    @Override
+    public void simulationPeriodic()
+    {
+        if(ctrInit){
+            if(!isRedAlliance()) this.resetPose(new Pose2d(2, 4, new Rotation2d(Math.PI)));
+            else this.resetPose(new Pose2d(13.5, 4, new Rotation2d(0)));
+
+            ctrInit = false;
+        }
+    }
+
 
     public void zeroGyroPigeon() {
         this.getPigeon2().setYaw(0);
