@@ -175,53 +175,17 @@ Por fim, dentro do método `configureBindings()`, definimos o comando padrão do
 > 
 > Para a rotação do robô, utilize MaxAngularRate, e não MaxSpeed, pois MaxSpeed representa velocidade linear em metros por segundo, enquanto MaxAngularRate representa velocidade angular em radianos por segundo.
 
-Garanta que os eixos do controle estejam corretamente associados aos movimentos do robô. Por padrão, a YAGSL já fornece algumas configurações de movimentação utilizando `SwerveInputStream`, normalmente localizadas no `RobotContainer`, contendo os principais bindings necessários para o controle do chassi.
-
-Em alguns casos, determinados eixos do joystick podem apresentar movimentação invertida em relação ao comportamento esperado. Nessas situações, basta multiplicar o eixo correspondente por `-1`, invertendo sua direção de leitura, conforme demonstrado no exemplo abaixo:
-
-```java
-public class RobotContainer {
-  final CommandXboxController Cmdriver = new CommandXboxController(0);
-
-  public final SwerveSubsystem drivebase = new SwerveSubsystem(new File(Filesystem.getDeployDirectory(), "swerve/MK4i"));
-
-  private final SendableChooser<Command> autoChooser;
-
-  SwerveInputStream driveAngularVelocity = SwerveInputStream.of(drivebase.getSwerveDrive(),
-                                                                () -> -Cmdriver.getLeftY(),
-                                                                () -> -Cmdriver.getLeftX())
-                                                            .withControllerRotationAxis(() -> (-Cmdriver.getRightX()) * 0.8)
-                                                            .deadband(OperatorConstants.DEADBAND)
-                                                            .scaleTranslation(0.8)
-                                                            .allianceRelativeControl(true);
-...
-```
 </div>
 
 > [!WARNING]
 > **ESTA CONFIGURAÇÃO NÃO AFETA A SIMULAÇÃO**
 > <div align="justify">
-> O código disponibilizado foi originalmente testado e validado utilizando o robô **MIRAGE**, da equipe **FRC 9168**. Por esse motivo, os valores presentes no diretório `src/main/deploy/swerve/MK4i` estão diretamente relacionados à configuração física do chassi da equipe AGROBOT.
+> O código disponibilizado foi originalmente testado e validado utilizando o robô **APEX 2.0**, da equipe **FRC 10291**. Por esse motivo, os valores presentes no arquivo `TunerConstants.java` estão diretamente relacionados à configuração física do chassi da equipe MUTUM X.
 >
 > Dessa forma, embora a simulação funcione corretamente, a utilização prática desse código em um robô real provavelmente não apresentará o comportamento esperado, a menos que os IDs CAN, relações mecânicas, offsets e valores de PID sejam idênticos aos utilizados no projeto original.
 > </div>
 
 <div align="justify">
-
-Para finalizar, também será necessário, dentro do método `configureBindings()`, criar o comando responsável por utilizar o `SwerveInputStream` citado anteriormente como sistema principal de controle do chassi.
-
-Em seguida, definiremos esse comando como o comportamento padrão do drivetrain através do método `setDefaultCommand()`, garantindo que o robô permaneça constantemente recebendo os comandos de movimentação do controle durante sua execução.
-
-Além disso, por questões de praticidade e boas práticas de desenvolvimento, também é recomendado associar um botão responsável por resetar a odometria do robô utilizando o método `zeroGyro()`, facilitando testes, reposicionamentos e validações durante a simulação.
-
-```java
-  private void configureBindings() {
-    Command driveMode = drivebase.driveFieldOriented(driveAngularVelocity);
-
-    drivebase.setDefaultCommand(driveMode);
-    Cmdriver.start().onTrue((Commands.runOnce(drivebase::zeroGyro)));
-...
-```
 
 <h2>PASSO 4: Validação</h2>
 Agora que já configuramos a base do código, vamos iniciar a simulação.
