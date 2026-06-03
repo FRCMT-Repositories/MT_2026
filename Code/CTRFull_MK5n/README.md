@@ -141,6 +141,7 @@ No `RobotContainer`, precisamos definir o estilo de movimentação desejado para
 ```java
 public double MaxSpeed = 1.0 * TunerConstants.kSpeedAt12Volts.in(MetersPerSecond);
 private double MaxAngularRate = RotationsPerSecond.of(0.75).in(RadiansPerSecond);
+```
 
 Em seguida, definimos o modo de direção utilizado pelo robô. Neste exemplo, estamos utilizando controle `FieldCentric`, com deadband para translação e rotação, além do modo `OpenLoopVoltage` para o acionamento dos módulos:
 
