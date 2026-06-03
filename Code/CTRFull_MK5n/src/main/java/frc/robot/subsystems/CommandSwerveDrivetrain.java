@@ -113,7 +113,7 @@ public class CommandSwerveDrivetrain extends TunerSwerveDrivetrain implements Su
 
         Pose2d currentPose = this.getState().Pose;
 
-        Logger.recordOutput("ODOMETRIA", currentPose);
+        Logger.recordOutput("ODOMETRY", currentPose);
 
         Logger.recordOutput("POSE/Odometry/Real", new double[] {currentPose.getX(), currentPose.getY(), Math.toRadians(YawWrapping)});
         Logger.recordOutput("POSE/Odometry/Estimate", new double[] {currentPose.getX(), currentPose.getY(), getPose().getRotation().getRadians()});

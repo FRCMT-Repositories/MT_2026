@@ -109,7 +109,7 @@ Dessa forma, podemos aproveitar essa estrutura para realizar o envio (plot) das 
   public void periodic() {
 
     Pose2d currentPose = this.getState().Pose;
-    Logger.recordOutput("ODOMETRIA", currentPose);
+    Logger.recordOutput("ODOMETRY", currentPose);
     
   }
 ```
@@ -315,7 +315,7 @@ Por fim, a Driver Station deverá indicar que o robô está conectado e comunica
 
 <h3>4.3 - Comprovação do funcionamento</h3>
 
-Localize o plot criado anteriormente na classe `SwerveSubsystem`, identificado como `ODOMETRY`. Em seguida, arraste esse sinal para o campo `Poses`, presente na visualização `3D Field` ou `2D Field` do AdvantageScope.
+Localize o plot criado anteriormente na classe `CommandSwerveDrivetrain`, identificado como `ODOMETRY`. Em seguida, arraste esse sinal para o campo `Poses`, presente na visualização `3D Field` ou `2D Field` do AdvantageScope.
 
 Ao realizar essa associação, o robô passará a ser exibido e atualizado dinamicamente no ambiente de simulação conforme as informações de odometria enviadas pelo código.
 
@@ -368,6 +368,7 @@ Com o modo teleoperado habilitado na Driver Station, o robô passará a responde
 > [!NOTE]
 > **VALIDAÇÃO E CORREÇÃO DOS CONTROLES**
 > <div align="justify">
+> 
 > Com a simulação funcionando corretamente, o robô deverá respeitar adequadamente as orientações da arena e o comportamento esperado para cada aliança (`Blue` e `Red`).
 >
 > Dessa forma, ao operar o robô, é importante validar se os movimentos executados correspondem corretamente aos comandos enviados. Por exemplo, caso o robô gire no sentido oposto ao esperado ou apresente movimentações invertidas em relação ao campo, isso indica que determinados eixos, orientações ou referências de rotação ainda precisam ser ajustados na programação.
