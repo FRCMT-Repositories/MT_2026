@@ -239,6 +239,18 @@ Após alguns segundos de inicialização, uma janela semelhante à apresentada n
 
 Durante a execução da simulação, o VS Code permanecerá exibindo uma janela de controle contendo as opções para pausar, continuar ou encerrar a simulação do robô.
 
+<table align="center">
+
+<tr>
+
+<td align="center" width="300">
+	<img src="https://raw.githubusercontent.com/FRCMT-Repositories/.github/main/profile/A_3.png" width="300">
+</td>
+
+</tr>
+
+</table>
+
 </div>
 
 > [!WARNING]
@@ -258,18 +270,6 @@ Durante a execução da simulação, o VS Code permanecerá exibindo uma janela 
 > Em geral, se determinado problema impede o funcionamento da simulação, existe uma grande chance de que o mesmo comportamento também cause falhas no robô real. Por esse motivo, recomenda-se sempre corrigir completamente os erros apresentados antes de prosseguir com novos testes ou implementações.
 > </div>
 <div align="justify">
-
-<table align="center">
-
-<tr>
-
-<td align="center" width="300">
-	<img src="https://raw.githubusercontent.com/FRCMT-Repositories/.github/main/profile/A_3.png" width="300">
-</td>
-
-</tr>
-
-</table>
 
 <h3>4.2 - AdvantageScope</h3>
 

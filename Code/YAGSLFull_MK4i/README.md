@@ -240,6 +240,18 @@ Após alguns segundos de inicialização, uma janela semelhante à apresentada n
 
 Durante a execução da simulação, o VS Code permanecerá exibindo uma janela de controle contendo as opções para pausar, continuar ou encerrar a simulação do robô.
 
+<table align="center">
+
+<tr>
+
+<td align="center" width="300">
+	<img src="https://raw.githubusercontent.com/FRCMT-Repositories/.github/main/profile/A_3.png" width="300">
+</td>
+
+</tr>
+
+</table>
+
 </div>
 
 > [!WARNING]
@@ -260,17 +272,7 @@ Durante a execução da simulação, o VS Code permanecerá exibindo uma janela 
 > </div>
 <div align="justify">
 
-<table align="center">
 
-<tr>
-
-<td align="center" width="300">
-	<img src="https://raw.githubusercontent.com/FRCMT-Repositories/.github/main/profile/A_3.png" width="300">
-</td>
-
-</tr>
-
-</table>
 
 <h3>4.2 - AdvantageScope</h3>
 
