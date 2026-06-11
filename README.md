@@ -93,6 +93,8 @@ Nesta seção são abordados:
 >
 > Para uma primeira experiência, recomenda-se utilizar os modelos já disponibilizados (`MK4i` ou `MK5n`) e validar toda a cadeia de simulação antes de iniciar a criação de modelos personalizados.
 
+---
+
 Este repositório tem como objetivo disponibilizar materiais, exemplos e ferramentas voltadas ao desenvolvimento de simulações 3D aplicadas à FIRST Robotics Competition (FRC), permitindo que equipes compreendam, validem e desenvolvam seus mecanismos de maneira mais visual, organizada e acessível.
 
 A proposta principal deste projeto é demonstrar, de forma prática e didática, como integrar modelos CAD exportados em `.glb` ao `AdvantageScope`, utilizando Java, WPILib e AdvantageKit para simular mecanismos completos do robô em tempo real.
