@@ -103,7 +103,7 @@ Escolha uma das opções abaixo:
 
 Caso deseje simular um robô personalizado, siga o processo completo de exportação e configuração dos arquivos `.glb` disponível em:
 
-- [Exportação dos Modelos CAD](https://github.com/FRCMT-Repositories/Simulation_3D/tree/main/CAD)
+- [Exportação dos Modelos CAD](https://github.com/FRCMT-Repositories/Simulation_3D/tree/main/CAD#readme)
 
 ---
 
@@ -169,6 +169,7 @@ Nesta seção são abordados:
 ---
 
 </div>
+
 > [!TIP]
 > <div align="justify">
 >
