@@ -84,4 +84,94 @@ Toda a estrutura foi desenvolvida pensando em:
 
 A intenção é que qualquer equipe consiga utilizar este material como ponto de partida para construir seus próprios sistemas de simulação, independentemente da biblioteca, arquitetura ou drivetrain utilizado.
 
+<h2>Quick Start</h2>
+
+Esta seção foi criada para permitir que qualquer equipe coloque a simulação em funcionamento no menor tempo possível. Caso deseje apenas validar o ambiente e compreender o fluxo de trabalho, siga os passos abaixo na ordem apresentada.
+
+---
+
+<h3>STEP 1 — Obtenção do Modelo 3D</h3>
+
+Escolha uma das opções abaixo:
+
+### Utilizar um modelo já configurado
+
+- Modelo **MK4i**: [Robot_MTModelA](https://github.com/FRCMT-Repositories/Simulation_3D/tree/main/Code/Advantage%20Scope/Robot_MTModelA)
+- Modelo **MK5n**: [Robot_MTModelB](https://github.com/FRCMT-Repositories/Simulation_3D/tree/main/Code/Advantage%20Scope/Robot_MTModelB)
+
+### Criar um modelo próprio
+
+Caso deseje simular um robô personalizado, siga o processo completo de exportação e configuração dos arquivos `.glb` disponível em:
+
+- [Exportação dos Modelos CAD](https://github.com/FRCMT-Repositories/Simulation_3D/tree/main/CAD)
+
+---
+
+<h3>STEP 2 — Download do Código Base</h3>
+
+Escolha o projeto correspondente ao modelo desejado:
+
+| Modelo | Biblioteca | Projeto |
+|----------|----------|----------|
+| MK4i | YAGSL | [YAGSLFull_MK4i](https://github.com/FRCMT-Repositories/Simulation_3D/tree/main/Code/YAGSLFull_MK4i) |
+| MK5n | CTRE Phoenix | [CTRFull_MK5n](https://github.com/FRCMT-Repositories/Simulation_3D/tree/main/Code/CTRFull_MK5n) |
+
+---
+
+<h3>STEP 3 — Primeira Simulação</h3>
+
+Com o projeto aberto e compilando corretamente, siga o guia de configuração inicial para executar sua primeira simulação:
+
+- [Simulação utilizando YAGSL (MK4i)](https://github.com/FRCMT-Repositories/Simulation_3D/tree/main/Code/YAGSLFull_MK4i#entendendo-o-c%C3%B3digo)
+- [Simulação utilizando CTRE (MK5n)](https://github.com/FRCMT-Repositories/Simulation_3D/tree/main/Code/CTRFull_MK5n#entendendo-o-c%C3%B3digo)
+
+---
+
+<h3>STEP 4 — Validação no AdvantageScope</h3>
+
+Após iniciar a simulação, valide se a odometria e os modelos 3D estão sendo exibidos corretamente:
+
+- [Validação do Modelo MK4i](https://github.com/FRCMT-Repositories/Simulation_3D/tree/main/Code/YAGSLFull_MK4i#passo-4-valida%C3%A7%C3%A3o)
+- [Validação do Modelo MK5n](https://github.com/FRCMT-Repositories/Simulation_3D/tree/main/Code/CTRFull_MK5n#passo-4-valida%C3%A7%C3%A3o)
+
+---
+
+<h3>STEP 5 — Entendendo a Biblioteca de Simulação</h3>
+
+Após validar o funcionamento básico da simulação, recomenda-se compreender o funcionamento interno da biblioteca responsável pela manipulação dos componentes 3D:
+
+- [SimLib — Biblioteca de Simulação](https://github.com/FRCMT-Repositories/Simulation_3D/tree/main/Code/SimLib#readme)
+
+Nesta etapa são apresentados:
+- conceitos de `Pose3d`
+- manipulação de componentes
+- cálculos trigonométricos
+- offsets
+- sistemas articuláveis
+- boas práticas para desenvolvimento de novos mecanismos
+
+---
+
+<h3>STEP 6 — Entendendo a Exportação dos Modelos</h3>
+
+Por fim, caso deseje criar seus próprios mecanismos e modelos personalizados, consulte a documentação completa de exportação:
+
+- [Exportação de Modelos .glb](https://github.com/FRCMT-Repositories/Simulation_3D/tree/main/CAD#readme)
+
+Nesta seção são abordados:
+- preparação do CAD
+- definição de offsets
+- posicionamento dos componentes
+- exportação dos arquivos `.glb`
+- configuração do `config.json`
+- associação dos componentes no AdvantageScope
+
+---
+
+</div>
+> [!TIP]
+> <div align="justify">
+>
+> Para uma primeira experiência, recomenda-se utilizar os modelos já disponibilizados (`MK4i` ou `MK5n`) e validar toda a cadeia de simulação antes de iniciar a criação de modelos personalizados.
+
 </div>
